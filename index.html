@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Премиум-потолки · Монтаж по дизайн-проекту · Москва</title>
+<meta name="description" content="Натяжные потолки по дизайн-проекту с фикс-ценой в договоре и гарантией на работу. Замер технолога за 48 часов, бесплатный 3D-проект.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F5F5F2;
+    --paper-2:#ECEBE5;
+    --paper-3:#E3E1D9;
+    --ink:#0D0E12;
+    --ink-2:#2A2C36;
+    --ink-3:#6E707C;
+    --line:#DAD9D2;
+    --line-soft:#E8E7E0;
+    --indigo:#2840E8;
+    --indigo-2:#1A2DB5;
+    --indigo-soft:rgba(40,64,232,.07);
+    --indigo-ghost:rgba(40,64,232,.12);
+    --rust:#E8633A;
+    --rust-soft:rgba(232,99,58,.1);
+    --good:#1F8A4D;
+    --bad:#C44232;
+    --radius-l:24px;
+    --radius-m:16px;
+    --radius-s:10px;
+    --maxw:1320px;
+    --easing:cubic-bezier(.2,.7,.2,1);
+    --shadow-card:0 1px 0 rgba(13,14,18,.04), 0 22px 50px -28px rgba(13,14,18,.18);
+    --shadow-pop:0 30px 70px -32px rgba(40,64,232,.45);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter Tight',system-ui,sans-serif;
+    font-size:16.5px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    mix-blend-mode:multiply;
+  }
+  /* moving blobs background */
+  .blob{position:fixed;border-radius:50%;filter:blur(90px);opacity:.55;pointer-events:none;z-index:0;will-change:transform}
+  .blob-a{width:520px;height:520px;background:radial-gradient(circle,rgba(40,64,232,.35),transparent 65%);top:-160px;left:-120px;animation:drift1 22s var(--easing) infinite alternate}
+  .blob-b{width:420px;height:420px;background:radial-gradient(circle,rgba(232,99,58,.25),transparent 65%);bottom:-140px;right:-100px;animation:drift2 28s var(--easing) infinite alternate}
+  @keyframes drift1{from{transform:translate(0,0)}to{transform:translate(60px,80px)}}
+  @keyframes drift2{from{transform:translate(0,0)}to{transform:translate(-80px,-60px)}}
+
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--indigo);color:#fff}
+  img{max-width:100%;display:block}
+
+  /* progress bar */
+  #progress{position:fixed;top:0;left:0;height:2px;width:100%;transform-origin:0 0;transform:scaleX(0);background:linear-gradient(90deg,var(--indigo),var(--rust));box-shadow:0 0 14px rgba(40,64,232,.6);z-index:200}
+
+  /* topnav */
+  .topnav{
+    position:sticky;top:0;z-index:120;
+    backdrop-filter:blur(18px);
+    background:rgba(245,245,242,.78);
+    border-bottom:1px solid var(--line);
+  }
+  .topnav-inner{
+    max-width:var(--maxw);margin:0 auto;
+    display:flex;align-items:center;gap:28px;
+    padding:14px clamp(20px,4vw,48px);
+  }
+  .logo{display:flex;align-items:center;gap:12px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:18px;letter-spacing:-.01em}
+  .logo-mark{width:30px;height:30px;border-radius:8px;background:var(--ink);position:relative;overflow:hidden;flex:none}
+  .logo-mark::before{content:"";position:absolute;inset:6px 4px;border:1.4px solid var(--paper);border-radius:3px}
+  .logo-mark::after{content:"";position:absolute;left:50%;top:50%;width:6px;height:6px;border-radius:50%;background:var(--indigo);transform:translate(-50%,-50%);box-shadow:0 0 12px var(--indigo)}
+  .logo small{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink-3);letter-spacing:.18em;text-transform:uppercase;font-weight:400;margin-top:2px}
+  nav.main{display:flex;gap:6px;margin-left:auto}
+  nav.main a{font-size:14px;color:var(--ink-2);padding:9px 14px;border-radius:99px;transition:.22s var(--easing)}
+  nav.main a:hover{background:var(--paper-2);color:var(--ink)}
+  .topnav .phone{font-family:'JetBrains Mono',monospace;font-size:13.5px;color:var(--ink);font-weight:500;padding:8px 14px;border:1px solid var(--line);border-radius:99px;transition:.22s}
+  .topnav .phone:hover{border-color:var(--ink);background:var(--paper-2)}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border-radius:12px;font-family:'Inter Tight';font-weight:600;font-size:14.5px;border:none;cursor:pointer;transition:.25s var(--easing);position:relative;line-height:1.2}
+  .btn.primary{background:var(--ink);color:var(--paper);box-shadow:0 14px 32px -16px rgba(13,14,18,.4)}
+  .btn.primary:hover{background:var(--indigo);box-shadow:var(--shadow-pop)}
+  .btn.indigo{background:var(--indigo);color:#fff}
+  .btn.indigo:hover{background:var(--indigo-2);box-shadow:var(--shadow-pop)}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+  .btn.ghost:hover{background:var(--ink);color:var(--paper)}
+  .btn .arr{width:16px;height:16px;transition:.25s}
+  .btn:hover .arr{transform:translate(4px,-2px) rotate(-8deg)}
+  .burger{display:none;width:42px;height:42px;border-radius:10px;border:1px solid var(--line);background:var(--paper);align-items:center;justify-content:center;cursor:pointer;flex-direction:column;gap:4px}
+  .burger span{display:block;width:18px;height:1.6px;background:var(--ink)}
+
+  /* shell */
+  main{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,4vw,48px);position:relative;z-index:1}
+
+  /* typography */
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--indigo);font-weight:500}
+  .eyebrow::before{content:"";width:24px;height:1.4px;background:var(--indigo);box-shadow:0 0 12px rgba(40,64,232,.5)}
+  h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;color:var(--ink);font-weight:600;letter-spacing:-.018em;line-height:1.05}
+  h1{font-size:clamp(40px,5.8vw,76px)}
+  h2{font-size:clamp(32px,4.4vw,56px);line-height:1.08;letter-spacing:-.02em}
+  h3{font-size:clamp(20px,2vw,26px);line-height:1.2;letter-spacing:-.01em}
+  h4{font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-2);font-weight:600}
+  p{color:var(--ink-2);max-width:62ch}
+  .lead{font-size:19px;color:var(--ink-2);line-height:1.55;max-width:60ch}
+  .note{font-size:13.5px;color:var(--ink-3)}
+  em.indigo{font-style:normal;color:var(--indigo)}
+  em.rust{font-style:normal;color:var(--rust)}
+  strong{font-weight:600;color:var(--ink)}
+
+  section{padding:clamp(80px,9vw,140px) 0;position:relative}
+  .section-head{margin-bottom:48px}
+  .section-head .eyebrow{margin-bottom:18px}
+  .section-head h2{max-width:18ch;margin-bottom:18px}
+  .section-head .lead{max-width:62ch}
+
+  /* ===== HERO ===== */
+  .hero{min-height:calc(100dvh - 64px);padding:48px 0 64px;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;position:relative}
+  .hero-left{display:flex;flex-direction:column;gap:26px;max-width:640px}
+  .hero h1{font-size:clamp(40px,5.4vw,72px);letter-spacing:-.022em}
+  .hero h1 em{font-style:normal;color:var(--indigo);position:relative;white-space:nowrap}
+  .hero h1 em::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:3px;background:linear-gradient(90deg,var(--indigo),var(--rust));border-radius:2px;transform-origin:left;transform:scaleX(0);animation:slide 1s var(--easing) .5s forwards}
+  @keyframes slide{to{transform:scaleX(1)}}
+  .hero-sub{font-size:18px;line-height:1.55;color:var(--ink-2);max-width:54ch}
+  .hero-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+  .chip{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid var(--line);border-radius:999px;font-size:13.5px;color:var(--ink-2);background:rgba(255,255,255,.5);backdrop-filter:blur(6px);transition:.22s}
+  .chip:hover{border-color:var(--indigo);color:var(--ink);transform:translateY(-1px)}
+  .chip .dot{width:6px;height:6px;border-radius:50%;background:var(--indigo);box-shadow:0 0 8px var(--indigo)}
+  .chip .dot.rust{background:var(--rust);box-shadow:0 0 8px var(--rust)}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:26px;margin-top:18px;padding-top:22px;border-top:1px solid var(--line)}
+  .hero-meta .m{display:flex;flex-direction:column;gap:2px}
+  .hero-meta .k{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+  .hero-meta .v{font-size:15px;font-weight:600;color:var(--ink)}
+
+  /* hero media */
+  .hero-media{position:relative;aspect-ratio:4/5;border-radius:var(--radius-l);overflow:hidden}
+  .hero-tag{position:absolute;z-index:3;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;background:var(--paper);border:1px solid var(--line);border-radius:999px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);box-shadow:var(--shadow-card)}
+  .hero-tag.t1{top:24px;left:24px;transform:rotate(-1.5deg)}
+  .hero-tag.t1::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--indigo);box-shadow:0 0 10px var(--indigo)}
+  .hero-tag.t2{bottom:24px;right:24px;background:var(--ink);color:var(--paper);border-color:var(--ink);transform:rotate(1deg)}
+  .hero-tag.t2 .dot{width:6px;height:6px;border-radius:50%;background:var(--rust)}
+
+  /* image placeholder universal */
+  .ph{
+    position:relative;background:var(--paper-2);border:1px solid var(--line);border-radius:var(--radius-l);
+    overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:24px;
+    background-image:linear-gradient(135deg,rgba(40,64,232,.04),rgba(232,99,58,.04));
+  }
+  .ph::before{
+    content:"";position:absolute;inset:0;
+    background-image:linear-gradient(rgba(13,14,18,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(13,14,18,.05) 1px,transparent 1px);
+    background-size:32px 32px;
+    mask-image:radial-gradient(ellipse at center,#000 30%,transparent 80%);
+    pointer-events:none;
+  }
+  .ph-mark{position:absolute;top:24px;left:24px;display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--indigo);background:var(--paper);padding:6px 12px;border-radius:999px;border:1px solid var(--line);z-index:2}
+  .ph-mark::before{content:"";width:6px;height:6px;background:var(--indigo);border-radius:1px}
+  .ph-corner{position:absolute;top:18px;right:18px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink-3);letter-spacing:.1em;z-index:2}
+  .ph-caption{position:relative;z-index:2;background:rgba(245,245,242,.92);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:14px;padding:14px 18px;max-width:92%}
+  .ph-caption strong{display:block;font-family:'Space Grotesk',sans-serif;font-size:14.5px;color:var(--ink);margin-bottom:4px;font-weight:600}
+  .ph-caption span{font-size:12.5px;color:var(--ink-3);line-height:1.5;display:block}
+
+  /* hero side floating mini-card */
+  .float-card{position:absolute;z-index:3;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow-card);width:230px;transform:rotate(-1.5deg)}
+  .float-card.f1{bottom:-20px;left:-26px;transform:rotate(-2deg)}
+  .float-card .label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}
+  .float-card .val{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;color:var(--ink);line-height:1.3}
+  .float-card .row{display:flex;align-items:center;gap:10px;margin-top:8px}
+  .float-card .ico{width:28px;height:28px;border-radius:8px;background:var(--indigo-soft);display:flex;align-items:center;justify-content:center;color:var(--indigo);font-weight:700;flex:none}
+
+  /* ===== TRUST BAR ===== */
+  .trust{padding:36px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;position:relative}
+  .trust-head{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:22px}
+  .trust-head .eyebrow{margin:0}
+  .trust-head .note{margin-left:auto}
+  .marquee{display:flex;gap:36px;animation:marq 38s linear infinite;width:max-content}
+  .marquee:hover{animation-play-state:paused}
+  @keyframes marq{to{transform:translateX(-50%)}}
+  .logo-ph{display:flex;align-items:center;gap:12px;padding:14px 22px;border:1px dashed var(--line);border-radius:14px;background:var(--paper);min-width:200px;height:78px;flex:none;transition:.25s}
+  .logo-ph:hover{border-style:solid;border-color:var(--indigo);transform:translateY(-2px)}
+  .logo-ph .box{width:36px;height:36px;border-radius:8px;background:var(--paper-3);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--ink-3);font-size:18px;flex:none}
+  .logo-ph .nm{display:flex;flex-direction:column;gap:2px}
+  .logo-ph .nm b{font-family:'Space Grotesk',sans-serif;font-size:14px;color:var(--ink);font-weight:600;letter-spacing:-.01em}
+  .logo-ph .nm span{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+
+  /* ===== COMPARE ===== */
+  .compare-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:24px;align-items:stretch;margin-top:12px}
+  .compare-col{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-l);padding:30px;display:flex;flex-direction:column;gap:6px}
+  .compare-col.us{background:var(--ink);color:var(--paper);border-color:var(--ink);position:relative;overflow:hidden}
+  .compare-col.us::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 90% 0%,rgba(40,64,232,.25),transparent 60%);pointer-events:none}
+  .compare-col.us h3,.compare-col.us .ch-row .v{color:var(--paper)}
+  .compare-col.us .ch-row .k{color:rgba(245,245,242,.55)}
+  .compare-col .badge{align-self:flex-start;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;padding:6px 10px;border-radius:999px;margin-bottom:14px}
+  .compare-col .badge.them{background:var(--paper-3);color:var(--ink-3)}
+  .compare-col .badge.us{background:var(--indigo);color:#fff}
+  .compare-col h3{margin-bottom:6px;letter-spacing:-.015em}
+  .compare-col .sub{font-size:13.5px;color:var(--ink-3);margin-bottom:18px}
+  .compare-col.us .sub{color:rgba(245,245,242,.6)}
+  .ch-row{padding:14px 0;border-top:1px solid var(--line-soft);display:flex;flex-direction:column;gap:4px}
+  .compare-col.us .ch-row{border-top-color:rgba(245,245,242,.08)}
+  .ch-row:first-of-type{border-top:none}
+  .ch-row .k{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+  .ch-row .v{font-size:15.5px;color:var(--ink);line-height:1.4}
+  .ch-row .v.bad{color:var(--bad);text-decoration:line-through;text-decoration-color:rgba(196,66,50,.4)}
+  .ch-row .v.good{font-weight:500}
+  .compare-divider{display:flex;align-items:center;justify-content:center}
+  .compare-divider span{display:flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:50%;background:var(--paper);border:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase;writing-mode:initial}
+  .compare-divider .line{width:1px;flex:1;background:var(--line)}
+
+  /* ===== 3D OFFER ===== */
+  .offer{display:grid;grid-template-columns:1fr 1.05fr;gap:48px;align-items:center}
+  .offer-media{position:relative;aspect-ratio:5/4;border-radius:var(--radius-l);overflow:hidden}
+  .offer-steps{display:flex;flex-direction:column;gap:14px;margin:24px 0}
+  .step{display:flex;gap:18px;padding:16px 18px;background:var(--paper);border:1px solid var(--line);border-radius:14px;transition:.25s;position:relative}
+  .step:hover{border-color:var(--indigo);transform:translateX(4px);box-shadow:0 18px 40px -28px rgba(40,64,232,.3)}
+  .step .num{flex:none;width:38px;height:38px;border-radius:10px;background:var(--indigo);color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:17px;display:flex;align-items:center;justify-content:center}
+  .step .tx{display:flex;flex-direction:column;gap:3px}
+  .step .tx b{font-family:'Space Grotesk',sans-serif;font-size:15px;color:var(--ink);font-weight:600}
+  .step .tx span{font-size:13.5px;color:var(--ink-3)}
+  .offer-bullets{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+  .ob{padding:18px;background:var(--indigo-soft);border:1px solid var(--indigo-ghost);border-radius:14px}
+  .ob b{display:block;font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:600;color:var(--indigo);margin-bottom:4px;letter-spacing:-.01em}
+  .ob span{font-size:13px;color:var(--ink-2);line-height:1.4;display:block}
+
+  /* ===== PORTFOLIO ===== */
+  .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:30px}
+  .filter-btn{padding:10px 18px;background:var(--paper);border:1px solid var(--line);border-radius:999px;font-size:13.5px;color:var(--ink-2);cursor:pointer;transition:.22s;font-family:'Inter Tight'}
+  .filter-btn:hover{border-color:var(--ink);color:var(--ink)}
+  .filter-btn.active{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+  .portfolio-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+  .pf{position:relative;border-radius:var(--radius-l);overflow:hidden;cursor:pointer;transition:.4s var(--easing);background:var(--paper-2);border:1px solid var(--line);min-height:280px;display:flex;flex-direction:column;justify-content:flex-end}
+  .pf:hover{transform:translateY(-4px);box-shadow:var(--shadow-card)}
+  .pf-1{grid-column:span 7;min-height:420px}
+  .pf-2{grid-column:span 5;min-height:420px}
+  .pf-3{grid-column:span 4}
+  .pf-4{grid-column:span 4}
+  .pf-5{grid-column:span 4}
+  .pf-6{grid-column:span 5}
+  .pf-7{grid-column:span 7;min-height:340px}
+  .pf-info{position:relative;z-index:2;padding:22px 24px;background:linear-gradient(180deg,transparent,rgba(245,245,242,.95));}
+  .pf-tag{display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--indigo);background:var(--paper);padding:5px 10px;border-radius:999px;border:1px solid var(--line);margin-bottom:8px;font-weight:500}
+  .pf-info h4{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;color:var(--ink);text-transform:none;letter-spacing:-.01em;margin-bottom:4px}
+  .pf-info .meta{font-size:13px;color:var(--ink-3)}
+
+  /* ===== LINES ===== */
+  .lines{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
+  .line{padding:36px 32px;border:1px solid var(--line);border-radius:var(--radius-l);background:var(--paper);display:flex;flex-direction:column;gap:18px;transition:.35s var(--easing);position:relative;overflow:hidden}
+  .line:hover{transform:translateY(-6px);box-shadow:var(--shadow-card)}
+  .line.featured{background:var(--ink);color:var(--paper);border-color:var(--ink);transform:translateY(-12px)}
+  .line.featured:hover{transform:translateY(-18px);box-shadow:var(--shadow-pop)}
+  .line.featured::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--indigo),var(--rust))}
+  .line .level{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+  .line.featured .level{color:rgba(245,245,242,.55)}
+  .line h3{margin-top:-4px;letter-spacing:-.018em}
+  .line.featured h3{color:var(--paper)}
+  .line .pri{font-family:'Space Grotesk',sans-serif;font-size:14px;color:var(--ink-3)}
+  .line .pri b{font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:600;color:var(--ink);letter-spacing:-.01em;display:block;margin-top:2px}
+  .line.featured .pri b{color:var(--paper)}
+  .line ul{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:6px;flex:1}
+  .line li{padding-left:22px;position:relative;font-size:14.5px;color:var(--ink-2);line-height:1.5}
+  .line.featured li{color:rgba(245,245,242,.78)}
+  .line li::before{content:"";position:absolute;left:0;top:9px;width:12px;height:1.5px;background:var(--indigo)}
+  .line.featured li::before{background:var(--rust)}
+  .line .for{font-size:13px;color:var(--ink-3);padding-top:14px;border-top:1px solid var(--line-soft)}
+  .line.featured .for{color:rgba(245,245,242,.5);border-top-color:rgba(245,245,242,.08)}
+
+  /* ===== PROCESS ===== */
+  .process{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .proc{padding:28px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-l);transition:.3s;position:relative}
+  .proc:hover{border-color:var(--indigo);transform:translateY(-3px)}
+  .proc .pn{font-family:'Space Grotesk',sans-serif;font-size:42px;font-weight:600;color:var(--indigo);line-height:1;letter-spacing:-.02em;margin-bottom:8px}
+  .proc h3{font-size:19px;margin-bottom:10px;letter-spacing:-.01em}
+  .proc p{font-size:14px;color:var(--ink-2)}
+  .proc .when{margin-top:14px;padding-top:14px;border-top:1px dashed var(--line);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+  .proc .when b{color:var(--ink)}
+
+  /* ===== DOCS / RISK ===== */
+  .docs{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+  .doc{grid-column:span 4;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-l);padding:26px;transition:.3s;display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden}
+  .doc:hover{transform:translateY(-4px);border-color:var(--indigo);box-shadow:var(--shadow-card)}
+  .doc.wide{grid-column:span 8;flex-direction:row;align-items:center;gap:30px}
+  .doc.wide .doc-ph{flex:1;min-height:220px}
+  .doc.wide .doc-body{flex:1}
+  .doc-ph{aspect-ratio:1.4/1;border-radius:14px;background:var(--paper-2);border:1px dashed var(--line);position:relative;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:600;color:var(--ink-3);font-size:13px;text-align:center;padding:20px;letter-spacing:-.01em;line-height:1.4}
+  .doc-ph::after{content:"";position:absolute;top:0;right:0;width:36px;height:36px;background:linear-gradient(225deg,var(--paper-3) 50%,transparent 50%);border-bottom-left-radius:8px}
+  .doc-ph small{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--indigo);letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px;font-weight:500}
+  .doc-body h4{font-family:'Space Grotesk',sans-serif;text-transform:none;font-size:17px;color:var(--ink);font-weight:600;letter-spacing:-.01em;margin-bottom:6px}
+  .doc-body p{font-size:13.5px;color:var(--ink-3);margin-bottom:10px}
+  .doc-body .label{display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--indigo);padding:5px 10px;background:var(--indigo-soft);border-radius:999px;font-weight:500}
+
+  /* ===== TEAM ===== */
+  .team-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+  .tm{position:relative;overflow:hidden;border-radius:var(--radius-l);background:var(--paper-2);border:1px solid var(--line);min-height:300px;display:flex;flex-direction:column;justify-content:flex-end;transition:.35s}
+  .tm:hover{transform:translateY(-4px)}
+  .tm-1{grid-column:span 5;min-height:420px}
+  .tm-2{grid-column:span 4}
+  .tm-3{grid-column:span 3}
+  .tm-4{grid-column:span 4}
+  .tm-5{grid-column:span 4}
+  .tm-6{grid-column:span 4}
+  .tm-info{position:relative;z-index:2;padding:20px 22px;background:linear-gradient(180deg,transparent,rgba(245,245,242,.96))}
+  .tm-info h4{font-family:'Space Grotesk',sans-serif;font-size:17px;color:var(--ink);text-transform:none;letter-spacing:-.01em;font-weight:600;margin-bottom:2px}
+  .tm-info .role{font-size:13px;color:var(--indigo);font-weight:500;margin-bottom:6px}
+  .tm-info .exp{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-3);letter-spacing:.06em}
+
+  /* ===== SEGMENTS TABS ===== */
+  .seg-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px}
+  .seg-tab{padding:18px 20px;background:var(--paper);border:1px solid var(--line);border-radius:14px;cursor:pointer;text-align:left;display:flex;flex-direction:column;gap:6px;transition:.25s;font-family:'Inter Tight';position:relative}
+  .seg-tab:hover{border-color:var(--ink-3);transform:translateY(-2px)}
+  .seg-tab.active{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+  .seg-tab .seg-n{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+  .seg-tab.active .seg-n{color:var(--rust)}
+  .seg-tab .seg-name{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15.5px;color:var(--ink);letter-spacing:-.01em}
+  .seg-tab.active .seg-name{color:var(--paper)}
+  .seg-panel{display:none}
+  .seg-panel.active{display:grid;grid-template-columns:1fr 1fr;gap:30px;animation:fade .4s var(--easing)}
+  @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .seg-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-l);padding:30px}
+  .seg-card h4{font-family:'Space Grotesk',sans-serif;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--indigo);margin-bottom:14px;font-weight:600}
+  .seg-card ul{list-style:none;display:flex;flex-direction:column;gap:0}
+  .seg-card li{padding:14px 0;border-top:1px solid var(--line-soft);display:flex;gap:14px;font-size:14.5px;color:var(--ink-2);line-height:1.5}
+  .seg-card li:first-child{border-top:none;padding-top:0}
+  .seg-card li .ix{flex:none;width:22px;height:22px;border-radius:6px;background:var(--paper-2);color:var(--ink-3);font-family:'JetBrains Mono',monospace;font-size:11px;display:flex;align-items:center;justify-content:center;font-weight:500;margin-top:2px}
+  .seg-card.answer li .ix{background:var(--indigo);color:#fff}
+  .seg-card li strong{color:var(--ink);font-weight:600}
+
+  /* ===== FAQ ===== */
+  .faq-list{display:flex;flex-direction:column;gap:10px;max-width:920px;margin:0 auto}
+  .faq{background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:.25s}
+  .faq:hover{border-color:var(--ink-3)}
+  .faq.open{border-color:var(--indigo);background:var(--paper)}
+  .faq summary{padding:22px 26px;cursor:pointer;display:flex;align-items:center;gap:18px;list-style:none;user-select:none;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:17px;color:var(--ink);letter-spacing:-.01em}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq .toggle{flex:none;width:32px;height:32px;border-radius:8px;background:var(--paper-2);display:flex;align-items:center;justify-content:center;transition:.3s;margin-left:auto}
+  .faq.open .toggle{background:var(--indigo);transform:rotate(45deg)}
+  .faq.open .toggle svg{stroke:#fff}
+  .faq .toggle svg{width:14px;height:14px;stroke:var(--ink)}
+  .faq .body{padding:0 26px 26px 26px;color:var(--ink-2);font-size:15px;line-height:1.6;max-width:64ch}
+  .faq .body p+p{margin-top:10px}
+  .faq .body strong{color:var(--ink)}
+
+  /* ===== FINAL CTA ===== */
+  .final{background:var(--ink);color:var(--paper);border-radius:32px;padding:clamp(48px,6vw,80px);position:relative;overflow:hidden;margin:60px 0}
+  .final::before{content:"";position:absolute;top:-200px;right:-150px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(40,64,232,.35),transparent 65%);pointer-events:none}
+  .final::after{content:"";position:absolute;bottom:-200px;left:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(232,99,58,.25),transparent 65%);pointer-events:none}
+  .final-inner{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;position:relative;z-index:2}
+  .final h2{color:var(--paper);max-width:14ch;margin-bottom:18px}
+  .final h2 em{color:var(--rust);font-style:normal}
+  .final .lead{color:rgba(245,245,242,.7);margin-bottom:24px}
+  .final-bullets{display:flex;flex-direction:column;gap:12px;margin-bottom:28px}
+  .final-bullets div{display:flex;gap:12px;font-size:15px;color:rgba(245,245,242,.85);align-items:flex-start}
+  .final-bullets svg{flex:none;margin-top:3px;stroke:var(--rust)}
+  .final-contacts{display:flex;gap:12px;flex-wrap:wrap}
+  .final-contacts a{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border:1px solid rgba(245,245,242,.18);border-radius:999px;color:var(--paper);font-size:14px;transition:.25s}
+  .final-contacts a:hover{background:rgba(245,245,242,.1);border-color:var(--paper)}
+
+  .form{background:var(--paper);color:var(--ink);border-radius:24px;padding:32px}
+  .form-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:22px}
+  .form-head h3{font-family:'Space Grotesk',sans-serif;font-size:21px;font-weight:600;color:var(--ink);letter-spacing:-.01em;margin:0}
+  .form-head .badge{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--indigo);background:var(--indigo-soft);padding:6px 10px;border-radius:999px;flex:none}
+  .field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+  .field label{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+  .field input,.field select{font-family:'Inter Tight';padding:14px 16px;border:1px solid var(--line);border-radius:12px;font-size:15px;color:var(--ink);background:var(--paper);outline:none;transition:.2s}
+  .field input:focus,.field select:focus{border-color:var(--indigo);box-shadow:0 0 0 4px var(--indigo-soft)}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .check-row{display:flex;align-items:center;gap:10px;margin:6px 0 18px;cursor:pointer;font-size:13.5px;color:var(--ink-2);user-select:none}
+  .check-row input{appearance:none;width:18px;height:18px;border:1.5px solid var(--ink-3);border-radius:5px;cursor:pointer;position:relative;flex:none;transition:.2s}
+  .check-row input:checked{background:var(--indigo);border-color:var(--indigo)}
+  .check-row input:checked::after{content:"";position:absolute;left:4px;top:1px;width:7px;height:11px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg)}
+  .form .btn{width:100%;justify-content:center;padding:16px}
+  .form .legal{margin-top:14px;font-size:11.5px;color:var(--ink-3);text-align:center;line-height:1.5}
+
+  /* footer */
+  footer{padding:80px 0 50px;border-top:1px solid var(--line);position:relative;z-index:1}
+  .foot-grid{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,4vw,48px);display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px}
+  .foot-grid h5{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:14px;font-weight:500}
+  .foot-grid ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+  .foot-grid li a{font-size:14.5px;color:var(--ink-2);transition:.2s}
+  .foot-grid li a:hover{color:var(--indigo)}
+  .foot-bottom{max-width:var(--maxw);margin:50px auto 0;padding:24px clamp(20px,4vw,48px) 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;align-items:center;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--ink-3);letter-spacing:.05em}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--easing),transform .8s var(--easing)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal-stagger > *{opacity:0;transform:translateY(20px);transition:opacity .7s var(--easing),transform .7s var(--easing)}
+  .reveal-stagger.in > *{opacity:1;transform:none}
+  .reveal-stagger.in > *:nth-child(1){transition-delay:.05s}
+  .reveal-stagger.in > *:nth-child(2){transition-delay:.12s}
+  .reveal-stagger.in > *:nth-child(3){transition-delay:.19s}
+  .reveal-stagger.in > *:nth-child(4){transition-delay:.26s}
+  .reveal-stagger.in > *:nth-child(5){transition-delay:.33s}
+  .reveal-stagger.in > *:nth-child(6){transition-delay:.4s}
+
+  /* mobile */
+  @media (max-width:1080px){
+    nav.main{display:none}
+    .burger{display:flex}
+    .hero{grid-template-columns:1fr;gap:40px;min-height:auto;padding:32px 0 56px}
+    .hero h1{font-size:clamp(36px,8vw,52px)}
+    .hero-media{aspect-ratio:4/4.4}
+    .compare-grid{grid-template-columns:1fr}
+    .compare-divider{transform:rotate(90deg);min-height:30px}
+    .offer{grid-template-columns:1fr;gap:30px}
+    .offer-bullets{grid-template-columns:1fr}
+    .lines{grid-template-columns:1fr}
+    .line.featured{transform:none}
+    .process{grid-template-columns:1fr}
+    .portfolio-grid > *{grid-column:span 12!important;min-height:280px!important}
+    .docs > *{grid-column:span 12!important}
+    .doc.wide{flex-direction:column}
+    .team-grid > *{grid-column:span 12!important}
+    .seg-tabs{grid-template-columns:repeat(2,1fr)}
+    .seg-panel.active{grid-template-columns:1fr}
+    .final-inner{grid-template-columns:1fr;gap:30px}
+    .foot-grid{grid-template-columns:1fr 1fr;gap:30px}
+    .float-card.f1{display:none}
+  }
+  @media (max-width:560px){
+    h2{font-size:32px}
+    .field-row{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="blob blob-a"></div>
+<div class="blob blob-b"></div>
+
+<header class="topnav">
+  <div class="topnav-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark"></div>
+      <div>
+        Световой контур
+        <small>Премиум-потолки · Москва</small>
+      </div>
+    </a>
+    <nav class="main">
+      <a href="#compare">Чем отличаемся</a>
+      <a href="#offer">3D-проект</a>
+      <a href="#portfolio">Объекты</a>
+      <a href="#lines">Линейки</a>
+      <a href="#process">Как работаем</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+    <a href="tel:+74951234567" class="phone">+7 495 123-45-67</a>
+    <a href="#final" class="btn primary">Получить 3D-проект <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <button class="burger" aria-label="меню"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ====== HERO ====== -->
+  <section class="hero" id="hero">
+    <div class="hero-left">
+      <span class="eyebrow">Премиум-монтаж · Москва и МО</span>
+      <h1>Потолок точно <em class="indigo">как на рендере</em> вашего дизайнера</h1>
+      <p class="hero-sub">Замерщик-технолог читает ваш дизайн-проект. Финальная цена фиксируется в договоре до монтажа — без доплат. Гарантия на всю работу, а не только на плёнку.</p>
+      <div class="hero-chips">
+        <span class="chip"><span class="dot"></span>Фикс-цена в договоре</span>
+        <span class="chip"><span class="dot"></span>Гарантия на работу</span>
+        <span class="chip"><span class="dot rust"></span>3D-проект бесплатно</span>
+        <span class="chip"><span class="dot rust"></span>Замер за 48 часов</span>
+      </div>
+      <div class="hero-cta">
+        <a href="#final" class="btn indigo">Получить 3D-проект потолка <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="#portfolio" class="btn ghost">Посмотреть объекты</a>
+      </div>
+      <div class="hero-meta">
+        <div class="m"><span class="k">Опыт</span><span class="v">9 лет в премиум-сегменте</span></div>
+        <div class="m"><span class="k">Объектов</span><span class="v">412 сложных монтажей</span></div>
+        <div class="m"><span class="k">Команда</span><span class="v">Бригада в штате, не подряд</span></div>
+      </div>
+    </div>
+
+    <div class="hero-media ph">
+      <span class="ph-mark">Главный кадр</span>
+      <span class="ph-corner">01 / 12</span>
+      <span class="hero-tag t1">Свет включён</span>
+      <span class="hero-tag t2"><span class="dot"></span>Бесщелевое примыкание</span>
+      <div class="ph-caption">
+        <strong>Премиум-интерьер с готовым потолком</strong>
+        <span>Кадр гостиной в премиум-ЖК: натяжной потолок с парящей световой линией по периметру, бесщелевое примыкание к стенам без видимых багетов, тёплый встроенный свет. Снято с уровня глаз, диагональ 45°, фокус на стык потолка и стены. Вертикальный кадр 4:5, естественный вечерний свет из окна.</span>
+      </div>
+      <div class="float-card f1">
+        <div class="label">Документ на руки</div>
+        <div class="val">Гарантия на работу — 7 лет</div>
+        <div class="row">
+          <div class="ico">✓</div>
+          <div style="font-size:12px;color:var(--ink-3);line-height:1.4">Формулировка прописана в договоре</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== TRUST BAR ====== -->
+  <section class="trust" style="padding:36px 0">
+    <div class="trust-head">
+      <span class="eyebrow">С кем работаем в связке</span>
+      <span class="note">Дизайн-студии и архитектурные бюро Москвы — поставьте сюда логотипы партнёров</span>
+    </div>
+    <div class="marquee">
+      <div class="logo-ph"><div class="box">А</div><div class="nm"><b>Архитектурное бюро</b><span>дизайн-студия</span></div></div>
+      <div class="logo-ph"><div class="box">Б</div><div class="nm"><b>Студия Беловой</b><span>интерьеры</span></div></div>
+      <div class="logo-ph"><div class="box">В</div><div class="nm"><b>VOID Design</b><span>архитектура</span></div></div>
+      <div class="logo-ph"><div class="box">Д</div><div class="nm"><b>Design Lab 12</b><span>интерьеры</span></div></div>
+      <div class="logo-ph"><div class="box">К</div><div class="nm"><b>Студия Котовой</b><span>премиум-ремонт</span></div></div>
+      <div class="logo-ph"><div class="box">М</div><div class="nm"><b>Мастерская М4</b><span>дизайн</span></div></div>
+      <div class="logo-ph"><div class="box">Н</div><div class="nm"><b>NOMAD Interiors</b><span>загородные дома</span></div></div>
+      <div class="logo-ph"><div class="box">С</div><div class="nm"><b>Студия Седых</b><span>интерьеры</span></div></div>
+      <!-- дубль для бесшовного marquee -->
+      <div class="logo-ph"><div class="box">А</div><div class="nm"><b>Архитектурное бюро</b><span>дизайн-студия</span></div></div>
+      <div class="logo-ph"><div class="box">Б</div><div class="nm"><b>Студия Беловой</b><span>интерьеры</span></div></div>
+      <div class="logo-ph"><div class="box">В</div><div class="nm"><b>VOID Design</b><span>архитектура</span></div></div>
+      <div class="logo-ph"><div class="box">Д</div><div class="nm"><b>Design Lab 12</b><span>интерьеры</span></div></div>
+      <div class="logo-ph"><div class="box">К</div><div class="nm"><b>Студия Котовой</b><span>премиум-ремонт</span></div></div>
+      <div class="logo-ph"><div class="box">М</div><div class="nm"><b>Мастерская М4</b><span>дизайн</span></div></div>
+      <div class="logo-ph"><div class="box">Н</div><div class="nm"><b>NOMAD Interiors</b><span>загородные дома</span></div></div>
+      <div class="logo-ph"><div class="box">С</div><div class="nm"><b>Студия Седых</b><span>интерьеры</span></div></div>
+    </div>
+  </section>
+
+  <!-- ====== COMPARE ====== -->
+  <section id="compare" class="reveal">
+    <div class="section-head">
+      <span class="eyebrow">Чем отличаемся от рынка</span>
+      <h2>90% компаний дают гарантию <em class="indigo">только на плёнку.</em><br>Мы — на всю работу.</h2>
+      <p class="lead">Премиум-клиент торгуется не за низкую цену, а за предсказуемость. Поэтому всё, что мы обещаем — даём документом, а не словами.</p>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-col">
+        <span class="badge them">Как у большинства</span>
+        <h3>Стандартный подход рынка</h3>
+        <p class="sub">Так делает большинство компаний из топ-10 выдачи</p>
+
+        <div class="ch-row"><span class="k">Замер</span><span class="v bad">Менеджер по телефону, по шаблону</span></div>
+        <div class="ch-row"><span class="k">Цена</span><span class="v bad">«От ХХХ ₽/м²» — на монтаже сюрприз</span></div>
+        <div class="ch-row"><span class="k">3D-проект</span><span class="v bad">Нет или платно</span></div>
+        <div class="ch-row"><span class="k">Гарантия</span><span class="v bad">«На потолок» (по факту — на плёнку завода)</span></div>
+        <div class="ch-row"><span class="k">Приёмка</span><span class="v bad">Без чек-листа, «вроде ровно»</span></div>
+        <div class="ch-row"><span class="k">Бригада</span><span class="v bad">Подряд, лиц не показывают</span></div>
+        <div class="ch-row"><span class="k">Акция</span><span class="v bad">«2-3-й потолок в подарок», «-60%»</span></div>
+      </div>
+
+      <div class="compare-divider"><div class="line"></div><span>vs</span><div class="line"></div></div>
+
+      <div class="compare-col us">
+        <span class="badge us">Как делаем мы</span>
+        <h3>Премиум-монтаж по дизайн-проекту</h3>
+        <p class="sub">Всё, что обещаем — подтверждаем документом</p>
+
+        <div class="ch-row"><span class="k">Замер</span><span class="v good">Технолог читает ваш дизайн-проект</span></div>
+        <div class="ch-row"><span class="k">Цена</span><span class="v good">Финальная сумма фиксируется в договоре</span></div>
+        <div class="ch-row"><span class="k">3D-проект</span><span class="v good">Бесплатно — со световым сценарием</span></div>
+        <div class="ch-row"><span class="k">Гарантия</span><span class="v good">На всю работу — формулировка в договоре</span></div>
+        <div class="ch-row"><span class="k">Приёмка</span><span class="v good">Чек-лист из 20 пунктов, ваша подпись</span></div>
+        <div class="ch-row"><span class="k">Бригада</span><span class="v good">В штате, с фото и именами</span></div>
+        <div class="ch-row"><span class="k">Бонус</span><span class="v good">Премиум-фактура по цене базовой в день договора</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 3D OFFER ====== -->
+  <section id="offer" class="reveal">
+    <div class="section-head" style="max-width:760px">
+      <span class="eyebrow">Главное, что вы получаете</span>
+      <h2>Видите потолок <em class="indigo">в 3D</em> ещё до договора</h2>
+      <p class="lead">Главный страх премиум-ремонта — «подрядчик упростит замысел». Поэтому до подписания договора мы показываем 3D-визуализацию вашего потолка и светового сценария. С размерами, фактурами и тенями.</p>
+    </div>
+
+    <div class="offer">
+      <div class="offer-media ph">
+        <span class="ph-mark">Главный кадр</span>
+        <span class="ph-corner">02 / 12</span>
+        <div class="ph-caption">
+          <strong>Скриншот 3D-проекта потолка</strong>
+          <span>Кадр визуализации от первого лица технолога: парящая бесщелевая конструкция, две световые линии вдоль длинной стены, точечный свет по сценарию «вечер». На рендере видны размеры в миллиметрах, тип фактуры, обозначения светильников. Слева — панель параметров. Формат 5:4, угол изометрии.</span>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-size:22px;margin-bottom:18px">Три шага до результата</h3>
+        <div class="offer-steps">
+          <div class="step"><div class="num">1</div><div class="tx"><b>Присылаете дизайн-проект</b><span>PDF или Pinterest-сборка — этого достаточно</span></div></div>
+          <div class="step"><div class="num">2</div><div class="tx"><b>Технолог делает 3D и считает свет</b><span>Парящие линии, теневые примыкания, точечный сценарий — за 48 часов</span></div></div>
+          <div class="step"><div class="num">3</div><div class="tx"><b>Согласуем с дизайнером и фиксируем цену</b><span>Утверждаете решение → подписываем договор с финальной суммой</span></div></div>
+        </div>
+
+        <div class="offer-bullets">
+          <div class="ob"><b>0 ₽</b><span>Стоимость 3D-проекта — даже если потом не закажете</span></div>
+          <div class="ob"><b>48 ч</b><span>На замер и визуализацию от заявки</span></div>
+          <div class="ob"><b>1 раз</b><span>Считаем цену — больше она не меняется</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== PORTFOLIO ====== -->
+  <section id="portfolio" class="reveal">
+    <div class="section-head">
+      <span class="eyebrow">Объекты, принятые по чек-листу</span>
+      <h2>Сложные потолки, <em class="rust">не «комната под ключ»</em></h2>
+      <p class="lead">Берёмся за то, на чём ломаются обычные бригады: бесщелевые примыкания, парящие конструкции, многоуровневые с подсветкой, чтение и реализация чужого дизайн-проекта.</p>
+    </div>
+
+    <div class="filters">
+      <button class="filter-btn active" data-f="all">Все объекты</button>
+      <button class="filter-btn" data-f="zhk">Премиум-ЖК</button>
+      <button class="filter-btn" data-f="house">Загородные дома</button>
+      <button class="filter-btn" data-f="light">Световые линии</button>
+      <button class="filter-btn" data-f="multi">Многоуровневые</button>
+      <button class="filter-btn" data-f="shadow">Бесщелевые / теневые</button>
+    </div>
+
+    <div class="portfolio-grid">
+      <div class="pf pf-1 ph" data-cat="zhk light"><span class="ph-mark">Кейс 01</span>
+        <div class="ph-caption">
+          <strong>Гостиная 42 м² · ЖК «Бадаевский»</strong>
+          <span>Парящая бесщелевая конструкция с двумя световыми линиями накрест. Тёплый встроенный свет, диммируемый сценарий. Дизайн — Студия Беловой. Срок монтажа — 1 день. Снять широким углом из угла комнаты, чтобы было видно обе линии и стык со стеной.</span>
+        </div>
+        <div class="pf-info"><span class="pf-tag">Парящий · Свет</span><h4>Гостиная · ЖК «Бадаевский»</h4><div class="meta">Дизайнер: Студия Беловой · 42 м²</div></div>
+      </div>
+      <div class="pf pf-2 ph" data-cat="house multi"><span class="ph-mark">Кейс 02</span>
+        <div class="ph-caption">
+          <strong>Холл загородного дома · КП «Серебряный бор»</strong>
+          <span>Двухуровневый потолок с архитектурной нишей под скрытую светодиодную ленту. Бесщелевые примыкания по периметру. Кадр снизу-вверх по диагонали, ночное освещение, виден глянец полотна.</span>
+        </div>
+        <div class="pf-info"><span class="pf-tag">Многоуровневый</span><h4>Холл · загородный дом</h4><div class="meta">КП «Серебряный бор» · 28 м²</div></div>
+      </div>
+      <div class="pf pf-3 ph" data-cat="zhk shadow"><span class="ph-mark">Кейс 03</span>
+        <div class="ph-caption">
+          <strong>Спальня · ЖК «Полянка/44»</strong>
+          <span>Теневое примыкание, имитация под гипсокартонный потолок. Тёплая фактура matt. Кадр от двери, утренний свет.</span>
+        </div>
+        <div class="pf-info"><span class="pf-tag">Теневое</span><h4>Спальня · «Полянка/44»</h4><div class="meta">Без багета · 19 м²</div></div>
+      </div>
+      <div class="pf pf-4 ph" data-cat="zhk light"><span class="ph-mark">Кейс 04</span>
+        <div class="ph-caption">
+          <strong>Кухня-гостиная · ЖК «Москва-Сити Резиденс»</strong>
+          <span>Световая линия 6,2 метра вдоль кухонного острова + точечный свет в зоне стола. Кадр от обеденной зоны на кухню, вечер.</span>
+        </div>
+        <div class="pf-info"><span class="pf-tag">Свет · Линия</span><h4>Кухня-гостиная · Сити</h4><div class="meta">Световой сценарий 4 режима</div></div>
+      </div>
+      <div class="pf pf-5 ph" data-cat="house multi shadow"><span class="ph-mark">Кейс 05</span>
+        <div class="ph-caption">
+          <strong>Гардеробная · загородный дом, Рублёвка</strong>
+          <span>Многоуровневый с теневым примыканием по короб с подсветкой. Кадр сверху-сбоку, виден переход уровней.</span>
+        </div>
+        <div class="pf-info"><span class="pf-tag">Многоуровневый</span><h4>Гардеробная · Рублёвка</h4><div class="meta">Архитектурная линейка</div></div>
+      </div>
+      <div class="pf pf-6 ph" data-cat="zhk light"><span class="ph-mark">Кейс 06</span>
+        <div class="ph-caption">
+          <strong>Детская · ЖК «Хорошёвский»</strong>
+          <span>Звёздное небо с оптоволокном + теневое примыкание. Кадр в темноте, видна россыпь точек на потолке.</span>
+        </div>
+        <div class="pf-info"><span class="pf-tag">Свет · Авторский</span><h4>Детская · «Хорошёвский»</h4><div class="meta">Оптоволокно · 16 м²</div></div>
+      </div>
+      <div class="pf pf-7 ph" data-cat="zhk shadow light"><span class="ph-mark">Кейс 07</span>
+        <div class="ph-caption">
+          <strong>Опен-спейс 78 м² · ЖК «Имперский Дом»</strong>
+          <span>Объединённое пространство гостиной, кухни и кабинета. Сложная схема: 3 разные высоты, скрытый карниз, 4 световые линии и точечный свет. Дизайн — VOID Design. Кадр панорамой от окна.</span>
+        </div>
+        <div class="pf-info"><span class="pf-tag">Архитектурная линия</span><h4>Опен-спейс · «Имперский Дом»</h4><div class="meta">Дизайнер: VOID Design · 78 м²</div></div>
+      </div>
+    </div>
+
+    <div style="display:flex;justify-content:center;margin-top:36px">
+      <a href="#" class="btn ghost">Открыть все 412 объектов <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </section>
+
+  <!-- ====== LINES ====== -->
+  <section id="lines" class="reveal">
+    <div class="section-head">
+      <span class="eyebrow">Линейки продукта</span>
+      <h2>Три линейки — <em class="indigo">один контроль качества</em></h2>
+      <p class="lead">Один и тот же замер технолога, тот же чек-лист приёмки и гарантия на работу. Разница — в сложности конструкции и материалах.</p>
+    </div>
+
+    <div class="lines">
+      <div class="line">
+        <span class="level">Линейка 01</span>
+        <h3>Точная классика</h3>
+        <div class="pri">от <b>1 290 ₽/м²</b></div>
+        <ul>
+          <li>Идеальная геометрия, ровная плоскость без волн</li>
+          <li>Безпыльный монтаж за 1 день</li>
+          <li>Замер технолога, не менеджера</li>
+          <li>Гарантия на работу — 5 лет</li>
+          <li>Полотно: матовое, сатиновое или глянец</li>
+        </ul>
+        <div class="for">Подходит для: вторички, новостроек, бюджет без потери на качестве</div>
+      </div>
+
+      <div class="line featured">
+        <span class="level">Линейка 02 · самая популярная</span>
+        <h3>Дизайн-линия</h3>
+        <div class="pri">от <b>2 890 ₽/м²</b></div>
+        <ul>
+          <li>Скрытый карниз и парящие конструкции</li>
+          <li>Световые линии и точечный свет по сценарию</li>
+          <li>Чтение дизайн-проекта технологом</li>
+          <li>Гарантия на работу — 7 лет</li>
+          <li>Премиум-фактуры: тиснёные, тканевые, металлизированные</li>
+        </ul>
+        <div class="for">Подходит для: ремонта по дизайн-проекту, премиум-ЖК</div>
+      </div>
+
+      <div class="line">
+        <span class="level">Линейка 03</span>
+        <h3>Архитектурная</h3>
+        <div class="pri">от <b>4 590 ₽/м²</b></div>
+        <ul>
+          <li>Теневые и бесщелевые примыкания без багета</li>
+          <li>Многоуровневые конструкции, ниши, арки</li>
+          <li>Работа в связке с архитектором</li>
+          <li>Гарантия на работу — 10 лет</li>
+          <li>Контроль монтажа главным технологом лично</li>
+        </ul>
+        <div class="for">Подходит для: клубных домов, загородных, авторских интерьеров</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== PROCESS ====== -->
+  <section id="process" class="reveal">
+    <div class="section-head">
+      <span class="eyebrow">Как мы работаем</span>
+      <h2>Шесть шагов <em class="indigo">от заявки до подписи</em></h2>
+      <p class="lead">Каждый шаг закрыт документом или артефактом: 3D-проектом, договором, чек-листом, гарантийным листом. Не «созваниваемся-договоримся».</p>
+    </div>
+
+    <div class="process">
+      <div class="proc">
+        <div class="pn">01</div>
+        <h3>Заявка и короткий созвон</h3>
+        <p>Обсуждаем формат, площадь, дизайн-проект (если есть). Без давления и продажи в лоб.</p>
+        <div class="when">Длительность: <b>15 минут</b></div>
+      </div>
+      <div class="proc">
+        <div class="pn">02</div>
+        <h3>Выезд технолога</h3>
+        <p>Замер с миллиметровой точностью, фото-фиксация коммуникаций, обводов, ниш и углов.</p>
+        <div class="when">Срок: <b>в течение 48 часов</b></div>
+      </div>
+      <div class="proc">
+        <div class="pn">03</div>
+        <h3>3D-проект и свет</h3>
+        <p>Визуализация потолка с фактурой и световым сценарием. Согласуем с вами и дизайнером.</p>
+        <div class="when">Стоимость: <b>0 ₽</b></div>
+      </div>
+      <div class="proc">
+        <div class="pn">04</div>
+        <h3>Договор с фикс-ценой</h3>
+        <p>Финальная сумма прописана в договоре. Никаких доплат за углы, обводы и трубы.</p>
+        <div class="when">На руки: <b>договор + спецификация</b></div>
+      </div>
+      <div class="proc">
+        <div class="pn">05</div>
+        <h3>Монтаж за 1 день</h3>
+        <p>Безпыльное сверление, плёнка по периметру, бригада в штате, уборка после.</p>
+        <div class="when">Беспыльный монтаж: <b>да</b></div>
+      </div>
+      <div class="proc">
+        <div class="pn">06</div>
+        <h3>Приёмка по чек-листу</h3>
+        <p>20 пунктов проверки. Подписываете только то, что устраивает. Гарантийный документ на руки.</p>
+        <div class="when">Не приняли — <b>устраняем за свой счёт</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== DOCS / RISK ====== -->
+  <section id="risk" class="reveal">
+    <div class="section-head">
+      <span class="eyebrow">Что вы получаете на руки</span>
+      <h2>Пять документов — <em class="indigo">каждое обещание</em> подтверждено</h2>
+      <p class="lead">Никаких размытых «гарантия на потолок» и «скидок до 60%». Только то, что можем доказать бумагой.</p>
+    </div>
+
+    <div class="docs">
+      <div class="doc wide">
+        <div class="doc-ph">
+          <div>
+            <small>Документ 01 / Главное</small>
+            Договор с фиксированной финальной ценой<br>и спецификацией работ
+          </div>
+        </div>
+        <div class="doc-body">
+          <span class="label">Закрывает страх «на монтаже накрутят»</span>
+          <h4>Договор с фикс-ценой</h4>
+          <p>В договоре прописывается итоговая сумма с учётом всех углов, обводов, ниш, многоуровневости и материалов. Дополнительные работы — только по отдельному допсоглашению с вашей подписью. Без него — никаких доплат.</p>
+          <p style="font-size:13px;color:var(--ink-3)"><strong>Формат:</strong> два экземпляра, скан в WhatsApp/Telegram в день подписания.</p>
+        </div>
+      </div>
+
+      <div class="doc">
+        <div class="doc-ph">
+          <div><small>Документ 02</small>Гарантийный лист<br>на всю работу</div>
+        </div>
+        <div class="doc-body">
+          <span class="label">Главная отстройка</span>
+          <h4>Гарантия на работу, не на плёнку</h4>
+          <p>Формулировка «на качество монтажа и эксплуатацию» — а не «на полотно завода». Срок: 5/7/10 лет в зависимости от линейки.</p>
+        </div>
+      </div>
+
+      <div class="doc">
+        <div class="doc-ph">
+          <div><small>Документ 03</small>Чек-лист приёмки<br>20 пунктов</div>
+        </div>
+        <div class="doc-body">
+          <span class="label">Контроль качества</span>
+          <h4>Приёмка с подписью</h4>
+          <p>Проверяем стыки, провисы, натяжку, ровность углов, корректность светильников. Подписываете только то, что устраивает.</p>
+        </div>
+      </div>
+
+      <div class="doc">
+        <div class="doc-ph">
+          <div><small>Документ 04</small>Чек завода<br>на материал</div>
+        </div>
+        <div class="doc-body">
+          <span class="label">Прозрачность</span>
+          <h4>Чек с фабрики</h4>
+          <p>Предоплату берём только за материал — и сразу присылаем чек завода. Работы — после приёмки по чек-листу.</p>
+        </div>
+      </div>
+
+      <div class="doc">
+        <div class="doc-ph">
+          <div><small>Документ 05</small>Сертификаты<br>на полотно</div>
+        </div>
+        <div class="doc-body">
+          <span class="label">Безопасность</span>
+          <h4>Сертификаты пожарной и санитарной</h4>
+          <p>Показываем на замере. Полотна с пометкой «детская / гипоаллергенно» — отдельно подтверждаем сертификатом производителя.</p>
+        </div>
+      </div>
+
+      <div class="doc">
+        <div class="doc-ph">
+          <div><small>Документ 06</small>3D-проект<br>как артефакт</div>
+        </div>
+        <div class="doc-body">
+          <span class="label">Бонусом</span>
+          <h4>Визуализация в PDF</h4>
+          <p>3D-проект отдаём вам в PDF в любом случае — даже если в итоге не сработаемся. Можете показать другому подрядчику.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== TEAM ====== -->
+  <section id="team" class="reveal">
+    <div class="section-head">
+      <span class="eyebrow">Технологи и бригады</span>
+      <h2>Команда <em class="rust">в штате</em>, не подряд</h2>
+      <p class="lead">Все технологи и монтажники — наши сотрудники с трудовыми договорами. Никаких «шабашников по объявлению». Вы знаете, кто приедет.</p>
+    </div>
+
+    <div class="team-grid">
+      <div class="tm tm-1 ph"><span class="ph-mark">Главный кадр</span>
+        <div class="ph-caption">
+          <strong>Главный технолог Андрей К.</strong>
+          <span>Портрет 3/4, нейтральный фон студии, рабочая одежда без логотипов, в руках — рулетка и планшет с чертежом. Естественный дневной свет. Формат 5/4 вертикальный. Профессиональный, но не «постановочный пиджак».</span>
+        </div>
+        <div class="tm-info"><h4>Андрей К.</h4><div class="role">Главный технолог · ведёт сложные проекты</div><div class="exp">Опыт: 14 лет · 600+ объектов</div></div>
+      </div>
+      <div class="tm tm-2 ph"><span class="ph-mark">Кадр</span>
+        <div class="ph-caption">
+          <strong>Замерщик-технолог</strong>
+          <span>Портрет на объекте: квартира на стадии ремонта, в руках лазерный дальномер. Снять в момент работы, не постановка.</span>
+        </div>
+        <div class="tm-info"><h4>Михаил Р.</h4><div class="role">Замерщик-технолог</div><div class="exp">Читает дизайн-проекты · 8 лет</div></div>
+      </div>
+      <div class="tm tm-3 ph"><span class="ph-mark">Кадр</span>
+        <div class="ph-caption">
+          <strong>Прораб смены</strong>
+          <span>Портрет вертикальный, на объекте, рабочая форма с шевроном «Световой контур», в руках планшет с чек-листом.</span>
+        </div>
+        <div class="tm-info"><h4>Сергей Д.</h4><div class="role">Прораб</div><div class="exp">12 лет</div></div>
+      </div>
+      <div class="tm tm-4 ph"><span class="ph-mark">Кадр</span>
+        <div class="ph-caption">
+          <strong>Старший монтажник</strong>
+          <span>Кадр процесса монтажа: натягивает полотно, лицо видно, форма с логотипом. Стиль документальный.</span>
+        </div>
+        <div class="tm-info"><h4>Денис П.</h4><div class="role">Старший монтажник</div><div class="exp">9 лет</div></div>
+      </div>
+      <div class="tm tm-5 ph"><span class="ph-mark">Кадр</span>
+        <div class="ph-caption">
+          <strong>Монтажник по свету</strong>
+          <span>Кадр на этапе подключения светильников и линий, специалист с инструментом, рабочая обстановка.</span>
+        </div>
+        <div class="tm-info"><h4>Артём В.</h4><div class="role">Монтажник по свету</div><div class="exp">6 лет</div></div>
+      </div>
+      <div class="tm tm-6 ph"><span class="ph-mark">Кадр</span>
+        <div class="ph-caption">
+          <strong>Менеджер заказчиков</strong>
+          <span>Студийный портрет, нейтральный фон, ровный свет, классическая одежда без логотипов, открытый прямой взгляд.</span>
+        </div>
+        <div class="tm-info"><h4>Анна С.</h4><div class="role">Ведёт проект от заявки до приёмки</div><div class="exp">5 лет в премиум-сегменте</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== SEGMENTS ====== -->
+  <section id="segments" class="reveal">
+    <div class="section-head">
+      <span class="eyebrow">Для кого мы — и для кого нет</span>
+      <h2>Четыре типа задач, <em class="indigo">под которые заточены</em></h2>
+      <p class="lead">Мы не берёмся «за всё подряд» — это часть позиционирования. Если ваша задача в этих четырёх — точно сработаемся.</p>
+    </div>
+
+    <div class="seg-tabs" id="segTabs">
+      <button class="seg-tab active" data-p="sa"><span class="seg-n">Сегмент A · ядро</span><span class="seg-name">Премиум-ремонт по дизайн-проекту</span></button>
+      <button class="seg-tab" data-p="sb"><span class="seg-n">Сегмент B</span><span class="seg-name">Ремонт вторички для себя</span></button>
+      <button class="seg-tab" data-p="sc"><span class="seg-n">Сегмент C</span><span class="seg-name">Новостройка, первый ремонт</span></button>
+      <button class="seg-tab" data-p="sd"><span class="seg-n">Сегмент D</span><span class="seg-name">Срочная замена после ЧП</span></button>
+    </div>
+
+    <div class="seg-panel active" id="sa">
+      <div class="seg-card">
+        <h4>Боли клиента</h4>
+        <ul>
+          <li><span class="ix">1</span><div><strong>Стандартный монтаж не вписывается в дизайн-проект.</strong> Хочется как на рендере — а получаете «как умеют».</div></li>
+          <li><span class="ix">2</span><div><strong>Боитесь, что подрядчик «упростит» замысел.</strong> Тонкая бесщелевая деталь превращается в «обычный потолок с багетом».</div></li>
+          <li><span class="ix">3</span><div><strong>Колхоз и видимые швы в дорогом интерьере.</strong> Один кривой стык — и интерьер за 8 миллионов потерял.</div></li>
+        </ul>
+      </div>
+      <div class="seg-card answer">
+        <h4>Как мы закрываем</h4>
+        <ul>
+          <li><span class="ix">→</span><div>Замерщик-технолог читает ваш дизайн-проект и рендеры. Знает, как воспроизвести именно эту картинку.</div></li>
+          <li><span class="ix">→</span><div>Согласуем решение и график с вашим дизайнером и прорабом — не идём напролом.</div></li>
+          <li><span class="ix">→</span><div>Чек-лист приёмки по стыкам, портфолио только сложных объектов, контакт технолога напрямую.</div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="seg-panel" id="sb">
+      <div class="seg-card">
+        <h4>Боли клиента</h4>
+        <ul>
+          <li><span class="ix">1</span><div><strong>Боитесь пыли и грязи в жилой квартире.</strong> Ремонт делаете без выезда — нужна аккуратность.</div></li>
+          <li><span class="ix">2</span><div><strong>Слышали плохие истории от знакомых.</strong> Кому-то «сделали и пропали».</div></li>
+          <li><span class="ix">3</span><div><strong>Хочется качества, но без переплаты «за бренд».</strong> Понятно, за что платите.</div></li>
+        </ul>
+      </div>
+      <div class="seg-card answer">
+        <h4>Как мы закрываем</h4>
+        <ul>
+          <li><span class="ix">→</span><div>Безпыльное сверление, плёнка по периметру, уборка после смены. Жить в квартире можно с того же вечера.</div></li>
+          <li><span class="ix">→</span><div>Гарантийный документ на работу + примеры в похожих квартирах. Сервис-обслуживание после монтажа.</div></li>
+          <li><span class="ix">→</span><div>Линейка «Точная классика» — тот же контроль, без дорогих сложных конструкций.</div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="seg-panel" id="sc">
+      <div class="seg-card">
+        <h4>Боли клиента</h4>
+        <ul>
+          <li><span class="ix">1</span><div><strong>Боитесь, что на замере накрутят за углы и обводы.</strong> Бюджет на ремонт строго расписан.</div></li>
+          <li><span class="ix">2</span><div><strong>Страшно нарваться на шабашников.</strong> Ремонт — впервые, ориентиров мало.</div></li>
+          <li><span class="ix">3</span><div><strong>В квартире будет ребёнок.</strong> Полотна и материалы должны быть безопасны.</div></li>
+        </ul>
+      </div>
+      <div class="seg-card answer">
+        <h4>Как мы закрываем</h4>
+        <ul>
+          <li><span class="ix">→</span><div>Честный расчёт с углами и обводами сразу на замере. Цена в договоре до монтажа.</div></li>
+          <li><span class="ix">→</span><div>Бригада в штате — показываем лица сотрудников и отзывы из вашего ЖК.</div></li>
+          <li><span class="ix">→</span><div>Сертификаты на полотно показываем на замере. С пометкой «детская / гипоаллергенно».</div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="seg-panel" id="sd">
+      <div class="seg-card">
+        <h4>Боли клиента</h4>
+        <ul>
+          <li><span class="ix">1</span><div><strong>Потоп прямо сейчас, страх плесени.</strong> Воду слить или менять всё?</div></li>
+          <li><span class="ix">2</span><div><strong>Боитесь, что «воспользуются ситуацией».</strong> В стрессе легко накрутить.</div></li>
+          <li><span class="ix">3</span><div><strong>Нужны фото и акт для страховой.</strong> Или для разборок с соседями сверху.</div></li>
+        </ul>
+      </div>
+      <div class="seg-card answer">
+        <h4>Как мы закрываем</h4>
+        <ul>
+          <li><span class="ix">→</span><div>Аварийный выезд в день обращения. Честная оценка: где достаточно слить воду, где менять.</div></li>
+          <li><span class="ix">→</span><div>Прозрачная аварийная цена по прайсу, не «по горю» — фиксируем до начала работ.</div></li>
+          <li><span class="ix">→</span><div>Помогаем оформить акт и фото для страховой или ТСЖ.</div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FAQ ====== -->
+  <section id="faq" class="reveal">
+    <div class="section-head" style="text-align:center;display:flex;flex-direction:column;align-items:center">
+      <span class="eyebrow">Частые вопросы</span>
+      <h2 style="max-width:20ch">Что обычно <em class="indigo">спрашивают перед</em> заказом</h2>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq">
+        <summary>Назовёте одну цену, а на монтаже накрутят за углы и обводы?<span class="toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="body">
+          <p>Нет. Финальная цена с учётом всех углов, обводов, ниш и труб фиксируется в договоре <strong>до начала монтажа</strong>. Любые дополнительные работы — только по отдельному допсоглашению с вашей подписью.</p>
+          <p>На замере технолог обмеряет всё сразу — поэтому «вылезающих» сюрпризов не остаётся.</p>
+        </div>
+      </details>
+
+      <details class="faq">
+        <summary>Чем гарантия «на работу» отличается от «на потолок 25 лет»?<span class="toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="body">
+          <p>«25 лет на потолок» у большинства компаний — это <strong>гарантия завода на плёнку</strong>. То есть если порвётся полотно по вине производителя — заменят сам кусок ткани.</p>
+          <p>Наша гарантия — <strong>на качество монтажа и эксплуатацию</strong>: провис, отслоение от стены, проблемы в стыках, неровные углы. То, что зависит от рук бригады, а не от фабрики. Формулировка прописана в гарантийном документе.</p>
+        </div>
+      </details>
+
+      <details class="faq">
+        <summary>3D-проект бесплатно — где подвох?<span class="toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="body">
+          <p>Подвоха нет. 3D-проект стоит нам времени технолога — но он резко повышает шансы, что вы согласитесь работать, потому что видите результат заранее. Это выгоднее, чем тратить деньги на бесполезную рекламу.</p>
+          <p>Если в итоге выберете другого подрядчика — проект остаётся у вас в PDF.</p>
+        </div>
+      </details>
+
+      <details class="faq">
+        <summary>В квартире будет ребёнок. Полотно безопасно?<span class="toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="body">
+          <p>Да. Используем полотна с пометкой «гипоаллергенно» и пожарной сертификацией <strong>B1</strong>. Сертификаты показываем на замере — не «у нас всё хорошо», а конкретный документ от завода.</p>
+          <p>Запаха после монтажа нет — натяжное полотно не выделяет летучих веществ.</p>
+        </div>
+      </details>
+
+      <details class="faq">
+        <summary>Бригада точно в штате? Не пришлёте «по случаю» подряд?<span class="toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="body">
+          <p>Да, в штате. На сайте в разделе «Команда» показаны лица и имена технологов и монтажников. На замере и на монтаже приедут те же люди — мы сообщаем имя и фото бригады до даты выезда.</p>
+          <p>Это часть позиционирования: премиум-клиент должен знать, кто работает в его квартире.</p>
+        </div>
+      </details>
+
+      <details class="faq">
+        <summary>Сэкономлю — найду в два раза дешевле. Зачем переплачивать?<span class="toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="body">
+          <p>Можно. Мы и не самые дешёвые — мы <strong>предсказуемые</strong>. Разница в цене обычно уходит в одно из четырёх: технолог вместо менеджера на замере, чтение дизайн-проекта, бригада в штате, гарантия на работу.</p>
+          <p>Если эти четыре вещи не критичны — найдите дешевле, без обид. Если хоть одно важно — стоимость переделки обычно выше разницы.</p>
+        </div>
+      </details>
+
+      <details class="faq">
+        <summary>За сколько успеете? Ремонт горит.<span class="toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="body">
+          <p>Стандартный цикл: <strong>48 часов</strong> от заявки до замера и 3D-проекта, <strong>1 рабочий день</strong> на сам монтаж комнаты площадью до 30 м². Многоуровневые и сложные — 1-2 дня.</p>
+          <p>В пиковый сезон (август-октябрь) — ближайший слот замера обычно через 3-5 дней. Точную дату называет менеджер на созвоне.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ====== FINAL CTA ====== -->
+  <section id="final" class="reveal" style="padding:60px 0">
+    <div class="final">
+      <div class="final-inner">
+        <div>
+          <span class="eyebrow" style="color:var(--rust);margin-bottom:18px">Запишитесь на бесплатный 3D-проект</span>
+          <h2>Покажем потолок <em>до договора.</em></h2>
+          <p class="lead">Пришлите ваш дизайн-проект или сборку референсов — за 48 часов вы увидите визуализацию своего потолка со светом и фактурой. Если результат устроит — подписываем договор с фикс-ценой. Если нет — проект остаётся у вас бесплатно.</p>
+
+          <div class="final-bullets">
+            <div><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Замер технологом за 48 часов</div>
+            <div><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>3D-проект и световой сценарий — бесплатно</div>
+            <div><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Финальная цена в договоре до начала монтажа</div>
+            <div><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Гарантия на всю работу до 10 лет</div>
+          </div>
+
+          <div class="final-contacts">
+            <a href="tel:+74951234567"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7a2 2 0 0 1 1.72 2z"/></svg>+7 495 123-45-67</a>
+            <a href="#"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>WhatsApp технологу</a>
+            <a href="#"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>Telegram</a>
+          </div>
+        </div>
+
+        <form class="form" onsubmit="event.preventDefault();this.querySelector('.thanks').style.display='block';this.querySelector('.body').style.display='none';">
+          <div class="body">
+            <div class="form-head">
+              <h3>Заявка на 3D-проект</h3>
+              <span class="badge">48 часов</span>
+            </div>
+            <div class="field">
+              <label>Как к вам обращаться</label>
+              <input type="text" placeholder="Имя" required>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label>Телефон</label>
+                <input type="tel" placeholder="+7 ___ ___-__-__" required>
+              </div>
+              <div class="field">
+                <label>Площадь, м²</label>
+                <input type="number" placeholder="до 100" required>
+              </div>
+            </div>
+            <div class="field">
+              <label>Что у вас уже есть</label>
+              <select>
+                <option>Готовый дизайн-проект (PDF, рендеры)</option>
+                <option>Только идея и сборка референсов</option>
+                <option>Ремонт уже идёт, нужен только потолок</option>
+                <option>Срочно — потоп, заливают сверху</option>
+              </select>
+            </div>
+            <label class="check-row">
+              <input type="checkbox" checked>
+              Согласен на обработку персональных данных
+            </label>
+            <button type="submit" class="btn indigo">Получить 3D-проект <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <div class="legal">Технолог свяжется в течение 30 минут с 09:00 до 22:00 МСК. Без рассылок и звонков-роботов.</div>
+          </div>
+          <div class="thanks" style="display:none;text-align:center;padding:40px 10px">
+            <div style="width:60px;height:60px;border-radius:50%;background:var(--indigo);margin:0 auto 18px;display:flex;align-items:center;justify-content:center">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3 style="margin-bottom:8px">Спасибо, заявка принята</h3>
+            <p style="color:var(--ink-3);font-size:14.5px;max-width:34ch;margin:0 auto">Технолог свяжется в течение 30 минут. Готовьте дизайн-проект или сборку референсов — пригодятся для расчёта.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-grid">
+    <div>
+      <a href="#" class="logo" style="margin-bottom:16px">
+        <div class="logo-mark"></div>
+        <div>
+          Световой контур
+          <small>Премиум-потолки · Москва</small>
+        </div>
+      </a>
+      <p style="font-size:14px;color:var(--ink-3);max-width:34ch">Премиум-монтаж натяжных потолков по дизайн-проекту. Москва и область, с 2017 года.</p>
+      <div style="display:flex;gap:10px;margin-top:18px">
+        <a href="#" style="width:38px;height:38px;border:1px solid var(--line);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--ink-2);transition:.2s" onmouseover="this.style.borderColor='var(--indigo)';this.style.color='var(--indigo)'" onmouseout="this.style.borderColor='var(--line)';this.style.color='var(--ink-2)'"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></a>
+        <a href="#" style="width:38px;height:38px;border:1px solid var(--line);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--ink-2);transition:.2s" onmouseover="this.style.borderColor='var(--indigo)';this.style.color='var(--indigo)'" onmouseout="this.style.borderColor='var(--line)';this.style.color='var(--ink-2)'"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+        <a href="#" style="width:38px;height:38px;border:1px solid var(--line);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--ink-2);transition:.2s" onmouseover="this.style.borderColor='var(--indigo)';this.style.color='var(--indigo)'" onmouseout="this.style.borderColor='var(--line)';this.style.color='var(--ink-2)'"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/></svg></a>
+      </div>
+    </div>
+
+    <div>
+      <h5>Услуги</h5>
+      <ul>
+        <li><a href="#">Натяжные потолки по дизайн-проекту</a></li>
+        <li><a href="#">Парящие конструкции</a></li>
+        <li><a href="#">Световые линии и сценарии</a></li>
+        <li><a href="#">Многоуровневые потолки</a></li>
+        <li><a href="#">Аварийный выезд</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h5>Полезное</h5>
+      <ul>
+        <li><a href="#portfolio">Портфолио</a></li>
+        <li><a href="#process">Как работаем</a></li>
+        <li><a href="#risk">Документы</a></li>
+        <li><a href="#team">Команда</a></li>
+        <li><a href="#faq">Вопросы</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h5>Контакты</h5>
+      <ul>
+        <li><a href="tel:+74951234567">+7 495 123-45-67</a></li>
+        <li style="font-size:14px;color:var(--ink-2)">Ежедневно 09:00–22:00 МСК</li>
+        <li style="font-size:14px;color:var(--ink-2)">Москва, БЦ «Поляна», офис 412</li>
+        <li><a href="mailto:hi@example.ru">hi@example.ru</a></li>
+        <li style="margin-top:6px"><a href="#" style="color:var(--indigo);font-weight:500">Telegram-канал →</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="foot-bottom">
+    <span>© 2026 Световой контур · ИП Иванов И. И. · ОГРНИП 0000000000000</span>
+    <span><a href="#" style="color:var(--ink-3)">Политика конфиденциальности</a> · <a href="#" style="color:var(--ink-3)">Договор-оферта</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // progress
+  var prog=document.getElementById('progress');
+  function onScroll(){
+    var h=document.documentElement;
+    var sc=h.scrollTop/(h.scrollHeight-h.clientHeight||1);
+    prog.style.transform='scaleX('+sc+')';
+  }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  // reveal
+  var ro=new IntersectionObserver(function(ents){
+    ents.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target);}
+    });
+  },{rootMargin:'0px 0px -10% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(s){ro.observe(s)});
+  document.querySelectorAll('.reveal-stagger').forEach(function(s){ro.observe(s)});
+
+  // magnetic buttons
+  document.querySelectorAll('.btn').forEach(function(btn){
+    btn.addEventListener('mousemove',function(e){
+      var r=btn.getBoundingClientRect();
+      var x=e.clientX-r.left-r.width/2;
+      var y=e.clientY-r.top-r.height/2;
+      btn.style.transform='translate('+(x*0.15)+'px,'+(y*0.2)+'px)';
+    });
+    btn.addEventListener('mouseleave',function(){btn.style.transform=''});
+  });
+
+  // portfolio filter
+  var filterBtns=document.querySelectorAll('.filter-btn');
+  var cards=document.querySelectorAll('.pf');
+  filterBtns.forEach(function(b){
+    b.addEventListener('click',function(){
+      filterBtns.forEach(function(x){x.classList.remove('active')});
+      b.classList.add('active');
+      var f=b.dataset.f;
+      cards.forEach(function(c){
+        var cats=c.dataset.cat||'';
+        if(f==='all'||cats.indexOf(f)>=0){c.style.display=''} else {c.style.display='none'}
+      });
+    });
+  });
+
+  // segment tabs
+  var st=document.getElementById('segTabs');
+  st.addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b) return;
+    st.querySelectorAll('button').forEach(function(x){x.classList.remove('active')});
+    document.querySelectorAll('.seg-panel').forEach(function(p){p.classList.remove('active')});
+    b.classList.add('active');
+    document.getElementById(b.dataset.p).classList.add('active');
+  });
+
+  // FAQ open class
+  document.querySelectorAll('.faq').forEach(function(d){
+    d.addEventListener('toggle',function(){d.classList.toggle('open',d.open)});
+  });
+
+  // hero tilt on mouse (subtle)
+  var heroMedia=document.querySelector('.hero-media');
+  if(heroMedia){
+    document.querySelector('.hero').addEventListener('mousemove',function(e){
+      var r=heroMedia.getBoundingClientRect();
+      var x=(e.clientX-r.left-r.width/2)/r.width;
+      var y=(e.clientY-r.top-r.height/2)/r.height;
+      heroMedia.style.transform='perspective(1200px) rotateY('+(x*3)+'deg) rotateX('+(-y*3)+'deg)';
+    });
+    document.querySelector('.hero').addEventListener('mouseleave',function(){heroMedia.style.transform=''});
+  }
+})();
+</script>
+
+</body>
+</html>
