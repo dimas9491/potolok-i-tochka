@@ -4,5 +4,5 @@ Disallow: /privacy.html
 Disallow: /offer.html
 Disallow: /404.html
 
-Sitemap: https://svetovoy-kontur.ru/sitemap.xml
-Host: svetovoy-kontur.ru
+Sitemap: https://potolok-i-tochka.ru/sitemap.xml
+Host: potolok-i-tochka.ru

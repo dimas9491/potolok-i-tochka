@@ -1,5 +1,5 @@
 /* =========================================================
-   Световой контур — main.js
+   Потолок и точка — main.js
    Общий скрипт всех страниц.
    ВАЖНО: вставьте свой TELEGRAM токен и chat_id в CONFIG ниже.
    ========================================================= */
@@ -16,7 +16,7 @@
 window.TG_CONFIG = {
   TG_BOT_TOKEN: '8918616271:AAH10t5FA8iCshQKGFI2lKJgtVZVecO9Jws',  // бот @huiuoutt_bot
   TG_CHAT_ID:   '8406991490',                                       // личный чат @dimasic_135
-  SITE_NAME:    'Световой контур'
+  SITE_NAME:    'Потолок и точка'
 };
 
 (function(){
@@ -194,7 +194,7 @@ window.TG_CONFIG = {
   function sendToTelegram(payload){
     var cfg = window.TG_CONFIG || {};
     if(!cfg.TG_BOT_TOKEN || cfg.TG_BOT_TOKEN === 'PASTE_YOUR_BOT_TOKEN_HERE'){
-      console.warn('[Световой контур] TG_BOT_TOKEN не настроен — заявка не отправлена. См. инструкцию в assets/main.js');
+      console.warn('[Потолок и точка] TG_BOT_TOKEN не настроен — заявка не отправлена. См. инструкцию в assets/main.js');
       return Promise.resolve({ok:false, mock:true});
     }
     var url = 'https://api.telegram.org/bot' + cfg.TG_BOT_TOKEN + '/sendMessage';
