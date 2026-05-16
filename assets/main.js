@@ -14,8 +14,8 @@
    6. Подставьте значения ниже. Не публикуйте бота с правами админа в чужие чаты —
       токен виден в исходниках страницы.                                    */
 window.TG_CONFIG = {
-  TG_BOT_TOKEN: 'PASTE_YOUR_BOT_TOKEN_HERE',    // например "1234567890:AAH..."
-  TG_CHAT_ID:   'PASTE_YOUR_CHAT_ID_HERE',      // например "123456789"
+  TG_BOT_TOKEN: '8918616271:AAH10t5FA8iCshQKGFI2lKJgtVZVecO9Jws',  // бот @huiuoutt_bot
+  TG_CHAT_ID:   '8406991490',                                       // личный чат @dimasic_135
   SITE_NAME:    'Световой контур'
 };
 
