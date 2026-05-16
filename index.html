@@ -903,34 +903,32 @@
               <label>Как к вам обращаться</label>
               <input type="text" name="name" placeholder="Имя" required>
             </div>
+            <div class="field">
+              <label>Телефон или Telegram</label>
+              <input type="text" name="contact" placeholder="+7 ___ или @username" required>
+            </div>
             <div class="field-row">
               <div class="field">
-                <label>Телефон или Telegram</label>
-                <input type="text" name="contact" placeholder="+7 ___ или @username" required>
+                <label>Площадь, м² <span style="text-transform:none;color:var(--ink-3);font-family:'Inter Tight';letter-spacing:0;font-size:12px;font-weight:400">(если знаете)</span></label>
+                <input type="number" name="area" placeholder="например, 24">
               </div>
               <div class="field">
-                <label>Площадь комнаты, м²</label>
-                <input type="number" name="area" placeholder="например, 24" required>
+                <label>Что нужно</label>
+                <select name="stage">
+                  <option>Потолок в одну комнату</option>
+                  <option>Потолок во всю квартиру</option>
+                  <option>Потолок в коммерческое помещение</option>
+                  <option>Хочу узнать цену</option>
+                  <option>Другое — расскажу в чате</option>
+                </select>
               </div>
-            </div>
-            <div class="field">
-              <label>Что у вас уже есть</label>
-              <select name="stage">
-                <option>Готовый дизайн-проект (PDF, рендеры)</option>
-                <option>Идея и подборка референсов</option>
-                <option>Ремонт уже идёт, нужен только потолок</option>
-                <option>Срочно — потоп, заливают сверху</option>
-              </select>
-            </div>
-            <div class="field" style="margin-top:-4px">
-              <p style="font-size:12.5px;color:var(--ink-3);line-height:1.5;margin:0">Фото комнаты и размеры (длина × ширина × высота) попросим прислать в чате — после первого ответа.</p>
             </div>
             <label class="check-row">
               <input type="checkbox" checked>
               Согласен на обработку персональных данных
             </label>
-            <button type="submit" class="btn indigo">Получить 3D бесплатно <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-            <div class="legal">Технолог перезвонит за 30 минут. С 09:00 до 22:00 МСК. Без спама и роботов.</div>
+            <button type="submit" class="btn indigo">Отправить заявку <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <div class="legal">Перезвоним за 30 минут. С 09:00 до 22:00 МСК. Без спама и роботов.</div>
           </div>
           <div class="thanks" style="display:none;text-align:center;padding:40px 10px">
             <div style="width:60px;height:60px;border-radius:50%;background:var(--indigo);margin:0 auto 18px;display:flex;align-items:center;justify-content:center">
