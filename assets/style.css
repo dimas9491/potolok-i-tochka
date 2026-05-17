@@ -1140,7 +1140,51 @@
   }
 
   /* ========================================
-     БЛОК «ПОЧЕМУ МЫ» — sticky scroll + интерактив
+     БЛОК «ПОЧЕМУ МЫ» — простой и человечный
+     ======================================== */
+  .why-simple{padding:clamp(70px,8vw,120px) 0;position:relative}
+
+  .why-s-head{text-align:center;max-width:780px;margin:0 auto 56px}
+  .why-s-eyebrow{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--indigo);font-weight:500;padding:7px 14px;background:rgba(40,64,232,.07);border:1px solid rgba(40,64,232,.18);border-radius:999px;margin-bottom:18px}
+  .why-s-h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(30px,4vw,52px);font-weight:600;letter-spacing:-.022em;line-height:1.1;color:var(--ink);margin:0 0 16px}
+  .why-s-h2 em{font-style:normal;color:var(--indigo)}
+  .why-s-lead{font-size:16px;line-height:1.6;color:var(--ink-2);margin:0;max-width:60ch;margin-left:auto;margin-right:auto}
+
+  /* Сетка карточек */
+  .why-s-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;max-width:1200px;margin:0 auto}
+  .why-s-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 28px;display:flex;flex-direction:column;gap:12px;transition:.25s var(--easing)}
+  .why-s-card:hover{border-color:var(--indigo);transform:translateY(-3px);box-shadow:0 22px 50px -22px rgba(13,14,18,.15)}
+
+  .why-s-card-top{display:flex;align-items:center;justify-content:space-between;gap:14px}
+  .why-s-num{font-family:'Space Grotesk',sans-serif;font-size:34px;font-weight:600;color:var(--ink-3);line-height:1;letter-spacing:-.02em;opacity:.4}
+  .why-s-card:hover .why-s-num{color:var(--indigo);opacity:1}
+  .why-s-tag{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--bad);padding:5px 10px;background:rgba(196,66,50,.08);border:1px solid rgba(196,66,50,.18);border-radius:999px;font-weight:500}
+
+  .why-s-card h3{font-family:'Space Grotesk',sans-serif;font-size:18.5px;font-weight:600;color:var(--ink);letter-spacing:-.012em;line-height:1.3;margin:0}
+  .why-s-card > p{font-size:14.5px;color:var(--ink-2);line-height:1.55;margin:0}
+
+  .why-s-us{display:flex;flex-direction:column;gap:6px;padding:14px 16px;background:linear-gradient(135deg,rgba(40,64,232,.06),rgba(40,64,232,.02));border:1px solid rgba(40,64,232,.18);border-radius:12px;margin-top:auto}
+  .why-s-us-tag{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--indigo);font-weight:600}
+  .why-s-us p{font-size:14px;color:var(--ink);line-height:1.5;margin:0;font-weight:500}
+
+  /* Финальный CTA */
+  .why-s-bottom{margin-top:56px;padding:30px 36px;background:var(--ink);color:var(--paper);border-radius:20px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;max-width:1200px;margin-left:auto;margin-right:auto}
+  .why-s-bottom h3{font-family:'Space Grotesk',sans-serif;font-size:clamp(18px,1.6vw,22px);font-weight:600;color:#fff;margin:0;letter-spacing:-.012em;line-height:1.3;flex:1;min-width:280px}
+  .why-s-cta{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;background:#fff;color:var(--ink);text-decoration:none;border-radius:12px;font-weight:600;font-size:14.5px;transition:.25s var(--easing)}
+  .why-s-cta:hover{background:linear-gradient(135deg,var(--indigo),var(--rust));color:#fff;transform:translateY(-2px)}
+  .why-s-cta svg{width:16px;height:16px;transition:.2s}
+  .why-s-cta:hover svg{transform:translateX(3px)}
+
+  @media (max-width:768px){
+    .why-s-grid{grid-template-columns:1fr;gap:14px}
+    .why-s-card{padding:22px 22px}
+    .why-s-card h3{font-size:17px}
+    .why-s-bottom{padding:22px;flex-direction:column;text-align:center}
+    .why-s-cta{width:100%;justify-content:center}
+  }
+
+  /* ========================================
+     БЛОК «ПОЧЕМУ МЫ» — sticky scroll (deprecated)
      ======================================== */
   .why{position:relative;padding:clamp(80px,9vw,140px) 0;isolation:isolate;overflow:visible}
   .why::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 80% 10%,rgba(40,64,232,.06),transparent 60%),radial-gradient(ellipse at 20% 90%,rgba(232,99,58,.05),transparent 60%);pointer-events:none;z-index:-1}

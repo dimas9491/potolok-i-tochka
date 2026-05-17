@@ -380,216 +380,126 @@
     </div>
   </section>
 
-  <!-- ====== ПОЧЕМУ МЫ (объединённый блок: Compare + 8 уловок с интерактивом) ====== -->
-  <section id="why" class="why reveal">
-    <div class="why-head">
-      <span class="why-eyebrow"><span class="why-eyebrow-dot"></span>Почему «Потолок и точка»</span>
-      <h2 class="why-h2">
-        В премиум-ремонте обычно <span class="why-h2-strike">ломается</span> восемь вещей.<br>
-        <em class="why-h2-em">У нас — не ломается.</em>
-      </h2>
-      <p class="why-lead">Мы изучили 30+ компаний на рынке Москвы. У всех одинаковые приёмы — «от 299 ₽/м²», «25 лет гарантии», «−60% по акции», «свои монтажники». Ниже — что под этим прячут на самом деле. И как мы делаем по-другому в каждом из 8 пунктов.</p>
+  <!-- ====== ПОЧЕМУ МЫ — простой блок с 8 уловками ====== -->
+  <section id="why" class="why-simple reveal">
+    <div class="why-s-head">
+      <span class="why-s-eyebrow">Что обычно скрывают на рынке</span>
+      <h2 class="why-s-h2">8 уловок натяжных потолков.<br><em>У нас — не так.</em></h2>
+      <p class="why-s-lead">Посмотрели 30 компаний в Москве. У всех — одни и те же приёмы. Ниже — что прячут под красивой рекламой и как мы делаем по-другому.</p>
     </div>
 
-    <!-- Quick compare — 4 KEY-stats прямо на лицо -->
-    <div class="why-quick">
-      <div class="why-quick-item">
-        <div class="why-quick-cross"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></div>
-        <div class="why-quick-them">«Гарантия 25 лет на потолок»</div>
-        <div class="why-quick-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-        <div class="why-quick-us"><b>Гарантия на монтаж</b><span>5–10 лет, в документе</span></div>
-      </div>
-      <div class="why-quick-item">
-        <div class="why-quick-cross"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></div>
-        <div class="why-quick-them">«Замерщик приедет — там посчитаем»</div>
-        <div class="why-quick-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-        <div class="why-quick-us"><b>Визуализация по фото</b><span>сначала смотрите — потом замер</span></div>
-      </div>
-      <div class="why-quick-item">
-        <div class="why-quick-cross"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></div>
-        <div class="why-quick-them">«Сделаем — придут шабашники»</div>
-        <div class="why-quick-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-        <div class="why-quick-us"><b>Бригада в штате</b><span>имя и фото до выезда</span></div>
-      </div>
-      <div class="why-quick-item">
-        <div class="why-quick-cross"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></div>
-        <div class="why-quick-them">«От 299 ₽/м²» — а на монтаже ×3</div>
-        <div class="why-quick-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-with="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-        <div class="why-quick-us"><b>Цена в договоре</b><span>доплат за углы и обводы — ноль</span></div>
-      </div>
-    </div>
+    <div class="why-s-grid">
 
-    <!-- Sticky scroll-driven раздел: 8 уловок -->
-    <div class="why-stage">
-      <!-- Левая sticky-навигация -->
-      <aside class="why-nav" aria-label="8 уловок рынка">
-        <div class="why-nav-head">
-          <span class="why-nav-tag">8 уловок рынка</span>
-          <span class="why-nav-count"><span id="whyCurrent">01</span> <span class="why-nav-sep">/</span> 08</span>
+      <article class="why-s-card">
+        <div class="why-s-card-top">
+          <span class="why-s-num">01</span>
+          <span class="why-s-tag">«От 299 ₽ за метр»</span>
         </div>
-        <ol class="why-nav-list" id="whyNavList">
-          <li><button type="button" class="why-nav-btn active" data-target="trick-1"><span class="why-nav-num">01</span><span class="why-nav-text">«От 299 ₽/м²» — обман</span></button></li>
-          <li><button type="button" class="why-nav-btn" data-target="trick-2"><span class="why-nav-num">02</span><span class="why-nav-text">«25 лет гарантии» — на плёнку</span></button></li>
-          <li><button type="button" class="why-nav-btn" data-target="trick-3"><span class="why-nav-num">03</span><span class="why-nav-text">«−60% по акции» — раздутые скидки</span></button></li>
-          <li><button type="button" class="why-nav-btn" data-target="trick-4"><span class="why-nav-num">04</span><span class="why-nav-text">Замерщик на проценте</span></button></li>
-          <li><button type="button" class="why-nav-btn" data-target="trick-5"><span class="why-nav-num">05</span><span class="why-nav-text">Таймер «успейте за 24 ч»</span></button></li>
-          <li><button type="button" class="why-nav-btn" data-target="trick-6"><span class="why-nav-num">06</span><span class="why-nav-text">«Шабашники» вместо бригады</span></button></li>
-          <li><button type="button" class="why-nav-btn" data-target="trick-7"><span class="why-nav-num">07</span><span class="why-nav-text">Фирма-однодневка</span></button></li>
-          <li><button type="button" class="why-nav-btn" data-target="trick-8"><span class="why-nav-num">08</span><span class="why-nav-text">«Лидер рынка» без пруфов</span></button></li>
-        </ol>
-        <div class="why-nav-progress"><span id="whyProgressBar"></span></div>
-      </aside>
+        <h3>Цена в рекламе — голая плёнка, без всего</h3>
+        <p>Видите «от 299 ₽/м²» в Яндексе. Звоните, приезжает замерщик. К плёнке добавляются багет, монтаж, углы, обводы, светильники. Сумма получается в 2–3 раза больше.</p>
+        <div class="why-s-us">
+          <span class="why-s-us-tag">У нас</span>
+          <p>Считаем цену сразу — по фото вашей комнаты. Что насчитали — то в договоре. Доплат на монтаже не будет.</p>
+        </div>
+      </article>
 
-      <!-- Правая прокручиваемая часть с карточками -->
-      <div class="why-tricks" id="whyTricks">
+      <article class="why-s-card">
+        <div class="why-s-card-top">
+          <span class="why-s-num">02</span>
+          <span class="why-s-tag">«Гарантия 25 лет»</span>
+        </div>
+        <h3>Это гарантия завода на плёнку, не на работу</h3>
+        <p>«25 лет» — обещание производителя за саму ткань. Если через год пойдёт волна, провиснет в центре или отойдёт от стены — это не гарантийный случай.</p>
+        <div class="why-s-us">
+          <span class="why-s-us-tag">У нас</span>
+          <p>Гарантия именно на работу — 5, 7 или 10 лет. Кривой шов, провис, отслоение — приедем и переделаем за свой счёт.</p>
+        </div>
+      </article>
 
-        <article class="why-trick" id="trick-1">
-          <div class="why-trick-num">01</div>
-          <div class="why-trick-tag">Уловка №1</div>
-          <h3 class="why-trick-h">«От 299 ₽/м²» в рекламе — а на монтаже в три раза дороже</h3>
-          <p class="why-trick-lead">Самая массовая приманка в нише. Видите красивую цену в Яндексе → звоните → на замере выясняется, что эта цена была за голое полотно, без всего остального.</p>
-          <div class="why-trick-split">
-            <div class="why-trick-them">
-              <div class="why-trick-them-head"><span class="why-trick-them-ico">×</span>Как делают все</div>
-              <p>«От 299 ₽/м²» — это голое полотно без монтажа, багета, углов, обводов и НДС. Реальная цена «под ключ» в Москве начинается от 1200 ₽/м². На замере вам считают всё, и сумма получается в 2–3 раза выше рекламы.</p>
-            </div>
-            <div class="why-trick-us">
-              <div class="why-trick-us-head"><span class="why-trick-us-ico">✓</span>Как делаем мы</div>
-              <p>Не пишем «от ХХХ ₽/м²» нигде. Считаем точную цену по фото вашей комнаты в течение часа. Цифра фиксируется в договоре до начала монтажа. Доплат за углы, трубы, обводы и любые «допы» — ноль.</p>
-            </div>
-          </div>
-        </article>
+      <article class="why-s-card">
+        <div class="why-s-card-top">
+          <span class="why-s-num">03</span>
+          <span class="why-s-tag">«Скидка −60%»</span>
+        </div>
+        <h3>Скидка от цены, которую никто не платил</h3>
+        <p>60% от чего? От накрученной «обычной» цены, по которой никогда не продавали. Просто чтобы вы согласились быстро. Завтра будет такая же «скидка».</p>
+        <div class="why-s-us">
+          <span class="why-s-us-tag">У нас</span>
+          <p>Никаких «акций» и «успейте за час». Одна нормальная цена. Согласитесь сейчас или через месяц — она не изменится.</p>
+        </div>
+      </article>
 
-        <article class="why-trick" id="trick-2">
-          <div class="why-trick-num">02</div>
-          <div class="why-trick-tag">Уловка №2</div>
-          <h3 class="why-trick-h">«Гарантия 25 лет на потолок» — это гарантия завода на плёнку</h3>
-          <p class="why-trick-lead">Открываете любой сайт натяжных потолков — везде висит «гарантия 25 лет». Когда у клиента провисает потолок через год, выясняется, что это «не гарантийный случай».</p>
-          <div class="why-trick-split">
-            <div class="why-trick-them">
-              <div class="why-trick-them-head"><span class="why-trick-them-ico">×</span>Как делают все</div>
-              <p>«25 лет на потолок» = гарантия Pongs/MSD на материал. Покрывает только заводской брак ткани. Кривые стыки, провисы, отслоения от стены, треск зимой — за это не отвечает никто.</p>
-            </div>
-            <div class="why-trick-us">
-              <div class="why-trick-us-head"><span class="why-trick-us-ico">✓</span>Как делаем мы</div>
-              <p>Даём гарантию <b>на монтаж</b>, не на плёнку. 5/7/10 лет в зависимости от линейки. Покрывает: провисы, отслоения, кривые стыки, плохую работу светильников. Формулировка в договоре — конкретная, не «на потолок».</p>
-            </div>
-          </div>
-        </article>
+      <article class="why-s-card">
+        <div class="why-s-card-top">
+          <span class="why-s-num">04</span>
+          <span class="why-s-tag">Замерщик-продавец</span>
+        </div>
+        <h3>Замерщик на проценте — продаёт максимум</h3>
+        <p>В большинстве компаний замерщик получает процент от заказа. Поэтому будет советовать самое дорогое полотно, лишние светильники, «премиум-багет». Не потому что вам нужно — а потому что ему выгодно.</p>
+        <div class="why-s-us">
+          <span class="why-s-us-tag">У нас</span>
+          <p>Считаем по фото, без приезда. Технолог в офисе получает зарплату, а не комиссию. Подбирает то, что подходит — а не самое дорогое.</p>
+        </div>
+      </article>
 
-        <article class="why-trick" id="trick-3">
-          <div class="why-trick-num">03</div>
-          <div class="why-trick-tag">Уловка №3</div>
-          <h3 class="why-trick-h">«Скидка до 60%» — от цены, которую никто не платил</h3>
-          <p class="why-trick-lead">Базарный приём из ниши инфобиза. Накручивается «обычная цена», от неё считается «скидка». В реальности продают всегда по «скидке» — потому что без неё никто не купит.</p>
-          <div class="why-trick-split">
-            <div class="why-trick-them">
-              <div class="why-trick-them-head"><span class="why-trick-them-ico">×</span>Как делают все</div>
-              <p>«Скидка −60% только сегодня» висит круглый год. Завтра ещё «−60%». «Базовая цена» нигде не показана. По сути — психологическое давление, чтобы вы согласились не подумав.</p>
-            </div>
-            <div class="why-trick-us">
-              <div class="why-trick-us-head"><span class="why-trick-us-ico">✓</span>Как делаем мы</div>
-              <p>Никаких «−60%», «−50%», «акция только сегодня». Одна честная цена за работу. Она не меняется от того, согласились вы сегодня или через неделю.</p>
-            </div>
-          </div>
-        </article>
+      <article class="why-s-card">
+        <div class="why-s-card-top">
+          <span class="why-s-num">05</span>
+          <span class="why-s-tag">Таймер на сайте</span>
+        </div>
+        <h3>«Успейте за 24 часа» — старый трюк</h3>
+        <p>Большой таймер «до конца акции 03:47». Обновите страницу — снова 03:47. Это не реальная срочность, а психологическое давление. Чтобы вы не успели подумать и не сравнили предложения.</p>
+        <div class="why-s-us">
+          <span class="why-s-us-tag">У нас</span>
+          <p>Никаких таймеров. Если в графике есть место — скажем честно. Подумайте сколько надо.</p>
+        </div>
+      </article>
 
-        <article class="why-trick" id="trick-4">
-          <div class="why-trick-num">04</div>
-          <div class="why-trick-tag">Уловка №4</div>
-          <h3 class="why-trick-h">Замерщик-продавец: его задача — продать дороже, а не подобрать лучше</h3>
-          <p class="why-trick-lead">Замерщик в большинстве компаний получает процент с суммы заказа. Чем дороже потолок он вам впарит — тем больше его комиссия. Поэтому ему выгодно сделать «допы» и убедить вас на «премиальное».</p>
-          <div class="why-trick-split">
-            <div class="why-trick-them">
-              <div class="why-trick-them-head"><span class="why-trick-them-ico">×</span>Как делают все</div>
-              <p>«А вот тут вам нужно ещё бесшовное полотно, а ещё немецкий багет, а ещё точечные светильники по 1500 ₽ за штуку…» Каждое «нужно» — это +5–15% к его проценту.</p>
-            </div>
-            <div class="why-trick-us">
-              <div class="why-trick-us-head"><span class="why-trick-us-ico">✓</span>Как делаем мы</div>
-              <p>Считаем по фото, без приезда к вам. Технолог в офисе получает зарплату, а не комиссию. Подбирает оптимальное под задачу — а не самое дорогое. После визуализации сами видите, что вам нужно, а что нет.</p>
-            </div>
-          </div>
-        </article>
+      <article class="why-s-card">
+        <div class="why-s-card-top">
+          <span class="why-s-num">06</span>
+          <span class="why-s-tag">«Свои монтажники»</span>
+        </div>
+        <h3>На сайте бригада в форме — приезжают шабашники</h3>
+        <p>В компании показывают красивые фото своих мастеров. На замер приезжает совсем другой — подряд от подрядчика. Возникнут вопросы — компания скажет «это был не наш человек».</p>
+        <div class="why-s-us">
+          <span class="why-s-us-tag">У нас</span>
+          <p>Все монтажники в штате. До выезда пришлём в чат фото и имя бригадира — встретите того, кого ждали.</p>
+        </div>
+      </article>
 
-        <article class="why-trick" id="trick-5">
-          <div class="why-trick-num">05</div>
-          <div class="why-trick-tag">Уловка №5</div>
-          <h3 class="why-trick-h">Таймер обратного отсчёта на сайте — приём из инфобиза</h3>
-          <p class="why-trick-lead">Открываете сайт — большой таймер «до конца акции 03:47:21». Через час перезаходите — снова 03:47:21. Психологический инструмент, чтобы вы приняли решение быстро.</p>
-          <div class="why-trick-split">
-            <div class="why-trick-them">
-              <div class="why-trick-them-head"><span class="why-trick-them-ico">×</span>Как делают все</div>
-              <p>Дедлайн-таймер перезапускается при каждом визите. Никакой «акции» на самом деле нет. Цель — создать ощущение срочности, чтобы вы не сравнили предложения и не подумали.</p>
-            </div>
-            <div class="why-trick-us">
-              <div class="why-trick-us-head"><span class="why-trick-us-ico">✓</span>Как делаем мы</div>
-              <p>Никаких таймеров, «успейте за 24 часа», «осталось 2 места». Если у нас есть реальная загрузка в графике — скажем честно. Если можем взять — возьмём, без давления.</p>
-            </div>
-          </div>
-        </article>
+      <article class="why-s-card">
+        <div class="why-s-card-top">
+          <span class="why-s-num">07</span>
+          <span class="why-s-tag">Фирма-однодневка</span>
+        </div>
+        <h3>Юрлицо в ликвидации — гарантия в никуда</h3>
+        <p>Реальная история с Otzovik. Клиент сделал премиум-потолок, через неделю пробил ИНН. Фирма закрывается. Гарантию заявить некому, договор уже ни на что.</p>
+        <div class="why-s-us">
+          <span class="why-s-us-tag">У нас</span>
+          <p>ИНН и ОГРН — внизу сайта. Откройте сайт ФНС и проверьте нас перед договором. Юрлицо действующее, всё видно.</p>
+        </div>
+      </article>
 
-        <article class="why-trick" id="trick-6">
-          <div class="why-trick-num">06</div>
-          <div class="why-trick-tag">Уловка №6</div>
-          <h3 class="why-trick-h">«Свои монтажники» на сайте — а приезжают по объявлению с Avito</h3>
-          <p class="why-trick-lead">На сайте — фотки бригад в фирменной одежде. На замер приезжает шабашник без формы, на старой машине. Спросить лица компании потом — не к кому.</p>
-          <div class="why-trick-split">
-            <div class="why-trick-them">
-              <div class="why-trick-them-head"><span class="why-trick-them-ico">×</span>Как делают все</div>
-              <p>Передают заказы подрядчикам. Те — субподрядчикам. До вас доходит «третья рука». Если возникнут вопросы — компания скажет «это был не наш мастер», и спросить будет не с кого.</p>
-            </div>
-            <div class="why-trick-us">
-              <div class="why-trick-us-head"><span class="why-trick-us-ico">✓</span>Как делаем мы</div>
-              <p>Все монтажники — у нас в штате, с трудовыми договорами. Имя и фото бригадира пришлём в чат за день до выезда. Никаких «третьих рук» — отвечаем за каждого, кто приедет.</p>
-            </div>
-          </div>
-        </article>
+      <article class="why-s-card">
+        <div class="why-s-card-top">
+          <span class="why-s-num">08</span>
+          <span class="why-s-tag">«№1 в Москве»</span>
+        </div>
+        <h3>Большие цифры без подтверждения</h3>
+        <p>«Лидер рынка», «100 000 потолков», «доверяют миллионы». Никаких источников, никакого пруфа. Просто маркетинг — чтобы вы доверились без проверки.</p>
+        <div class="why-s-us">
+          <span class="why-s-us-tag">У нас</span>
+          <p>Никаких «лидеров» и круглых цифр. Покажем конкретные кейсы — с фото объекта, адресом ЖК, контактом дизайнера. Хотите — позвоните им.</p>
+        </div>
+      </article>
 
-        <article class="why-trick" id="trick-7">
-          <div class="why-trick-num">07</div>
-          <div class="why-trick-tag">Уловка №7</div>
-          <h3 class="why-trick-h">Фирма «Натком» — ликвидируется параллельно с вашим заказом</h3>
-          <p class="why-trick-lead">Реальный кейс с Otzovik: клиент оплатил премиум-потолок, после монтажа решил пробить ИНН компании в ФНС. Оказалось, фирма в процессе ликвидации. Гарантия — обнулилась.</p>
-          <div class="why-trick-split">
-            <div class="why-trick-them">
-              <div class="why-trick-them-head"><span class="why-trick-them-ico">×</span>Как делают все</div>
-              <p>Регистрируют новое ООО под акцию, через год закрывают, открывают следующее. У вас на руках — договор с компанией, которой уже не существует. Гарантия и претензии в никуда.</p>
-            </div>
-            <div class="why-trick-us">
-              <div class="why-trick-us-head"><span class="why-trick-us-ico">✓</span>Как делаем мы</div>
-              <p>ИНН и ОГРН — в подвале сайта. Перед подписанием договора зайдите на сайт ФНС, проверьте нас в реестре. Юрлицо активно, открыто, всё прозрачно. Гарантия — будет к кому обратиться.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="why-trick" id="trick-8">
-          <div class="why-trick-num">08</div>
-          <div class="why-trick-tag">Уловка №8</div>
-          <h3 class="why-trick-h">«№1 в Москве», «100 000 потолков», «лидер рынка» — выдуманные цифры</h3>
-          <p class="why-trick-lead">У каждой второй компании на сайте — «лидер по установке», «100 000+ заказов», «доверяют миллионы». Никакого источника, никакого пруфа.</p>
-          <div class="why-trick-split">
-            <div class="why-trick-them">
-              <div class="why-trick-them-head"><span class="why-trick-them-ico">×</span>Как делают все</div>
-              <p>Цифры взяты с потолка. Откуда «100 000» — не объяснит ни один менеджер. Просто маркетинг. Цель — создать впечатление масштаба, чтобы вы доверились без проверки.</p>
-            </div>
-            <div class="why-trick-us">
-              <div class="why-trick-us-head"><span class="why-trick-us-ico">✓</span>Как делаем мы</div>
-              <p>Никаких «лидеров», «миллионов» и круглых цифр. Покажем конкретные кейсы — с фото объекта, адресом ЖК, контактом дизайнера-партнёра. Можете позвонить тем, кому мы уже делали, и спросить как было.</p>
-            </div>
-          </div>
-        </article>
-
-      </div>
     </div>
 
-    <!-- Финальный CTA после 8 уловок -->
-    <div class="why-bottom">
-      <div class="why-bottom-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-      <div class="why-bottom-text">
-        <h3>Поэтому к нам приходят те, кому надо <em>хорошо, а не дёшево</em></h3>
-        <p>Если в этом списке узнали историю какого-то знакомого — напишите нам. Расскажем, как делаем по-другому именно для вашего случая.</p>
-      </div>
-      <a href="#hero" class="why-bottom-cta">
+    <!-- Финальный CTA -->
+    <div class="why-s-bottom">
+      <h3>Узнали историю знакомого? Напишите — расскажем как у нас.</h3>
+      <a href="#hero" class="why-s-cta">
         Получить визуализацию
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>

@@ -458,60 +458,7 @@ window.TG_CONFIG = {
     });
   }
 
-  /* ----- 19. БЛОК «ПОЧЕМУ МЫ»: scroll-spy + sticky-nav + интерактив ----- */
-  var whyStage = $('#whyTricks');
-  var whyNavList = $('#whyNavList');
-  if(whyStage && whyNavList){
-    var whyTricks = $$('.why-trick', whyStage);
-    var whyNavBtns = $$('.why-nav-btn', whyNavList);
-    var whyCurrent = $('#whyCurrent');
-    var whyProgressBar = $('#whyProgressBar');
-
-    function setActive(idx){
-      whyNavBtns.forEach(function(b,i){ b.classList.toggle('active', i === idx); });
-      whyTricks.forEach(function(t,i){ t.classList.toggle('in-view', i === idx); });
-      if(whyCurrent){ whyCurrent.textContent = String(idx+1).padStart(2,'0'); }
-      if(whyProgressBar){ whyProgressBar.style.width = ((idx+1)/whyTricks.length * 100) + '%'; }
-    }
-
-    // IntersectionObserver: подсветка активной карточки
-    if('IntersectionObserver' in window && whyTricks.length){
-      var whyObs = new IntersectionObserver(function(ents){
-        // Найдём ту что ближе всего к 35% от верха viewport
-        var best = null, bestDist = Infinity;
-        ents.forEach(function(e){
-          if(e.isIntersecting){
-            var r = e.target.getBoundingClientRect();
-            var center = r.top + r.height/2;
-            var dist = Math.abs(center - window.innerHeight*0.4);
-            if(dist < bestDist){ bestDist = dist; best = e.target; }
-          }
-        });
-        if(best){
-          var idx = whyTricks.indexOf(best);
-          if(idx >= 0) setActive(idx);
-        }
-      }, {
-        rootMargin: '-25% 0px -40% 0px',
-        threshold: [0, 0.25, 0.5, 0.75, 1]
-      });
-      whyTricks.forEach(function(t){ whyObs.observe(t); });
-    }
-
-    // Клик по навигации — scroll к карточке
-    whyNavBtns.forEach(function(b){
-      b.addEventListener('click', function(){
-        var targetId = b.dataset.target;
-        var el = document.getElementById(targetId);
-        if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); }
-      });
-    });
-
-    // первая карточка активна по умолчанию
-    if(whyTricks.length) whyTricks[0].classList.add('in-view');
-  }
-
-  /* ----- 20. ИНТЕРАКТИВНЫЙ КАЛЬКУЛЯТОР HERO (deprecated, оставлен) ----- */
+  /* ----- 19. ИНТЕРАКТИВНЫЙ КАЛЬКУЛЯТОР HERO (deprecated, оставлен) ----- */
   var calc = $('#calc');
   if(calc){
     var state = {
