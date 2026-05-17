@@ -4,5 +4,5 @@ Disallow: /privacy.html
 Disallow: /offer.html
 Disallow: /404.html
 
-Sitemap: https://potolok-i-tochka.ru/sitemap.xml
-Host: potolok-i-tochka.ru
+Sitemap: https://premium-ceiling-landing.vercel.app/sitemap.xml
+Host: premium-ceiling-landing.vercel.app
