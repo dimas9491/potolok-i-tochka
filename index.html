@@ -8,6 +8,8 @@
 <meta name="description" content="3D-проект и точная цена за 48 часов — по вашим фото, без выезда замерщика. Гарантия на монтаж до 10 лет. Не приняли по чек-листу — переделаем за свой счёт.">
 <meta name="keywords" content="натяжные потолки москва, премиум натяжные потолки, потолок по дизайн-проекту, бесщелевой потолок, теневое примыкание, парящий потолок, световые линии, удалённый расчёт потолка">
 <link rel="canonical" href="https://premium-ceiling-landing.vercel.app/">
+<link rel="alternate" hreflang="ru-RU" href="https://premium-ceiling-landing.vercel.app/">
+<link rel="alternate" hreflang="x-default" href="https://premium-ceiling-landing.vercel.app/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Потолок и точка — премиум-натяжные потолки по дизайн-проекту, Москва">
 <meta property="og:description" content="3D-проект и точная цена за 48 часов по фото. Гарантия на монтаж до 10 лет. Удалённый расчёт без выезда замерщика.">
@@ -19,6 +21,10 @@
 <meta property="og:image:height" content="1200">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0D0E12">
+<meta name="geo.region" content="RU-MOW">
+<meta name="geo.placename" content="Москва">
+<meta name="geo.position" content="55.7558;37.6173">
+<meta name="ICBM" content="55.7558, 37.6173">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 8 L60 36 L52 36 L32 18 L12 36 L4 36 Z' fill='%230D0E12'/%3E%3Cpath d='M14 32 C 22 26, 27 23, 32 22 C 37 23, 42 26, 50 32 C 42 28, 37 26, 32 26 C 27 26, 22 28, 14 32 Z' fill='%230D0E12'/%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="/assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,49 +35,101 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": "https://premium-ceiling-landing.vercel.app/#business",
-  "name": "Потолок и точка",
-  "description": "Премиум-монтаж натяжных потолков по дизайн-проекту в Москве. Удалённый расчёт за 48 часов по фото клиента.",
-  "url": "https://premium-ceiling-landing.vercel.app/",
-  "telephone": "+7-900-655-69-99",
-  "priceRange": "₽₽₽",
-  "image": "https://premium-ceiling-landing.vercel.app/assets/og-cover.png",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Москва",
-    "addressRegion": "Москва",
-    "addressCountry": "RU"
-  },
-  "areaServed": [
-    {"@type":"City","name":"Москва"},
-    {"@type":"AdministrativeArea","name":"Московская область"}
-  ],
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-    "opens": "09:00",
-    "closes": "22:00"
-  },
-  "sameAs": [
-    "https://t.me/dimasic_135",
-    "https://wa.me/79006556999"
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://premium-ceiling-landing.vercel.app/#org",
+      "name": "Потолок и точка",
+      "alternateName": "Potolok i Tochka",
+      "url": "https://premium-ceiling-landing.vercel.app/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://premium-ceiling-landing.vercel.app/assets/logo.png",
+        "width": 855,
+        "height": 676
+      },
+      "sameAs": [
+        "https://t.me/dimasic_135",
+        "https://wa.me/79006556999"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+7-900-655-69-99",
+        "contactType": "customer service",
+        "areaServed": "RU",
+        "availableLanguage": ["Russian"]
+      }
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://premium-ceiling-landing.vercel.app/#business",
+      "name": "Потолок и точка",
+      "description": "Премиум-монтаж натяжных потолков по дизайн-проекту в Москве. Удалённый расчёт за 48 часов по фото клиента, без выезда замерщика. Гарантия на монтаж до 10 лет.",
+      "url": "https://premium-ceiling-landing.vercel.app/",
+      "telephone": "+7-900-655-69-99",
+      "priceRange": "₽₽₽",
+      "image": "https://premium-ceiling-landing.vercel.app/assets/logo.png",
+      "logo": "https://premium-ceiling-landing.vercel.app/assets/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Москва",
+        "addressRegion": "Москва",
+        "addressCountry": "RU"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 55.7558,
+        "longitude": 37.6173
+      },
+      "areaServed": [
+        {"@type":"City","name":"Москва"},
+        {"@type":"AdministrativeArea","name":"Московская область"}
+      ],
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "09:00",
+        "closes": "22:00"
+      },
+      "sameAs": [
+        "https://t.me/dimasic_135",
+        "https://wa.me/79006556999"
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://premium-ceiling-landing.vercel.app/#service",
+      "serviceType": "Монтаж натяжных потолков премиум-класса",
+      "name": "Натяжные потолки по дизайн-проекту",
+      "description": "Премиум-монтаж натяжных потолков в Москве и области с удалённым расчётом по фото, 3D-визуализацией и гарантией на монтаж до 10 лет. Парящие конструкции, теневое примыкание, световые линии.",
+      "provider": {"@id": "https://premium-ceiling-landing.vercel.app/#business"},
+      "areaServed": {"@type":"City","name":"Москва"},
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Частные клиенты, делающие премиум-ремонт по дизайн-проекту"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Линейки услуг",
+        "itemListElement": [
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Точная классика — базовая линейка"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Дизайн-линия — парящие конструкции, скрытый карниз"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Архитектурная — теневое примыкание, многоуровневые"}}
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://premium-ceiling-landing.vercel.app/#site",
+      "url": "https://premium-ceiling-landing.vercel.app/",
+      "name": "Потолок и точка",
+      "publisher": {"@id": "https://premium-ceiling-landing.vercel.app/#org"},
+      "inLanguage": "ru-RU"
+    }
   ]
 }
 </script>
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=109271388', 'ym');
 
-    ym(109271388, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/109271388" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
 </head>
 <body>
 <div id="progress"></div>
@@ -80,7 +138,7 @@
 
 <header class="topnav">
   <div class="topnav-inner">
-    <a href="#" class="logo"><img src="/assets/logo.png" alt="Потолок и точка — натяжные потолки"></a>
+    <a href="#" class="logo"><img src="/assets/logo.png" alt="Потолок и точка — натяжные потолки" width="855" height="676" fetchpriority="high" decoding="async"></a>
     <nav class="main">
       <a href="#tricks">Уловки рынка</a>
       <a href="#offer">3D-проект</a>
@@ -99,7 +157,7 @@
 <div class="drawer-backdrop" id="drawerBackdrop"></div>
 <aside class="drawer" id="drawer" aria-hidden="true">
   <div class="drawer-head">
-    <div class="logo"><img src="/assets/logo.png" alt="Потолок и точка — натяжные потолки"></div>
+    <div class="logo"><img src="/assets/logo.png" alt="Потолок и точка — натяжные потолки" width="855" height="676" loading="lazy" decoding="async"></div>
     <button class="drawer-close" id="drawerClose" aria-label="Закрыть меню"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
   </div>
   <nav class="drawer-nav">
@@ -954,7 +1012,7 @@
 <footer>
   <div class="foot-grid">
     <div>
-      <a href="#" class="logo" style="margin-bottom:16px"><img src="/assets/logo.png" alt="Потолок и точка — натяжные потолки"></a>
+      <a href="#" class="logo" style="margin-bottom:16px"><img src="/assets/logo.png" alt="Потолок и точка — натяжные потолки" width="855" height="676" loading="lazy" decoding="async"></a>
       <p style="font-size:14px;color:var(--ink-3);max-width:34ch">Премиум-монтаж натяжных потолков по дизайн-проекту. Москва и область.</p>
       <div style="display:flex;gap:10px;margin-top:18px">
         <a href="https://t.me/dimasic_135" target="_blank" rel="noopener" aria-label="Telegram" style="width:38px;height:38px;border:1px solid var(--line);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--ink-2);transition:.2s" onmouseover="this.style.borderColor='var(--indigo)';this.style.color='var(--indigo)'" onmouseout="this.style.borderColor='var(--line)';this.style.color='var(--ink-2)'"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></a>
@@ -1004,5 +1062,23 @@
 
 <script src="/assets/main.js" defer></script>
 
+<!-- Yandex.Metrika counter (deferred for INP) -->
+<script>
+(function(){
+  function loadYM(){
+    (function(m,e,t,r,i,k,a){
+      m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();
+      for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=109271388', 'ym');
+    ym(109271388, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+  }
+  if('requestIdleCallback' in window){ requestIdleCallback(loadYM, {timeout: 2500}); }
+  else { setTimeout(loadYM, 1500); }
+})();
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109271388" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 </body>
 </html>
