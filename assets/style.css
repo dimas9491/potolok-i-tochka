@@ -1140,7 +1140,101 @@
   }
 
   /* ========================================
-     БЛОК «ПОЧЕМУ МЫ» — простой и человечный
+     БЛОК «ПОЧЕМУ МЫ» — БЕНТО с разными карточками
+     ======================================== */
+  .why-bento{padding:clamp(70px,8vw,120px) 0;position:relative;isolation:isolate}
+  .why-bento::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 80% 0%,rgba(40,64,232,.05),transparent 60%),radial-gradient(ellipse at 0% 100%,rgba(232,99,58,.04),transparent 60%);pointer-events:none;z-index:-1}
+
+  .why-b-head{text-align:center;max-width:780px;margin:0 auto 48px}
+  .why-b-eyebrow{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--indigo);font-weight:500;padding:7px 14px;background:rgba(40,64,232,.07);border:1px solid rgba(40,64,232,.18);border-radius:999px;margin-bottom:18px}
+  .why-b-h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(30px,4vw,52px);font-weight:600;letter-spacing:-.022em;line-height:1.1;color:var(--ink);margin:0 0 16px}
+  .why-b-h2 em{font-style:normal;background:linear-gradient(135deg,var(--indigo),var(--rust));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .why-b-lead{font-size:16px;line-height:1.6;color:var(--ink-2);margin:0;max-width:60ch;margin-left:auto;margin-right:auto}
+
+  /* Бенто-сетка */
+  .why-b-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:1280px;margin:0 auto}
+  .why-b-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px 28px;display:flex;flex-direction:column;gap:10px;transition:.3s var(--easing);overflow:hidden;min-height:280px}
+  .why-b-card:hover{transform:translateY(-4px);box-shadow:0 30px 60px -25px rgba(13,14,18,.18);border-color:var(--indigo)}
+
+  /* Wide-карточки на 2 колонки */
+  .why-b-wide{grid-column:span 2}
+  .why-b-wide .why-b-card-body{max-width:75%}
+
+  /* Акцентная карточка (01) — лёгкий градиент */
+  .why-b-accent{background:linear-gradient(135deg,rgba(40,64,232,.04) 0%,rgba(232,99,58,.03) 100%);border-color:rgba(40,64,232,.2)}
+  .why-b-accent:hover{border-color:var(--indigo);box-shadow:0 35px 70px -25px rgba(40,64,232,.25)}
+
+  /* Тёмная карточка (04) — выделяется ритмом */
+  .why-b-dark{background:linear-gradient(135deg,#0D0E12 0%,#1A1B22 100%);color:var(--paper);border-color:#1A1B22}
+  .why-b-dark::before{content:"";position:absolute;top:-100px;right:-50px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(40,64,232,.25),transparent 60%);pointer-events:none}
+  .why-b-dark::after{content:"";position:absolute;bottom:-80px;left:-40px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(232,99,58,.15),transparent 60%);pointer-events:none}
+  .why-b-dark h3{color:#fff;position:relative;z-index:1}
+  .why-b-dark > p{color:rgba(245,245,242,.78);position:relative;z-index:1}
+  .why-b-dark .why-b-tag{background:rgba(255,176,90,.15);color:#FFB05A;border-color:rgba(255,176,90,.25);position:relative;z-index:1}
+  .why-b-dark .why-b-icon{color:rgba(255,255,255,.7);background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.12);position:relative;z-index:1}
+  .why-b-dark .why-b-watermark{color:rgba(255,255,255,.08)}
+  .why-b-dark:hover{transform:translateY(-4px);box-shadow:0 40px 80px -25px rgba(0,0,0,.5);border-color:#2a2b35}
+
+  /* Карточка с цитатой (07) */
+  .why-b-quote{background:linear-gradient(135deg,#FFF7EE 0%,#FFEEE0 100%);border-color:rgba(232,99,58,.25)}
+  .why-b-quote:hover{border-color:var(--rust);box-shadow:0 35px 70px -25px rgba(232,99,58,.25)}
+  .why-b-blockquote{font-family:'Space Grotesk',sans-serif;font-size:18px;line-height:1.4;color:var(--ink);font-style:italic;border-left:3px solid var(--rust);padding:12px 18px;margin:0 0 14px;background:rgba(255,255,255,.6);border-radius:0 12px 12px 0;position:relative;font-weight:500;letter-spacing:-.01em}
+  .why-b-blockquote cite{display:block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:500;margin-top:10px;font-style:normal;letter-spacing:.12em}
+
+  /* Watermark номер */
+  .why-b-watermark{position:absolute;top:8px;right:18px;font-family:'Space Grotesk',sans-serif;font-size:120px;font-weight:700;color:rgba(13,14,18,.04);line-height:.9;letter-spacing:-.04em;pointer-events:none;z-index:0;transition:.3s}
+  .why-b-card:hover .why-b-watermark{color:rgba(40,64,232,.08)}
+
+  /* Иконка в углу */
+  .why-b-icon{width:42px;height:42px;border-radius:12px;background:var(--paper-2);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--indigo);align-self:flex-start;position:relative;z-index:1;transition:.3s}
+  .why-b-card:hover .why-b-icon{background:linear-gradient(135deg,var(--indigo),var(--rust));color:#fff;border-color:transparent;transform:scale(1.05) rotate(-3deg)}
+  .why-b-icon svg{width:20px;height:20px}
+
+  /* Тег уловки */
+  .why-b-tag{display:inline-flex;align-items:center;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--bad);padding:5px 10px;background:rgba(196,66,50,.08);border:1px solid rgba(196,66,50,.18);border-radius:999px;font-weight:500;align-self:flex-start;position:relative;z-index:1}
+  .why-b-tag-warn{color:#B7791F;background:rgba(183,121,31,.08);border-color:rgba(183,121,31,.2)}
+
+  .why-b-card h3{font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:600;color:var(--ink);letter-spacing:-.014em;line-height:1.3;margin:0;position:relative;z-index:1}
+  .why-b-wide h3{font-size:22px}
+  .why-b-card > p{font-size:14.5px;color:var(--ink-2);line-height:1.55;margin:0;position:relative;z-index:1}
+  .why-b-card-body{display:flex;flex-direction:column;gap:10px;position:relative;z-index:1}
+
+  /* Callout — "у нас" */
+  .why-b-callout{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;background:linear-gradient(135deg,rgba(40,64,232,.07),rgba(40,64,232,.03));border:1px solid rgba(40,64,232,.2);border-radius:12px;margin-top:auto;position:relative;z-index:1;font-size:13.5px;line-height:1.5;color:var(--ink-2)}
+  .why-b-callout-icon{flex:none;width:22px;height:22px;border-radius:50%;background:var(--indigo);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px}
+  .why-b-callout b{color:var(--ink);font-weight:600;margin-right:3px}
+  .why-b-callout-dark{background:rgba(255,176,90,.1);border-color:rgba(255,176,90,.25);color:rgba(245,245,242,.85)}
+  .why-b-callout-dark .why-b-callout-icon{background:linear-gradient(135deg,#FFB05A,#FF6B3D);color:#1a1a1a}
+  .why-b-callout-dark b{color:#fff}
+
+  /* Финальный CTA */
+  .why-b-bottom{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;margin-top:36px;padding:28px 36px;background:#fff;border:1px solid var(--line);border-radius:20px;max-width:1280px;margin-left:auto;margin-right:auto}
+  .why-b-bottom-text{flex:1;min-width:280px}
+  .why-b-bottom-text h3{font-family:'Space Grotesk',sans-serif;font-size:clamp(18px,1.7vw,22px);font-weight:600;color:var(--ink);margin:0 0 6px;letter-spacing:-.012em;line-height:1.3}
+  .why-b-bottom-text p{font-size:14px;color:var(--ink-3);margin:0;line-height:1.5}
+  .why-b-cta{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;background:var(--ink);color:#fff;text-decoration:none;border-radius:12px;font-weight:600;font-size:14.5px;transition:.25s var(--easing);box-shadow:0 12px 28px -8px rgba(13,14,18,.3);position:relative;overflow:hidden}
+  .why-b-cta::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,var(--indigo),var(--rust));opacity:0;transition:.3s}
+  .why-b-cta:hover::before{opacity:1}
+  .why-b-cta:hover{transform:translateY(-2px);box-shadow:0 20px 40px -8px rgba(40,64,232,.4)}
+  .why-b-cta span, .why-b-cta svg{position:relative;z-index:1}
+  .why-b-cta svg{width:16px;height:16px;transition:.2s}
+  .why-b-cta:hover svg{transform:translateX(3px)}
+
+  @media (max-width:1080px){
+    .why-b-wide .why-b-card-body{max-width:100%}
+  }
+  @media (max-width:768px){
+    .why-b-grid{grid-template-columns:1fr;gap:14px}
+    .why-b-wide{grid-column:span 1}
+    .why-b-card{padding:22px;min-height:auto}
+    .why-b-watermark{font-size:90px;top:10px;right:14px}
+    .why-b-blockquote{font-size:15.5px;padding:10px 14px}
+    .why-b-bottom{padding:24px;flex-direction:column;text-align:center}
+    .why-b-cta{width:100%;justify-content:center}
+  }
+
+  /* ========================================
+     БЛОК «ПОЧЕМУ МЫ» — простой (deprecated)
      ======================================== */
   .why-simple{padding:clamp(70px,8vw,120px) 0;position:relative}
 
