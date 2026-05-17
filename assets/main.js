@@ -313,7 +313,45 @@ window.TG_CONFIG = {
     el.textContent = new Date().getFullYear();
   });
 
-  /* ----- 18. ИНТЕРАКТИВНЫЙ КАЛЬКУЛЯТОР HERO ----- */
+  /* ----- 18. HERO LEAD FORM («3 варианта для вашей комнаты») ----- */
+  var heroCard = $('#heroCard');
+  var heroLeadForm = $('#heroLeadForm');
+  if(heroCard && heroLeadForm){
+    heroLeadForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      var name = (heroLeadForm.querySelector('input[name="name"]').value || '').trim();
+      var contact = (heroLeadForm.querySelector('input[name="contact"]').value || '').trim();
+      if(!name || !contact) return;
+
+      var msg = '<b>🏠 Заявка с главной — 3 варианта потолка</b>\n\n' +
+        '<b>Имя:</b> ' + name + '\n' +
+        '<b>Контакт:</b> ' + contact + '\n\n' +
+        '<i>Что хочет:</i> 3 варианта 3D-визуализации потолка по фото комнаты\n' +
+        '<i>Источник:</i> главная / hero V3\n' +
+        '<i>Время:</i> ' + new Date().toLocaleString('ru-RU');
+
+      var btn = heroLeadForm.querySelector('.hl-form-submit');
+      btn.classList.add('loading');
+      btn.disabled = true;
+
+      sendToTelegram(msg).then(function(res){
+        if(res && (res.ok || res.mock)){
+          heroCard.classList.add('sent');
+          if(window.ym){ try{ window.ym(109271388,'reachGoal','lead'); }catch(e){} }
+        } else {
+          alert('Не удалось отправить. Напишите нам в Telegram @dimasic_135');
+          btn.classList.remove('loading');
+          btn.disabled = false;
+        }
+      }).catch(function(){
+        alert('Не удалось отправить. Напишите нам в Telegram @dimasic_135');
+        btn.classList.remove('loading');
+        btn.disabled = false;
+      });
+    });
+  }
+
+  /* ----- 19. ИНТЕРАКТИВНЫЙ КАЛЬКУЛЯТОР HERO (deprecated, оставлен) ----- */
   var calc = $('#calc');
   if(calc){
     var state = {
