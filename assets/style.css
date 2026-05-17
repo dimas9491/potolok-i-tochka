@@ -65,9 +65,8 @@
     padding:14px clamp(20px,4vw,48px);
   }
   .logo{display:flex;align-items:center;gap:12px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:18px;letter-spacing:-.01em}
-  .logo-mark{width:30px;height:30px;border-radius:8px;background:var(--ink);position:relative;overflow:hidden;flex:none}
-  .logo-mark::before{content:"";position:absolute;inset:6px 4px;border:1.4px solid var(--paper);border-radius:3px}
-  .logo-mark::after{content:"";position:absolute;left:50%;top:50%;width:6px;height:6px;border-radius:50%;background:var(--indigo);transform:translate(-50%,-50%);box-shadow:0 0 12px var(--indigo)}
+  .logo-mark{width:36px;height:36px;flex:none;background:transparent;background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M5 26 L20 10 L35 26' stroke='%230D0E12' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Ccircle cx='20' cy='28' r='2.6' fill='%230D0E12'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;background-size:contain;border-radius:0}
+  .logo-mark::before, .logo-mark::after{content:none}
   .logo small{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink-3);letter-spacing:.18em;text-transform:uppercase;font-weight:400;margin-top:2px}
   nav.main{display:flex;gap:6px;margin-left:auto}
   nav.main a{font-size:14px;color:var(--ink-2);padding:9px 14px;border-radius:99px;transition:.22s var(--easing)}
