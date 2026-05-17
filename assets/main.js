@@ -239,7 +239,7 @@ window.TG_CONFIG = {
           form.querySelector('.thanks') && (form.querySelector('.thanks').style.display = 'block');
           form.querySelector('.body')   && (form.querySelector('.body').style.display   = 'none');
           // отметим в analytics, если подключите
-          if(window.ym){ try{ window.ym(0,'reachGoal','lead'); }catch(e){} }
+          if(window.ym){ try{ window.ym(109271388,'reachGoal','lead'); }catch(e){} }
         } else {
           alert('Не удалось отправить заявку. Напишите нам в Telegram @dimasic_135 или WhatsApp.');
           if(btn){ btn.disabled = false; btn.innerHTML = origText; }
