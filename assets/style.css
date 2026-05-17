@@ -69,9 +69,14 @@
   .logo:hover img{opacity:.85}
   .logo-mark{display:none}
   .logo small{display:none}
-  .topnav .logo img{height:48px}
-  .drawer-head .logo img{height:42px}
-  footer .logo img{height:60px}
+  .topnav .logo img{height:64px}
+  .drawer-head .logo img{height:54px}
+  footer .logo img{height:88px}
+  @media (max-width:768px){
+    .topnav .logo img{height:52px}
+    .drawer-head .logo img{height:46px}
+    footer .logo img{height:72px}
+  }
   nav.main{display:flex;gap:6px;margin-left:auto}
   nav.main a{font-size:14px;color:var(--ink-2);padding:9px 14px;border-radius:99px;transition:.22s var(--easing)}
   nav.main a:hover{background:var(--paper-2);color:var(--ink)}
