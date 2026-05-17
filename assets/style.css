@@ -169,6 +169,8 @@
 
   /* hero media */
   .hero-media{position:relative;aspect-ratio:4/5;border-radius:var(--radius-l);overflow:hidden}
+  .hero-media.has-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .hero-media.has-photo .ph-caption{position:absolute;left:18px;right:18px;bottom:18px;max-width:none}
   .hero-tag{position:absolute;z-index:3;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;background:var(--paper);border:1px solid var(--line);border-radius:999px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);box-shadow:var(--shadow-card)}
   .hero-tag.t1{top:24px;left:24px;transform:rotate(-1.5deg)}
   .hero-tag.t1::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--indigo);box-shadow:0 0 10px var(--indigo)}
