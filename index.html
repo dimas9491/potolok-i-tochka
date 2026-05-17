@@ -182,36 +182,186 @@
 
 <main>
 
-  <!-- ====== HERO ====== -->
-  <section class="hero" id="hero">
-    <div class="hero-left">
-      <span class="eyebrow">Премиум-монтаж · Москва и МО</span>
-      <h1>Потолок ровно <em class="indigo">как на рендере.</em><br>Покажем в 3D до договора.</h1>
-      <p class="hero-sub">Сфотографируйте комнату, напишите размеры. За 48 часов сделаем 3D вашего потолка и пришлём в Telegram или WhatsApp. Не понравится — забираете PDF, ничего не должны. Понравится — подписываем договор с фикс-ценой.</p>
-      <div class="hero-chips">
-        <span class="chip"><span class="dot rust"></span>3D и расчёт за 0 ₽</span>
-        <span class="chip"><span class="dot"></span>Без выезда замерщика</span>
-        <span class="chip"><span class="dot rust"></span>Ответ за 48 часов</span>
-        <span class="chip"><span class="dot"></span>Гарантия на монтаж до 10 лет</span>
-      </div>
-      <div class="hero-cta">
-        <a href="#final" class="btn indigo">Получить 3D бесплатно <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a href="#portfolio" class="btn ghost">Смотреть объекты</a>
-      </div>
-      <div class="hero-meta">
-        <div class="m"><span class="k">Подход</span><span class="v">Премиум-объекты по дизайн-проекту</span></div>
-        <div class="m"><span class="k">Расчёт</span><span class="v">Удалённо по фото за 48 часов</span></div>
-        <div class="m"><span class="k">Гарантия</span><span class="v">До 10 лет на монтаж, в документе</span></div>
-      </div>
+  <!-- ====== HERO V2: FULLSCREEN + CALCULATOR ====== -->
+  <section class="hero-fs" id="hero">
+    <!-- Фон-фото на весь экран -->
+    <img class="hero-fs-bg" src="/assets/hero.jpg" alt="Натяжной потолок премиум-класса: парящая световая линия по периметру, точечный свет, теневое примыкание — гостиная с панорамным видом" fetchpriority="high" decoding="async">
+
+    <!-- Тёмный градиент-overlay -->
+    <div class="hero-fs-veil"></div>
+
+    <!-- Анимированные световые линии в духе натяжного потолка -->
+    <div class="hero-fs-lines">
+      <span class="lline lline-t"></span>
+      <span class="lline lline-r"></span>
+      <span class="lline lline-b"></span>
+      <span class="lline lline-l"></span>
     </div>
 
-    <div class="hero-media has-photo">
-      <img src="/assets/hero.jpg" alt="Натяжной потолок премиум-класса: парящая световая линия по периметру, точечный свет, теневое примыкание — гостиная с панорамным видом на ночной город" width="1122" height="1402" fetchpriority="high" decoding="async">
-      <span class="hero-tag t1">Парящая световая линия · точечный свет</span>
-      <div class="ph-caption">
-        <strong>Гостиная с панорамным видом</strong>
-        <span>Натяжной потолок с теневым примыканием по периметру, скрытая LED-подсветка, точечный свет под сценарии. Премиум-фактура matt, тёплая температура 2700K.</span>
+    <!-- Декоративные пятна-блики -->
+    <div class="hero-fs-glow hero-fs-glow-1"></div>
+    <div class="hero-fs-glow hero-fs-glow-2"></div>
+
+    <!-- Контент: левая колонка с текстом + правая с калькулятором -->
+    <div class="hero-fs-grid">
+      <div class="hero-fs-left">
+        <span class="hero-fs-eyebrow"><span class="hero-fs-eyebrow-dot"></span>Премиум-монтаж · Москва и МО</span>
+        <h1 class="hero-fs-h1">Потолок ровно <em>как на рендере.</em><br><span class="hero-fs-h1-line2">Покажем в 3D до договора.</span></h1>
+        <p class="hero-fs-sub">Сфотографируйте комнату, напишите размеры. За 48 часов сделаем 3D и точный расчёт. Не понравится — забираете PDF, ничего не должны.</p>
+
+        <div class="hero-fs-bullets">
+          <div class="hfsb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>3D и расчёт за 0 ₽</div>
+          <div class="hfsb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Без выезда замерщика</div>
+          <div class="hfsb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Гарантия на монтаж до 10 лет</div>
+          <div class="hfsb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Не приняли — переделаем</div>
+        </div>
+
+        <div class="hero-fs-scroll">
+          <span class="hero-fs-scroll-line"></span>
+          <span class="hero-fs-scroll-text">Прокрутите ниже</span>
+        </div>
       </div>
+
+      <!-- Калькулятор-квиз -->
+      <aside class="calc" id="calc" aria-label="Калькулятор стоимости">
+        <div class="calc-head">
+          <div class="calc-head-tag">Калькулятор · 30 секунд</div>
+          <h3 class="calc-head-title">Узнайте <em>цену вашего потолка</em></h3>
+          <div class="calc-progress">
+            <div class="calc-progress-bar" id="calcBar"></div>
+          </div>
+          <div class="calc-step-counter"><span id="calcStepNum">1</span><span class="calc-step-divider">/</span><span>4</span></div>
+        </div>
+
+        <div class="calc-body">
+          <!-- ШАГ 1 -->
+          <div class="calc-step calc-step-active" data-step="1">
+            <h4 class="calc-q">Что нужно сделать?</h4>
+            <div class="calc-options">
+              <button class="calc-opt" data-field="type" data-value="room">
+                <span class="calc-opt-ico">🛋</span>
+                <span class="calc-opt-text"><b>Одна комната</b><i>Спальня, гостиная, кухня — 10–40 м²</i></span>
+              </button>
+              <button class="calc-opt" data-field="type" data-value="apartment">
+                <span class="calc-opt-ico">🏠</span>
+                <span class="calc-opt-text"><b>Вся квартира</b><i>2–4 комнаты + санузел и коридор</i></span>
+              </button>
+              <button class="calc-opt" data-field="type" data-value="house">
+                <span class="calc-opt-ico">🏡</span>
+                <span class="calc-opt-text"><b>Загородный дом</b><i>Несколько уровней, большие площади</i></span>
+              </button>
+            </div>
+          </div>
+
+          <!-- ШАГ 2 -->
+          <div class="calc-step" data-step="2">
+            <h4 class="calc-q">Какая площадь? <span class="calc-q-hint">(передвиньте слайдер)</span></h4>
+            <div class="calc-slider-wrap">
+              <div class="calc-slider-value" id="calcAreaValue">25 м²</div>
+              <input type="range" min="5" max="300" value="25" step="1" class="calc-slider" id="calcArea">
+              <div class="calc-slider-marks">
+                <span>5 м²</span>
+                <span>150 м²</span>
+                <span>300 м²</span>
+              </div>
+            </div>
+            <p class="calc-hint">Если точную площадь не знаете — выставьте примерно. Уточним при расчёте.</p>
+          </div>
+
+          <!-- ШАГ 3 -->
+          <div class="calc-step" data-step="3">
+            <h4 class="calc-q">Какая линейка вам ближе?</h4>
+            <div class="calc-options">
+              <button class="calc-opt" data-field="line" data-value="classic">
+                <span class="calc-opt-tag">Линейка 01</span>
+                <span class="calc-opt-text"><b>Точная классика</b><i>Ровный потолок, мат/сатин/глянец, 5 лет гарантии</i></span>
+              </button>
+              <button class="calc-opt" data-field="line" data-value="design">
+                <span class="calc-opt-tag calc-opt-tag-hot">Линейка 02 · топ</span>
+                <span class="calc-opt-text"><b>Дизайн-линия</b><i>Парящие конструкции, световые линии, 7 лет</i></span>
+              </button>
+              <button class="calc-opt" data-field="line" data-value="archi">
+                <span class="calc-opt-tag">Линейка 03</span>
+                <span class="calc-opt-text"><b>Архитектурная</b><i>Бесщелевая, многоуровневая, 10 лет гарантии</i></span>
+              </button>
+            </div>
+          </div>
+
+          <!-- ШАГ 4 -->
+          <div class="calc-step" data-step="4">
+            <h4 class="calc-q">Что-то особенное добавить?</h4>
+            <div class="calc-checks">
+              <label class="calc-check">
+                <input type="checkbox" data-extra="lighting" data-cost="800">
+                <span class="calc-check-mark"></span>
+                <span class="calc-check-text"><b>Световые линии</b><i>+800 ₽ за погонный метр</i></span>
+              </label>
+              <label class="calc-check">
+                <input type="checkbox" data-extra="floating" data-cost="1200">
+                <span class="calc-check-mark"></span>
+                <span class="calc-check-text"><b>Парящий потолок</b><i>Скрытая LED-подсветка по периметру</i></span>
+              </label>
+              <label class="calc-check">
+                <input type="checkbox" data-extra="shadow" data-cost="1500">
+                <span class="calc-check-mark"></span>
+                <span class="calc-check-text"><b>Теневое примыкание</b><i>Без багета — как штукатурный потолок</i></span>
+              </label>
+              <label class="calc-check">
+                <input type="checkbox" data-extra="multi" data-cost="2000">
+                <span class="calc-check-mark"></span>
+                <span class="calc-check-text"><b>Многоуровневый</b><i>Ниши, ступени, разная высота</i></span>
+              </label>
+            </div>
+          </div>
+
+          <!-- ШАГ 5: GATE — показываем ориентир, точный расчёт после контакта -->
+          <div class="calc-step calc-step-result" data-step="5">
+            <div class="calc-result-locked">
+              <div class="calc-result-orient">
+                <div class="calc-result-orient-label">Ориентировочно ваш проект</div>
+                <div class="calc-result-orient-price" id="calcOrientPrice">— ₽</div>
+                <div class="calc-result-orient-note">Это рамочный диапазон без учёта вашей фактуры, светильников, нестандартных углов и обводов.</div>
+              </div>
+
+              <div class="calc-result-lock">
+                <div class="calc-result-lock-head">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                  <span>Точная цена для вашего проекта</span>
+                </div>
+                <p class="calc-result-lock-text">Технолог посчитает по вашим фото и пожеланиям. Пришлём в Telegram или WhatsApp за 48 часов — бесплатно, без обязательств.</p>
+
+                <form class="calc-form" id="calcForm">
+                  <input type="text" name="name" placeholder="Как к вам обращаться" required class="calc-input">
+                  <input type="text" name="contact" placeholder="+7… или @username в Telegram" required class="calc-input">
+                  <button type="submit" class="calc-submit">
+                    <span class="calc-submit-text">Получить точный расчёт →</span>
+                    <span class="calc-submit-loader"></span>
+                  </button>
+                  <div class="calc-form-legal">Нажимая, вы соглашаетесь с <a href="/privacy.html" target="_blank">политикой конфиденциальности</a>. Без спама и звонков-роботов.</div>
+                </form>
+              </div>
+            </div>
+
+            <!-- После отправки -->
+            <div class="calc-result-thanks" id="calcThanks">
+              <div class="calc-thanks-ico">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <h4 class="calc-thanks-h">Заявка принята</h4>
+              <p class="calc-thanks-p">Технолог уже видит ваш расчёт и пишет в чат. Ответ — в течение часа в рабочее время.</p>
+              <div class="calc-thanks-contacts">
+                <a href="https://t.me/dimasic_135" target="_blank" rel="noopener" class="calc-thanks-link">Telegram @dimasic_135 →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Навигация: назад / вперёд -->
+        <div class="calc-nav">
+          <button class="calc-back" id="calcBack" type="button">← Назад</button>
+          <button class="calc-next" id="calcNext" type="button" disabled>Дальше →</button>
+        </div>
+      </aside>
     </div>
   </section>
 

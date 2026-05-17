@@ -313,4 +313,165 @@ window.TG_CONFIG = {
     el.textContent = new Date().getFullYear();
   });
 
+  /* ----- 18. ИНТЕРАКТИВНЫЙ КАЛЬКУЛЯТОР HERO ----- */
+  var calc = $('#calc');
+  if(calc){
+    var state = {
+      step: 1,
+      type: null,   // room / apartment / house
+      area: 25,
+      line: null,   // classic / design / archi
+      extras: []
+    };
+
+    var TOTAL_STEPS = 5; // 4 шага + результат
+    var pricePerM2 = { classic: 1300, design: 2900, archi: 4500 };
+    var typeAreaDefault = { room: 22, apartment: 65, house: 140 };
+    var lineNames = { classic: 'Точная классика', design: 'Дизайн-линия', archi: 'Архитектурная' };
+    var typeNames = { room: 'Одна комната', apartment: 'Вся квартира', house: 'Загородный дом' };
+    var extraNames = { lighting: 'Световые линии', floating: 'Парящий потолок', shadow: 'Теневое примыкание', multi: 'Многоуровневый' };
+    var extraCost = { lighting: 800, floating: 1200, shadow: 1500, multi: 2000 };
+
+    var elSteps = $$('.calc-step', calc);
+    var elNext = $('#calcNext');
+    var elBack = $('#calcBack');
+    var elBar = $('#calcBar');
+    var elStepNum = $('#calcStepNum');
+    var elArea = $('#calcArea');
+    var elAreaVal = $('#calcAreaValue');
+    var elOrient = $('#calcOrientPrice');
+    var elForm = $('#calcForm');
+    var elThanks = $('#calcThanks');
+    var elLocked = $('.calc-result-locked', calc);
+
+    function fmt(n){ return Math.round(n).toLocaleString('ru-RU') + ' ₽'; }
+
+    function updateUI(){
+      elSteps.forEach(function(s){
+        s.classList.toggle('calc-step-active', parseInt(s.dataset.step,10) === state.step);
+      });
+      elBar.style.width = (state.step / TOTAL_STEPS * 100) + '%';
+      elStepNum.textContent = Math.min(state.step, 4);
+      elBack.disabled = (state.step <= 1);
+
+      // Доступна ли кнопка "Дальше"
+      var canNext = false;
+      if(state.step === 1) canNext = !!state.type;
+      else if(state.step === 2) canNext = state.area > 0;
+      else if(state.step === 3) canNext = !!state.line;
+      else if(state.step === 4) canNext = true; // extras опциональны
+
+      elNext.disabled = !canNext;
+      elNext.style.display = (state.step >= 5) ? 'none' : '';
+      elBack.style.display = (state.step >= 5 && elThanks.classList.contains('show')) ? 'none' : '';
+
+      if(state.step === 5) calcResult();
+    }
+
+    function calcResult(){
+      if(!state.line || !state.area) return;
+      var base = state.area * pricePerM2[state.line];
+      var extrasCost = 0;
+      state.extras.forEach(function(e){
+        extrasCost += (extraCost[e] || 0) * Math.sqrt(state.area);
+      });
+      var total = base + extrasCost;
+      var low = Math.round(total * 0.92 / 1000) * 1000;
+      var high = Math.round(total * 1.18 / 1000) * 1000;
+      elOrient.textContent = fmt(low) + ' — ' + fmt(high);
+    }
+
+    // Выбор опции (тип / линейка)
+    $$('.calc-opt', calc).forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var field = btn.dataset.field;
+        var value = btn.dataset.value;
+        state[field] = value;
+        // Подсветить выбранный
+        $$('.calc-opt[data-field="'+field+'"]', calc).forEach(function(x){ x.classList.remove('active'); });
+        btn.classList.add('active');
+        // Если тип помещения — подставим примерную площадь
+        if(field === 'type' && typeAreaDefault[value]){
+          state.area = typeAreaDefault[value];
+          if(elArea){ elArea.value = state.area; elAreaVal.textContent = state.area + ' м²'; }
+        }
+        updateUI();
+        // Авто-переход на шаг вперёд через 0.4с (только для type / line)
+        if(field === 'type' || field === 'line'){
+          setTimeout(function(){ if(state.step < 4) nextStep(); }, 380);
+        }
+      });
+    });
+
+    // Слайдер площади
+    if(elArea){
+      elArea.addEventListener('input', function(){
+        state.area = parseInt(elArea.value, 10);
+        elAreaVal.textContent = state.area + ' м²';
+        updateUI();
+      });
+    }
+
+    // Чекбоксы extras
+    $$('.calc-check input[type=checkbox]', calc).forEach(function(cb){
+      cb.addEventListener('change', function(){
+        var key = cb.dataset.extra;
+        if(cb.checked){
+          if(state.extras.indexOf(key) === -1) state.extras.push(key);
+        } else {
+          state.extras = state.extras.filter(function(x){ return x !== key; });
+        }
+      });
+    });
+
+    function nextStep(){ if(state.step < TOTAL_STEPS){ state.step++; updateUI(); } }
+    function prevStep(){ if(state.step > 1){ state.step--; updateUI(); } }
+    elNext.addEventListener('click', nextStep);
+    elBack.addEventListener('click', prevStep);
+
+    // Отправка формы калькулятора
+    elForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      var name = elForm.querySelector('input[name="name"]').value.trim();
+      var contact = elForm.querySelector('input[name="contact"]').value.trim();
+      if(!name || !contact) return;
+
+      var extrasStr = state.extras.length ? state.extras.map(function(e){return extraNames[e];}).join(', ') : 'нет';
+      var msg = '<b>🧮 Заявка из калькулятора hero</b>\n\n' +
+        '<b>Имя:</b> ' + name + '\n' +
+        '<b>Контакт:</b> ' + contact + '\n\n' +
+        '<b>Тип:</b> ' + (typeNames[state.type] || '—') + '\n' +
+        '<b>Площадь:</b> ' + state.area + ' м²\n' +
+        '<b>Линейка:</b> ' + (lineNames[state.line] || '—') + '\n' +
+        '<b>Опции:</b> ' + extrasStr + '\n' +
+        '<b>Ориентир:</b> ' + elOrient.textContent + '\n\n' +
+        '<i>Источник: главная / hero-калькулятор</i>\n' +
+        '<i>Время: ' + new Date().toLocaleString('ru-RU') + '</i>';
+
+      var btn = elForm.querySelector('.calc-submit');
+      btn.classList.add('loading');
+      btn.disabled = true;
+
+      sendToTelegram(msg).then(function(res){
+        if(res && (res.ok || res.mock)){
+          elLocked.style.display = 'none';
+          elThanks.classList.add('show');
+          elNext.style.display = 'none';
+          elBack.style.display = 'none';
+          if(window.ym){ try{ window.ym(109271388,'reachGoal','lead'); }catch(e){} }
+        } else {
+          alert('Не удалось отправить. Напишите нам в Telegram @dimasic_135');
+          btn.classList.remove('loading');
+          btn.disabled = false;
+        }
+      }).catch(function(){
+        alert('Не удалось отправить. Напишите нам в Telegram @dimasic_135');
+        btn.classList.remove('loading');
+        btn.disabled = false;
+      });
+    });
+
+    updateUI();
+  }
+
 })();
