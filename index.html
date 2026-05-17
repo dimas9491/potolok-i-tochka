@@ -182,80 +182,150 @@
 
 <main>
 
-  <!-- ====== HERO V3: СВЕТЛЫЙ + «3 ВАРИАНТА ДЛЯ ВАШЕЙ КОМНАТЫ» ====== -->
-  <section class="hero-light" id="hero">
-    <!-- Декоративные элементы -->
-    <div class="hl-bg-shape hl-bg-shape-1"></div>
-    <div class="hl-bg-shape hl-bg-shape-2"></div>
-    <div class="hl-bg-grid"></div>
+  <!-- ====== HERO V4: ИНТЕРАКТИВ + WOW ====== -->
+  <section class="hero-x" id="hero">
+    <!-- Marquee на фоне (гигантские прозрачные слова едут) -->
+    <div class="hero-x-marquee" aria-hidden="true">
+      <div class="hero-x-marquee-track">
+        <span>Парящие&nbsp;конструкции</span>
+        <span class="dot">·</span>
+        <span>Бесщелевые&nbsp;примыкания</span>
+        <span class="dot">·</span>
+        <span>Световые&nbsp;линии</span>
+        <span class="dot">·</span>
+        <span>Теневой&nbsp;профиль</span>
+        <span class="dot">·</span>
+        <span>Многоуровневые</span>
+        <span class="dot">·</span>
+        <span>Парящие&nbsp;конструкции</span>
+        <span class="dot">·</span>
+        <span>Бесщелевые&nbsp;примыкания</span>
+        <span class="dot">·</span>
+        <span>Световые&nbsp;линии</span>
+        <span class="dot">·</span>
+        <span>Теневой&nbsp;профиль</span>
+        <span class="dot">·</span>
+        <span>Многоуровневые</span>
+        <span class="dot">·</span>
+      </div>
+    </div>
 
-    <div class="hl-grid">
-      <!-- ЛЕВАЯ КОЛОНКА: короткий оффер + что делаем -->
-      <div class="hl-left">
-        <span class="hl-eyebrow"><span class="hl-eyebrow-dot"></span>Премиум-натяжные потолки · Москва</span>
+    <!-- Декоративные мягкие блики -->
+    <div class="hero-x-blob hero-x-blob-1"></div>
+    <div class="hero-x-blob hero-x-blob-2"></div>
+    <div class="hero-x-mesh"></div>
 
-        <h1 class="hl-h1">Натяжной потолок <em>ровно как у вашего дизайнера.</em></h1>
+    <div class="hero-x-grid">
+      <!-- ЛЕВО -->
+      <div class="hero-x-left">
+        <a href="/blog/" class="hero-x-pill">
+          <span class="hero-x-pill-tag">Новое</span>
+          <span class="hero-x-pill-text">Гайд «5 ошибок при выборе натяжного потолка» — бесплатно</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>
+        </a>
 
-        <p class="hl-sub">Без швов, упрощений и колхоза. <strong>Цена в договоре</strong> до начала монтажа. <strong>Гарантия на работу</strong>, не на плёнку.</p>
+        <h1 class="hero-x-h1">
+          Натяжной потолок<br>
+          <em class="hero-x-h1-em">ровно как у вашего дизайнера</em>
+        </h1>
 
-        <!-- Что делаем — короткие чипы -->
-        <div class="hl-services">
-          <span class="hl-srv">Парящие конструкции</span>
-          <span class="hl-srv">Бесщелевые примыкания</span>
-          <span class="hl-srv">Световые линии</span>
-          <span class="hl-srv">Многоуровневые</span>
-          <span class="hl-srv">Скрытый карниз</span>
-          <span class="hl-srv">Теневой профиль</span>
+        <!-- Интерактивные табы — меняют под-заголовок -->
+        <div class="hero-x-tabs" role="tablist" id="heroTabs">
+          <button class="hero-x-tab active" data-tab="apartment" role="tab">Квартира</button>
+          <button class="hero-x-tab" data-tab="house" role="tab">Загородный дом</button>
+          <button class="hero-x-tab" data-tab="designer" role="tab">С дизайнером</button>
+          <span class="hero-x-tab-glow" id="heroTabGlow"></span>
         </div>
 
-        <!-- 3 ключевых тезиса вместо длинных шагов -->
-        <ul class="hl-bullets">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Технолог читает <b>ваш дизайн-проект</b></span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Финальная цена <b>в договоре</b> — без доплат</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Не приняли по чек-листу — <b>переделаем</b></span></li>
-        </ul>
+        <p class="hero-x-sub" id="heroSub">
+          <span class="hero-x-sub-inner">Премиум-ремонт по дизайн-проекту. Парящие конструкции, световые линии, теневое примыкание. Цена в договоре, гарантия на работу 10 лет.</span>
+        </p>
+
+        <!-- Метрики-цифры с count-up -->
+        <div class="hero-x-stats">
+          <div class="hero-x-stat">
+            <div class="hero-x-stat-v">48</div>
+            <div class="hero-x-stat-l">часов на<br>3D и расчёт</div>
+          </div>
+          <div class="hero-x-stat-divider"></div>
+          <div class="hero-x-stat">
+            <div class="hero-x-stat-v">10</div>
+            <div class="hero-x-stat-l">лет гарантии<br>на монтаж</div>
+          </div>
+          <div class="hero-x-stat-divider"></div>
+          <div class="hero-x-stat">
+            <div class="hero-x-stat-v">0&nbsp;₽</div>
+            <div class="hero-x-stat-l">3D-проект<br>и смета</div>
+          </div>
+        </div>
+
+        <!-- Live-ticker фактов -->
+        <div class="hero-x-ticker" aria-live="polite">
+          <span class="hero-x-ticker-dot"></span>
+          <span class="hero-x-ticker-stack" id="tickerStack">
+            <span class="hero-x-ticker-item">Гарантия на монтаж, не на плёнку завода</span>
+            <span class="hero-x-ticker-item">Технолог читает ваш дизайн-проект и рендеры</span>
+            <span class="hero-x-ticker-item">Цена фиксируется в договоре до начала работ</span>
+            <span class="hero-x-ticker-item">Бригада в штате — имя и фото до выезда</span>
+            <span class="hero-x-ticker-item">Не приняли по чек-листу — переделаем за свой счёт</span>
+          </span>
+        </div>
       </div>
 
-      <!-- ПРАВАЯ КОЛОНКА: короткая карточка с минимумом -->
-      <aside class="hl-card" id="heroCard">
-        <div class="hl-card-head">
-          <span class="hl-card-tag">Бесплатно · ответ за 48 часов</span>
-          <h2 class="hl-card-title">Получите <em>3D-проект</em> вашего потолка</h2>
-          <p class="hl-card-lead">Технолог изучит ваш дизайн-проект или фото комнаты — пришлёт 3D-визуализацию и точную смету в Telegram.</p>
+      <!-- ПРАВО: tilt-карточка с glow -->
+      <aside class="hero-x-card" id="heroCard">
+        <div class="hero-x-card-glow"></div>
+        <div class="hero-x-card-inner">
+          <div class="hero-x-card-tag">
+            <span class="hero-x-card-tag-pulse"></span>
+            Бесплатно · ответ за 48 часов
+          </div>
+          <h2 class="hero-x-card-title">Получите <em>3D-проект</em><br>вашего потолка</h2>
+          <p class="hero-x-card-lead">Технолог изучит ваш дизайн-проект или фото комнаты — пришлёт 3D и точную смету в Telegram.</p>
+
+          <form class="hero-x-form" id="heroLeadForm" data-tg-form data-source="hero-v4">
+            <div class="hero-x-input-wrap">
+              <input type="text" class="hero-x-input" name="name" placeholder="Как к вам обращаться" required>
+              <span class="hero-x-input-line"></span>
+            </div>
+            <div class="hero-x-input-wrap">
+              <input type="text" class="hero-x-input" name="contact" placeholder="Telegram @username или телефон" required>
+              <span class="hero-x-input-line"></span>
+            </div>
+
+            <button type="submit" class="hero-x-cta">
+              <span class="hero-x-cta-glow"></span>
+              <span class="hero-x-cta-text">Получить 3D-проект</span>
+              <span class="hero-x-cta-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </button>
+
+            <div class="hero-x-form-legal">
+              Без спама и звонков-роботов · <a href="/privacy.html">Политика</a>
+            </div>
+          </form>
+
+          <div class="hero-x-card-alt">
+            <a href="https://t.me/dimasic_135" target="_blank" rel="noopener" class="hero-x-card-tg">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+              Удобнее? Напишите в Telegram
+            </a>
+          </div>
         </div>
 
-        <form class="hl-form" id="heroLeadForm" data-tg-form data-source="hero-v3">
-          <div class="hl-form-field">
-            <input type="text" class="hl-form-input" name="name" placeholder="Как к вам обращаться" required>
+        <!-- Спасибо после отправки -->
+        <div class="hero-x-thanks" id="heroThanks">
+          <div class="hero-x-thanks-confetti"></div>
+          <div class="hero-x-thanks-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" width="38" height="38"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
-          <div class="hl-form-field">
-            <input type="text" class="hl-form-input" name="contact" placeholder="Telegram (@username) или телефон" required>
-          </div>
-
-          <button type="submit" class="hl-form-submit">
-            <span class="hl-form-submit-text">Получить 3D-проект</span>
-            <svg class="hl-form-submit-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-
-          <div class="hl-form-legal">
-            Без спама и звонков-роботов. <a href="/privacy.html">Политика</a>.
-          </div>
-        </form>
-
-        <!-- Тонкая нижняя строка с альтернативой -->
-        <div class="hl-card-alt">
-          <span>Удобнее в Telegram?</span>
-          <a href="https://t.me/dimasic_135" target="_blank" rel="noopener">Написать @dimasic_135 →</a>
-        </div>
-
-        <!-- Спасибо -->
-        <div class="hl-thanks" id="heroThanks">
-          <div class="hl-thanks-ico">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" width="36" height="36"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <h3 class="hl-thanks-h">Заявка принята</h3>
-          <p class="hl-thanks-p">Технолог напишет в Telegram в течение часа. Рабочее время — 09:00–22:00 МСК.</p>
-          <a href="https://t.me/dimasic_135" target="_blank" rel="noopener" class="hl-thanks-link">Открыть чат →</a>
+          <h3 class="hero-x-thanks-h">Заявка принята</h3>
+          <p class="hero-x-thanks-p">Технолог пишет вам в Telegram. С 09:00 до 22:00 МСК — за час.</p>
+          <a href="https://t.me/dimasic_135" target="_blank" rel="noopener" class="hero-x-thanks-link">
+            Открыть Telegram-чат
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
         </div>
       </aside>
     </div>

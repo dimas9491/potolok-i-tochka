@@ -313,24 +313,131 @@ window.TG_CONFIG = {
     el.textContent = new Date().getFullYear();
   });
 
-  /* ----- 18. HERO LEAD FORM («3 варианта для вашей комнаты») ----- */
+  /* ----- 18. HERO V4: интерактив (tabs, ticker, tilt, форма) ----- */
   var heroCard = $('#heroCard');
   var heroLeadForm = $('#heroLeadForm');
-  if(heroCard && heroLeadForm){
+  var heroSub = $('#heroSub');
+  var heroTabs = $('#heroTabs');
+  var heroTabGlow = $('#heroTabGlow');
+  var tickerStack = $('#tickerStack');
+
+  // --- Табы: меняют подзаголовок ---
+  var SUB_TEXT = {
+    apartment: 'Премиум-ремонт по дизайн-проекту. Парящие конструкции, световые линии, теневое примыкание. Цена в договоре, гарантия на работу 10 лет.',
+    house: 'Многоуровневые конструкции, сложные геометрии, бесщелевые примыкания на больших площадях. Работаем с архитекторами загородных домов и КП.',
+    designer: 'Технолог читает ваш дизайн-проект и рендеры. Делаем точно как у вас в проекте — без упрощений и колхоза. Согласуем график с прорабом.'
+  };
+
+  function positionTabGlow(activeBtn){
+    if(!activeBtn || !heroTabGlow) return;
+    var parent = activeBtn.parentElement;
+    var prect = parent.getBoundingClientRect();
+    var brect = activeBtn.getBoundingClientRect();
+    heroTabGlow.style.left = (brect.left - prect.left) + 'px';
+    heroTabGlow.style.width = brect.width + 'px';
+  }
+
+  if(heroTabs && heroSub){
+    var heroTabBtns = $$('.hero-x-tab', heroTabs);
+    // init: позиционируем glow по active
+    var initial = heroTabs.querySelector('.hero-x-tab.active');
+    if(initial){
+      requestAnimationFrame(function(){ positionTabGlow(initial); });
+    }
+
+    heroTabBtns.forEach(function(b){
+      b.addEventListener('click', function(){
+        heroTabBtns.forEach(function(x){ x.classList.remove('active'); });
+        b.classList.add('active');
+        positionTabGlow(b);
+        var key = b.dataset.tab;
+        if(SUB_TEXT[key]){
+          // плавная смена текста
+          var inner = heroSub.querySelector('.hero-x-sub-inner');
+          if(inner){
+            inner.style.opacity = '0';
+            inner.style.transform = 'translateY(8px)';
+            setTimeout(function(){
+              inner.textContent = SUB_TEXT[key];
+              inner.style.transition = 'opacity .4s var(--easing), transform .4s var(--easing)';
+              inner.style.opacity = '1';
+              inner.style.transform = 'translateY(0)';
+            }, 200);
+          }
+        }
+      });
+    });
+    window.addEventListener('resize', function(){
+      var act = heroTabs.querySelector('.hero-x-tab.active');
+      if(act) positionTabGlow(act);
+    });
+  }
+
+  // --- Live-ticker фактов: ротация каждые 3.5с ---
+  if(tickerStack){
+    var tickerItems = $$('.hero-x-ticker-item', tickerStack);
+    var tickerIdx = 0;
+    if(tickerItems.length){
+      tickerItems[0].classList.add('active');
+      setInterval(function(){
+        var prev = tickerItems[tickerIdx];
+        prev.classList.remove('active');
+        prev.classList.add('leaving');
+        setTimeout(function(){ prev.classList.remove('leaving'); }, 600);
+        tickerIdx = (tickerIdx + 1) % tickerItems.length;
+        tickerItems[tickerIdx].classList.add('active');
+      }, 3500);
+    }
+  }
+
+  // --- 3D-tilt карточки за курсором ---
+  var cardInner = heroCard ? heroCard.querySelector('.hero-x-card-inner') : null;
+  if(heroCard && cardInner && !isTouch){
+    var raf = null;
+    var targetRX = 0, targetRY = 0, curRX = 0, curRY = 0;
+    function tick(){
+      curRX += (targetRX - curRX) * 0.12;
+      curRY += (targetRY - curRY) * 0.12;
+      cardInner.style.transform = 'perspective(1000px) rotateX('+curRX.toFixed(2)+'deg) rotateY('+curRY.toFixed(2)+'deg)';
+      if(Math.abs(targetRX - curRX) > 0.01 || Math.abs(targetRY - curRY) > 0.01){
+        raf = requestAnimationFrame(tick);
+      } else { raf = null; }
+    }
+    heroCard.addEventListener('mousemove', function(e){
+      var r = heroCard.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - 0.5;
+      var y = (e.clientY - r.top) / r.height - 0.5;
+      targetRY = x * 5;
+      targetRX = -y * 5;
+      if(!raf) raf = requestAnimationFrame(tick);
+    });
+    heroCard.addEventListener('mouseleave', function(){
+      targetRX = 0; targetRY = 0;
+      if(!raf) raf = requestAnimationFrame(tick);
+    });
+  }
+
+  // --- Отправка формы ---
+  if(heroLeadForm && heroCard){
     heroLeadForm.addEventListener('submit', function(e){
       e.preventDefault();
       var name = (heroLeadForm.querySelector('input[name="name"]').value || '').trim();
       var contact = (heroLeadForm.querySelector('input[name="contact"]').value || '').trim();
       if(!name || !contact) return;
 
-      var msg = '<b>🏠 Заявка с главной — 3 варианта потолка</b>\n\n' +
+      // Какой таб активен сейчас
+      var activeTab = heroTabs ? heroTabs.querySelector('.hero-x-tab.active') : null;
+      var tabName = activeTab ? activeTab.textContent.trim() : '—';
+
+      var msg = '<b>🎯 Заявка с главной (hero V4)</b>\n\n' +
         '<b>Имя:</b> ' + name + '\n' +
-        '<b>Контакт:</b> ' + contact + '\n\n' +
-        '<i>Что хочет:</i> 3 варианта 3D-визуализации потолка по фото комнаты\n' +
-        '<i>Источник:</i> главная / hero V3\n' +
+        '<b>Контакт:</b> ' + contact + '\n' +
+        '<b>Тип:</b> ' + tabName + '\n\n' +
+        '<i>Хочет:</i> 3D-проект потолка + смета\n' +
+        '<i>Источник:</i> главная hero\n' +
         '<i>Время:</i> ' + new Date().toLocaleString('ru-RU');
 
-      var btn = heroLeadForm.querySelector('.hl-form-submit');
+      var btn = heroLeadForm.querySelector('.hero-x-cta');
       btn.classList.add('loading');
       btn.disabled = true;
 
