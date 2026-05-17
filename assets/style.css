@@ -196,7 +196,23 @@
   .hl-sub{font-size:clamp(16px,1.3vw,18px);line-height:1.6;color:var(--ink-2);margin:0;max-width:58ch}
   .hl-sub strong{color:var(--ink);font-weight:600;background:linear-gradient(180deg,transparent 60%,rgba(232,99,58,.22) 60%);padding:0 2px}
 
-  /* 3 шага */
+  /* Чипы услуг */
+  .hl-services{display:flex;flex-wrap:wrap;gap:7px;margin-top:4px}
+  .hl-srv{display:inline-flex;align-items:center;font-size:13px;color:var(--ink-2);padding:6px 12px;background:rgba(255,255,255,.7);border:1px solid var(--line);border-radius:999px;transition:.2s;backdrop-filter:blur(6px)}
+  .hl-srv:hover{border-color:var(--indigo);color:var(--indigo);background:#fff}
+
+  /* 3 ключевых буллета (короткие) */
+  .hl-bullets{list-style:none;padding:0;margin:8px 0 0;display:flex;flex-direction:column;gap:10px}
+  .hl-bullets li{display:flex;align-items:center;gap:12px;font-size:15.5px;color:var(--ink-2);line-height:1.4}
+  .hl-bullets li svg{flex:none;width:18px;height:18px;color:var(--indigo);stroke:var(--indigo)}
+  .hl-bullets li b{color:var(--ink);font-weight:600}
+
+  /* Альтернатива снизу карточки */
+  .hl-card-alt{margin-top:18px;padding-top:18px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13.5px;color:var(--ink-3)}
+  .hl-card-alt a{color:var(--indigo);font-weight:500;text-decoration:none;border-bottom:1px solid rgba(40,64,232,.25);padding-bottom:1px;transition:.2s}
+  .hl-card-alt a:hover{border-bottom-color:var(--indigo)}
+
+  /* 3 шага (deprecated — оставлено на случай реактивации) */
   .hl-steps{list-style:none;padding:0;margin:14px 0 0;display:flex;flex-direction:column;gap:18px;counter-reset:hl}
   .hl-step{display:flex;gap:18px;align-items:flex-start;padding:18px 22px;background:rgba(255,255,255,.65);border:1px solid var(--line);border-radius:18px;backdrop-filter:blur(8px);transition:.3s var(--easing);position:relative;overflow:hidden}
   .hl-step:hover{transform:translateX(4px);border-color:var(--indigo);box-shadow:0 22px 50px -30px rgba(40,64,232,.25)}
