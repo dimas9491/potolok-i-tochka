@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" fill="#ffffff" rx="10"/>
-  <g fill="#0d0e12">
-    <path d="M10 30 L32 14 L54 30 L46 30 L32 20 L18 30 Z"/>
-    <path d="M14 38 L32 26 L50 38 L42 38 L32 30 L22 38 Z"/>
-  </g>
-  <text x="32" y="56" font-family="-apple-system, system-ui, Arial" font-size="9" font-weight="800" fill="#0d0e12" text-anchor="middle" letter-spacing="0.6">П·Т</text>
-</svg>

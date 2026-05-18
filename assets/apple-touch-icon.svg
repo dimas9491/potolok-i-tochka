@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-  <rect width="200" height="200" fill="#ffffff" rx="36"/>
-  <g fill="#0d0e12">
-    <path d="M40 75 L100 30 L160 75 L140 78 L100 46 L60 78 Z"/>
-    <path d="M48 95 L100 58 L152 95 L132 98 L100 72 L68 98 Z"/>
-  </g>
-  <text x="100" y="142" font-family="-apple-system, system-ui, Arial" font-size="22" font-weight="800" fill="#0d0e12" text-anchor="middle" letter-spacing="1.5">ПОТОЛОК</text>
-  <text x="100" y="170" font-family="-apple-system, system-ui, Arial" font-size="22" font-weight="800" fill="#0d0e12" text-anchor="middle" letter-spacing="1.5">И ТОЧКА</text>
-</svg>
