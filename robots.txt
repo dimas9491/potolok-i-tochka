@@ -1,8 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /privacy.html
-Disallow: /offer.html
 Disallow: /404.html
 
 Sitemap: https://premium-ceiling-landing.vercel.app/sitemap.xml
-Host: premium-ceiling-landing.vercel.app

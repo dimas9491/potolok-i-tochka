@@ -17,8 +17,8 @@
 <meta property="og:locale" content="ru_RU">
 <meta property="og:site_name" content="Потолок и точка">
 <meta property="og:image" content="https://premium-ceiling-landing.vercel.app/assets/img/03-atmosphere-wow-living-room.jpg">
-<meta property="og:image:width" content="1600">
-<meta property="og:image:height" content="1067">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1600">
 <meta property="og:image:alt" content="Натяжной потолок премиум-класса с парящей световой линией и теневым примыканием">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Покажем как будет выглядеть ваш потолок — за час, бесплатно">
@@ -37,7 +37,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://api.telegram.org">
-<link rel="preload" as="image" href="/assets/hero.jpg" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/style.css">
 <script type="application/ld+json">
@@ -118,11 +117,12 @@
       },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Линейки услуг",
+        "name": "Типы потолков",
         "itemListElement": [
-          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Точная классика — базовая линейка"}},
-          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Дизайн-линия — парящие конструкции, скрытый карниз"}},
-          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Архитектурная — теневое примыкание, многоуровневые"}}
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Теневое примыкание (бесщелевой потолок)"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Парящие конструкции со световыми линиями"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Многоуровневые потолки по дизайн-проекту"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Бесплатная 3D-визуализация по фото"}}
         ]
       }
     },
@@ -146,7 +146,7 @@
 
 <header class="topnav">
   <div class="topnav-inner">
-    <a href="#" class="logo"><img src="/assets/logo.png" alt="Потолок и точка — натяжные потолки" width="855" height="676" fetchpriority="high" decoding="async"></a>
+    <a href="/" class="logo"><img src="/assets/logo.png" alt="Потолок и точка — натяжные потолки" width="855" height="676" fetchpriority="high" decoding="async"></a>
     <nav class="main">
       <a href="#types">Что делаем</a>
       <a href="#process">Как работаем</a>
@@ -158,7 +158,7 @@
     <a href="tel:+79006556999" class="phone">+7 900 655-69-99</a>
     <a href="#final" class="btn primary">Получить визуализацию <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     <a href="tel:+79006556999" class="ic-link" aria-label="Позвонить"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7a2 2 0 0 1 1.72 2z"/></svg></a>
-    <button class="burger" id="burger" aria-label="меню" aria-expanded="false"><span></span><span></span><span></span></button>
+    <button class="burger" id="burger" aria-label="меню" aria-controls="drawer" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
 
@@ -312,13 +312,13 @@
             </li>
           </ul>
 
-          <form class="hero-x-form" id="heroLeadForm" data-tg-form data-source="hero-v4">
+          <form class="hero-x-form" id="heroLeadForm" data-source="hero-v4">
             <div class="hero-x-input-wrap">
-              <input type="text" class="hero-x-input" name="name" placeholder="Как к вам обращаться" required>
+              <input type="text" class="hero-x-input" name="name" placeholder="Как к вам обращаться" aria-label="Имя" required>
               <span class="hero-x-input-line"></span>
             </div>
             <div class="hero-x-input-wrap">
-              <input type="text" class="hero-x-input" name="contact" placeholder="Telegram @username или телефон" required>
+              <input type="text" class="hero-x-input" name="contact" placeholder="Telegram @username или телефон" aria-label="Telegram или телефон" required>
               <span class="hero-x-input-line"></span>
             </div>
 
@@ -780,7 +780,7 @@
     </div>
 
     <div style="display:flex;justify-content:center;margin-top:36px">
-      <a href="#" class="btn ghost">Посмотреть все объекты <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="#portfolio" class="btn ghost">Посмотреть все объекты <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
   </section>
 
@@ -1106,14 +1106,14 @@
               Согласен на обработку персональных данных
             </label>
             <button type="submit" class="btn indigo">Отправить заявку <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-            <div class="legal">Перезвоним за 30 минут. С 09:00 до 22:00 МСК. Без спама и роботов.</div>
+            <div class="legal">Перезвоним в течение часа. С 09:00 до 22:00 МСК. Без спама и роботов.</div>
           </div>
           <div class="thanks" style="display:none;text-align:center;padding:40px 10px">
             <div style="width:60px;height:60px;border-radius:50%;background:var(--indigo);margin:0 auto 18px;display:flex;align-items:center;justify-content:center">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
             </div>
             <h3 style="margin-bottom:8px">Заявка принята</h3>
-            <p style="color:var(--ink-3);font-size:14.5px;max-width:34ch;margin:0 auto">Технолог перезвонит за 30 минут. Готовьте дизайн-проект или подборку — пригодятся для расчёта.</p>
+            <p style="color:var(--ink-3);font-size:14.5px;max-width:34ch;margin:0 auto">Технолог перезвонит в течение часа. Готовьте дизайн-проект или подборку — пригодятся для расчёта.</p>
           </div>
         </form>
       </div>
@@ -1125,22 +1125,22 @@
 <footer>
   <div class="foot-grid">
     <div>
-      <a href="#" class="logo" style="margin-bottom:16px"><img src="/assets/logo.png" alt="Потолок и точка — натяжные потолки" width="855" height="676" loading="lazy" decoding="async"></a>
+      <a href="/" class="logo" style="margin-bottom:16px"><img src="/assets/logo.png" alt="Потолок и точка — натяжные потолки" width="855" height="676" loading="lazy" decoding="async"></a>
       <p style="font-size:14px;color:var(--ink-3);max-width:34ch">Премиум-монтаж натяжных потолков по дизайн-проекту. Москва и область.</p>
-      <div style="display:flex;gap:10px;margin-top:18px">
-        <a href="https://t.me/dimasic_135" target="_blank" rel="noopener" aria-label="Telegram" style="width:38px;height:38px;border:1px solid var(--line);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--ink-2);transition:.2s" onmouseover="this.style.borderColor='var(--indigo)';this.style.color='var(--indigo)'" onmouseout="this.style.borderColor='var(--line)';this.style.color='var(--ink-2)'"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></a>
-        <a href="https://wa.me/79006556999" target="_blank" rel="noopener" aria-label="WhatsApp" style="width:38px;height:38px;border:1px solid var(--line);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--ink-2);transition:.2s" onmouseover="this.style.borderColor='var(--indigo)';this.style.color='var(--indigo)'" onmouseout="this.style.borderColor='var(--line)';this.style.color='var(--ink-2)'"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
-        <a href="tel:+79006556999" aria-label="Позвонить" style="width:38px;height:38px;border:1px solid var(--line);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--ink-2);transition:.2s" onmouseover="this.style.borderColor='var(--indigo)';this.style.color='var(--indigo)'" onmouseout="this.style.borderColor='var(--line)';this.style.color='var(--ink-2)'"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7a2 2 0 0 1 1.72 2z"/></svg></a>
+      <div class="foot-socials">
+        <a href="https://t.me/dimasic_135" target="_blank" rel="noopener noreferrer" aria-label="Telegram" class="foot-soc"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></a>
+        <a href="https://wa.me/79006556999" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="foot-soc"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+        <a href="tel:+79006556999" aria-label="Позвонить" class="foot-soc"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7a2 2 0 0 1 1.72 2z"/></svg></a>
       </div>
     </div>
 
     <div>
       <h5>Услуги</h5>
       <ul>
-        <li><a href="/#lines">Натяжные потолки по дизайн-проекту</a></li>
-        <li><a href="/#lines">Парящие конструкции</a></li>
-        <li><a href="/#lines">Световые линии и сценарии</a></li>
-        <li><a href="/#lines">Многоуровневые потолки</a></li>
+        <li><a href="/#types">Натяжные потолки по дизайн-проекту</a></li>
+        <li><a href="/#types">Парящие конструкции</a></li>
+        <li><a href="/#types">Световые линии и сценарии</a></li>
+        <li><a href="/#types">Многоуровневые потолки</a></li>
               </ul>
     </div>
 
