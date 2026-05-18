@@ -48,8 +48,12 @@ window.TG_CONFIG = {
         }
       });
     }, {rootMargin:'0px 0px -10% 0px'});
-    $$('.reveal').forEach(function(s){ ro.observe(s); });
-    $$('.reveal-stagger').forEach(function(s){ ro.observe(s); });
+    var revealSelectors = [
+      '.reveal','.reveal-up','.reveal-down','.reveal-left','.reveal-right',
+      '.reveal-scale','.reveal-blur','.reveal-rotate','.reveal-clip','.reveal-flip',
+      '.reveal-stagger','.reveal-stagger-scale'
+    ];
+    $$(revealSelectors.join(',')).forEach(function(s){ ro.observe(s); });
   }
 
   /* ----- 4. COUNT-UP для чисел ----- */

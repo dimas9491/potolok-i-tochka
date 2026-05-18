@@ -381,7 +381,7 @@
   </section>
 
   <!-- ====== БОЛЬ КЛИЕНТА — 3 истории премиум-ремонта ====== -->
-  <section id="pain" class="pain reveal">
+  <section id="pain" class="pain reveal-up">
     <div class="pain-head">
       <span class="pain-eyebrow">Знакомо?</span>
       <h2 class="pain-h2">Что обычно <em>портит</em> премиум-ремонт</h2>
@@ -428,7 +428,7 @@
   </section>
 
   <!-- ====== НАГЛЯДНО — фото клиента → визуализация ====== -->
-  <section id="how-it-works" class="nagl reveal">
+  <section id="how-it-works" class="nagl reveal-scale">
     <div class="nagl-head">
       <span class="nagl-eyebrow">Как это работает</span>
       <h2 class="nagl-h2">Покажем, как будет выглядеть <em>именно у вас</em></h2>
@@ -492,7 +492,7 @@
   </section>
 
   <!-- ====== ПОЧЕМУ НЕ НАЗЫВАЕМ ЦЕНУ — РАСШИРЕННЫЙ ====== -->
-  <section id="prices" class="prices-deep reveal">
+  <section id="prices" class="prices-deep reveal-blur">
     <div class="prices-deep-head">
       <span class="prices-deep-eyebrow">Честно про цены</span>
       <h2 class="prices-deep-h2">Откуда «от 299 ₽/м²»<br><em>и почему это всегда обман</em></h2>
@@ -606,7 +606,7 @@
   </section>
 
   <!-- ====== ТИПЫ ПОТОЛКОВ — что мы делаем ====== -->
-  <section id="types" class="types reveal">
+  <section id="types" class="types reveal-up">
     <div class="types-head">
       <span class="types-eyebrow">Что мы делаем</span>
       <h2 class="types-h2">Премиум-конструкции <em>под дизайн-проект</em></h2>
@@ -659,14 +659,14 @@
   </section>
 
   <!-- ====== PROCESS ====== -->
-  <section id="process" class="reveal">
+  <section id="process" class="reveal-left">
     <div class="section-head">
       <span class="eyebrow">Как мы работаем</span>
       <h2>Шесть шагов <em class="indigo">от заявки до подписи</em></h2>
       <p class="lead">Каждый шаг закрыт документом: 3D-проектом, договором, чек-листом, гарантией. Никаких «созвонимся-договоримся».</p>
     </div>
 
-    <div class="process">
+    <div class="process reveal-stagger">
       <div class="proc">
         <div class="pn">01</div>
         <h3>Заявка в чате</h3>
@@ -706,8 +706,31 @@
     </div>
   </section>
 
+  <!-- ====== АТМОСФЕРА — BENTO GALLERY ====== -->
+  <section id="atmosphere" class="gallery-section reveal-up">
+    <div class="gallery-head">
+      <div>
+        <span class="eyebrow">Атмосфера</span>
+        <h2 style="margin-top:14px">Как это выглядит <em class="indigo">в жизни</em></h2>
+      </div>
+      <span class="gallery-meta">Премиум-объекты · 2024–2026</span>
+    </div>
+
+    <div class="bento reveal-stagger-scale">
+      <div class="photo-slot b1"><span class="ps-num">01</span><span class="ps-mark">П·Т</span></div>
+      <div class="photo-slot b2"><span class="ps-num">02</span><span class="ps-mark">П·Т</span></div>
+      <div class="photo-slot b3"><span class="ps-num">03</span><span class="ps-mark">П·Т</span></div>
+      <div class="photo-slot b4"><span class="ps-num">04</span><span class="ps-mark">П·Т</span></div>
+      <div class="photo-slot b5"><span class="ps-num">05</span><span class="ps-mark">П·Т</span></div>
+      <div class="photo-slot b6"><span class="ps-num">06</span><span class="ps-mark">П·Т</span></div>
+      <div class="photo-slot b7"><span class="ps-num">07</span><span class="ps-mark">П·Т</span></div>
+      <div class="photo-slot b8"><span class="ps-num">08</span><span class="ps-mark">П·Т</span></div>
+      <div class="photo-slot b9"><span class="ps-num">09</span><span class="ps-mark">П·Т</span></div>
+    </div>
+  </section>
+
   <!-- ====== PORTFOLIO ====== -->
-  <section id="portfolio" class="reveal">
+  <section id="portfolio" class="reveal-up">
     <div class="section-head">
       <span class="eyebrow">Объекты, принятые по чек-листу</span>
       <h2>Сложные потолки, <em class="rust">не «комната под ключ»</em></h2>
@@ -723,7 +746,7 @@
       <button class="filter-btn" data-f="shadow">Бесщелевые / теневые</button>
     </div>
 
-    <div class="portfolio-grid">
+    <div class="portfolio-grid reveal-stagger-scale">
       <div class="pf pf-1 ph" data-cat="zhk light"><span class="ph-mark">Кейс 01</span>
         <div class="ph-caption">
           <strong>Гостиная 42 м² · ЖК «Бадаевский»</strong>
@@ -780,16 +803,45 @@
     </div>
   </section>
 
+  <!-- ====== STRIP — бесконечная полоса фото ====== -->
+  <section class="strip-section reveal-clip">
+    <div class="container">
+      <div class="strip-head">
+        <h3>Фрагменты с объектов</h3>
+        <span class="label">Прокрутка / наведите курсор — пауза</span>
+      </div>
+    </div>
+    <div class="strip-track">
+      <div class="photo-slot"><span class="ps-num">A·01</span></div>
+      <div class="photo-slot"><span class="ps-num">A·02</span></div>
+      <div class="photo-slot"><span class="ps-num">A·03</span></div>
+      <div class="photo-slot"><span class="ps-num">A·04</span></div>
+      <div class="photo-slot"><span class="ps-num">A·05</span></div>
+      <div class="photo-slot"><span class="ps-num">A·06</span></div>
+      <div class="photo-slot"><span class="ps-num">A·07</span></div>
+      <div class="photo-slot"><span class="ps-num">A·08</span></div>
+      <div class="photo-slot"><span class="ps-num">A·01</span></div>
+      <div class="photo-slot"><span class="ps-num">A·02</span></div>
+      <div class="photo-slot"><span class="ps-num">A·03</span></div>
+      <div class="photo-slot"><span class="ps-num">A·04</span></div>
+      <div class="photo-slot"><span class="ps-num">A·05</span></div>
+      <div class="photo-slot"><span class="ps-num">A·06</span></div>
+      <div class="photo-slot"><span class="ps-num">A·07</span></div>
+      <div class="photo-slot"><span class="ps-num">A·08</span></div>
+    </div>
+  </section>
+
   <!-- ====== МАТЕРИАЛЫ И ОБОРУДОВАНИЕ ====== -->
-  <section id="materials" class="materials reveal">
+  <section id="materials" class="materials reveal-right">
     <div class="materials-head">
       <span class="materials-eyebrow">Материалы</span>
       <h2 class="materials-h2">С чем работаем</h2>
       <p class="materials-lead">Только сертифицированные материалы от европейских производителей. Сертификаты пожарной и санитарной безопасности — отдаём вместе с гарантией в день монтажа.</p>
     </div>
 
-    <div class="materials-grid">
+    <div class="materials-grid reveal-stagger">
       <div class="materials-card">
+        <div class="photo-slot mat-slot"><span class="ps-num">M·01</span><span class="ps-mark">П·Т</span></div>
         <div class="materials-card-label">Полотна</div>
         <ul class="materials-list">
           <li><b>Pongs</b><span>Германия · базовый стандарт</span></li>
@@ -800,6 +852,7 @@
       </div>
 
       <div class="materials-card">
+        <div class="photo-slot mat-slot"><span class="ps-num">M·02</span><span class="ps-mark">П·Т</span></div>
         <div class="materials-card-label">Профили</div>
         <ul class="materials-list">
           <li><b>Теневой EuroKraab</b><span>аналог · тонкая щель 2 мм</span></li>
@@ -810,6 +863,7 @@
       </div>
 
       <div class="materials-card">
+        <div class="photo-slot mat-slot"><span class="ps-num">M·03</span><span class="ps-mark">П·Т</span></div>
         <div class="materials-card-label">Свет</div>
         <ul class="materials-list">
           <li><b>LED-ленты</b><span>CRI 90+ · 2700–6500K · диммируемые</span></li>
@@ -824,7 +878,7 @@
   </section>
 
   <!-- ====== TEAM ====== -->
-  <section id="team" class="reveal">
+  <section id="team" class="reveal-scale">
     <div class="section-head">
       <span class="eyebrow">Технологи и бригады</span>
       <h2>Команда <em class="rust">в штате</em>, не подряд</h2>
@@ -832,7 +886,7 @@
       <p style="font-size:13px;color:var(--ink-3);font-style:italic;margin-top:10px">Раздел в подготовке — реальные фото и имена сотрудников появятся после найма команды. Сейчас здесь показаны роли, которые мы закрываем.</p>
     </div>
 
-    <div class="team-grid">
+    <div class="team-grid reveal-stagger">
       <div class="tm tm-1 ph"><span class="ph-mark">Главное лицо</span>
         <div class="ph-caption">
           <strong>Главный технолог</strong>
@@ -879,7 +933,7 @@
   </section>
 
   <!-- ====== DOCS / RISK ====== -->
-  <section id="risk" class="reveal">
+  <section id="risk" class="reveal-blur">
     <div class="section-head">
       <span class="eyebrow">Что вы получаете на руки</span>
       <h2>Шесть документов — <em class="indigo">каждое обещание</em> подтверждено</h2>
@@ -960,7 +1014,7 @@
   </section>
 
   <!-- ====== FAQ ====== -->
-  <section id="faq" class="reveal">
+  <section id="faq" class="reveal-up">
     <div class="section-head" style="text-align:center;display:flex;flex-direction:column;align-items:center">
       <span class="eyebrow">Частые вопросы</span>
       <h2 style="max-width:20ch">Что обычно <em class="indigo">спрашивают перед</em> заказом</h2>
@@ -1026,7 +1080,7 @@
   </section>
 
   <!-- ====== FINAL CTA ====== -->
-  <section id="final" class="reveal" style="padding:60px 0">
+  <section id="final" class="reveal-scale" style="padding:60px 0">
     <div class="final">
       <div class="final-inner">
         <div>
