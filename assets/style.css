@@ -333,7 +333,7 @@
   }
   @media (max-width:768px){
     /* Простой Hero на мобиле: H1 → одна фраза → кнопка → метрики */
-    .hero-x{padding:20px 16px 32px;min-height:calc(100dvh - 80px);overflow:hidden;display:flex;align-items:flex-start}
+    .hero-x{padding:20px 16px 32px;min-height:auto;overflow:hidden}
     .hero-x-grid{gap:18px;grid-template-columns:1fr}
     .hero-x-left{gap:16px;width:100%}
 
