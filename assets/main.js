@@ -458,7 +458,67 @@ window.TG_CONFIG = {
     });
   }
 
-  /* ----- 19. ИНТЕРАКТИВНЫЙ КАЛЬКУЛЯТОР HERO (deprecated, оставлен) ----- */
+  /* ----- 19. BEFORE/AFTER СЛАЙДЕР («Наглядно: фото → визуализация») ----- */
+  var naglSlider = $('#naglSlider');
+  if(naglSlider){
+    var frame = naglSlider.querySelector('.nagl-slider-frame');
+    var before = naglSlider.querySelector('#naglBefore');
+    var handle = naglSlider.querySelector('#naglHandle');
+    var dragging = false;
+
+    function setPos(px){
+      var rect = frame.getBoundingClientRect();
+      var pct = Math.max(0, Math.min(100, ((px - rect.left) / rect.width) * 100));
+      handle.style.left = pct + '%';
+      before.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
+    }
+
+    function onDown(e){ dragging = true; document.body.style.userSelect = 'none'; e.preventDefault(); }
+    function onUp(){ dragging = false; document.body.style.userSelect = ''; }
+    function onMove(e){
+      if(!dragging) return;
+      var clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      setPos(clientX);
+    }
+
+    handle.addEventListener('mousedown', onDown);
+    handle.addEventListener('touchstart', onDown, {passive:false});
+    frame.addEventListener('mousedown', function(e){
+      dragging = true;
+      onMove(e);
+    });
+    document.addEventListener('mousemove', onMove);
+    document.addEventListener('touchmove', onMove, {passive:true});
+    document.addEventListener('mouseup', onUp);
+    document.addEventListener('touchend', onUp);
+
+    // Демо-анимация — медленно проедет туда-сюда один раз при появлении в viewport
+    if('IntersectionObserver' in window){
+      var played = false;
+      var obs = new IntersectionObserver(function(ents){
+        ents.forEach(function(e){
+          if(e.isIntersecting && !played){
+            played = true;
+            var start = performance.now();
+            function demo(now){
+              var t = (now - start) / 2200;
+              if(t > 1){ handle.style.left = '50%'; before.style.clipPath = 'inset(0 50% 0 0)'; return; }
+              // Sine wave: идёт от 50% к 80%, потом к 20%, потом обратно к 50%
+              var phase = t * Math.PI * 2;
+              var pct = 50 + Math.sin(phase) * 30;
+              handle.style.left = pct + '%';
+              before.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
+              requestAnimationFrame(demo);
+            }
+            setTimeout(function(){ requestAnimationFrame(demo); }, 400);
+          }
+        });
+      }, {threshold: 0.3});
+      obs.observe(naglSlider);
+    }
+  }
+
+  /* ----- 20. ИНТЕРАКТИВНЫЙ КАЛЬКУЛЯТОР HERO (deprecated, оставлен) ----- */
   var calc = $('#calc');
   if(calc){
     var state = {
