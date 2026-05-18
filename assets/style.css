@@ -799,7 +799,7 @@
   /* ===== PROCESS ===== */
   .process{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
   .proc{padding:28px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-l);transition:.3s;position:relative}
-  .proc:hover{border-color:var(--indigo);transform:translateY(-3px)}
+  .proc:hover{border-color:var(--line);transform:translateY(-3px);box-shadow:0 18px 40px -22px rgba(13,14,18,.18)}
   .proc .pn{font-family:'Space Grotesk',sans-serif;font-size:42px;font-weight:600;color:var(--indigo);line-height:1;letter-spacing:-.02em;margin-bottom:8px}
   .proc h3{font-size:19px;margin-bottom:10px;letter-spacing:-.01em}
   .proc p{font-size:14px;color:var(--ink-2)}
