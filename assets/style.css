@@ -315,6 +315,9 @@
   .hero-x-thanks-link svg{width:16px;height:16px;transition:.2s}
   .hero-x-thanks-link:hover svg{transform:translateX(3px)}
 
+  /* Мобильный CTA — на десктопе скрыт */
+  .hero-x-mobile-cta{display:none}
+
   /* Адаптив */
   @media (max-width:1080px){
     .hero-x{padding:30px 20px 40px;min-height:auto}
@@ -324,27 +327,59 @@
     .hero-x-stats{gap:0;padding:12px 0}
   }
   @media (max-width:768px){
-    .hero-x{padding:70px 16px 36px}
-    .hero-x-h1{font-size:clamp(34px,8vw,52px);letter-spacing:-.02em}
-    .hero-x-sub{font-size:15.5px;min-height:50px}
-    .hero-x-stat-v{font-size:32px}
-    .hero-x-stat-l{font-size:9.5px}
-    .hero-x-tabs{flex-wrap:wrap}
-    .hero-x-tab{padding:9px 14px;font-size:13px}
-    .hero-x-card-inner{padding:24px 22px;border-radius:20px}
-    .hero-x-card-glow{border-radius:22px}
-    .hero-x-marquee-track{font-size:60px}
-    .hero-x-pill-text{font-size:12px}
+    /* Hero помещается в первый экран: nav ~76px + content */
+    .hero-x{padding:14px 16px 24px;min-height:calc(100dvh - 76px);display:flex;align-items:flex-start}
+    .hero-x-grid{gap:18px;grid-template-columns:1fr}
+    .hero-x-left{gap:14px}
+
+    /* Убираем визуальный шум на мобиле */
+    .hero-x-marquee{display:none}
+    .hero-x-ticker{display:none}
+
+    /* Pill компактнее */
+    .hero-x-pill{font-size:11.5px;padding:5px 7px 5px 6px;align-self:flex-start}
+    .hero-x-pill-text{font-size:11.5px}
+
+    /* H1 — короче и плотнее */
+    .hero-x-h1{font-size:clamp(30px,7.5vw,42px);letter-spacing:-.02em;line-height:1.05;margin:0}
+
+    /* Tabs скрыты на мобиле — лишний интерактив */
+    .hero-x-tabs{display:none}
+
+    /* Sub короче */
+    .hero-x-sub{font-size:15px;line-height:1.45;min-height:auto;margin:2px 0 0}
+
+    /* Stats компактно в одну строку */
+    .hero-x-stats{flex-direction:row;gap:0;padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:4px}
+    .hero-x-stat{flex:1;text-align:center;align-items:center;flex-direction:column;gap:2px}
+    .hero-x-stat-v{font-size:22px;line-height:1}
+    .hero-x-stat-l{font-size:9px;line-height:1.2;text-align:center}
+    .hero-x-stat-l br{display:none}
+    .hero-x-stat-divider{width:1px;height:36px;align-self:center;margin:0;background:var(--line)}
+
+    /* Mobile CTA — большая кнопка под текстом */
+    .hero-x-mobile-cta{
+      display:flex;align-items:center;justify-content:center;gap:10px;
+      padding:16px 22px;background:var(--ink);color:#fff;
+      border-radius:14px;font-family:'Space Grotesk',sans-serif;
+      font-size:16px;font-weight:600;letter-spacing:-.005em;
+      text-decoration:none;transition:.25s var(--easing);
+      box-shadow:0 14px 32px -10px rgba(13,14,18,.4);
+      margin-top:4px;
+    }
+    .hero-x-mobile-cta:active{transform:scale(.98)}
+    .hero-x-mobile-cta svg{width:18px;height:18px}
+
+    /* Карточка-форма скрыта на мобиле — заменена mobile CTA */
+    .hero-x-card{display:none}
   }
   @media (max-width:480px){
-    .hero-x{padding:60px 14px 30px}
-    .hero-x-card-inner{padding:22px 18px}
-    .hero-x-stats{flex-direction:column;gap:14px}
-    .hero-x-stat-divider{width:100%;height:1px;margin:0}
-    .hero-x-stat{flex-direction:row;align-items:center;gap:14px}
-    .hero-x-stat-l{flex:1}
-    .hero-x-pill{font-size:11.5px;padding:5px 5px 5px 6px}
-    .hero-x-marquee-track{font-size:50px;gap:24px}
+    .hero-x{padding:10px 14px 20px}
+    .hero-x-h1{font-size:clamp(26px,8vw,34px)}
+    .hero-x-sub{font-size:14px}
+    .hero-x-stat-v{font-size:19px}
+    .hero-x-stat-l{font-size:8.5px}
+    .hero-x-mobile-cta{padding:14px 18px;font-size:15px}
   }
   @media (hover:none){
     .hero-x-card-inner{transform:none!important}
