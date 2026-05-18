@@ -332,72 +332,54 @@
     .hero-x-stats{gap:0;padding:12px 0}
   }
   @media (max-width:768px){
-    /* Hero вертикальный: текст сверху, форма ниже */
-    .hero-x{padding:18px 16px 36px;min-height:auto;overflow:hidden}
-    .hero-x-grid{gap:24px;grid-template-columns:1fr}
-    .hero-x-left{gap:14px}
+    /* Простой Hero на мобиле: H1 → одна фраза → кнопка → метрики */
+    .hero-x{padding:20px 16px 32px;min-height:calc(100dvh - 80px);overflow:hidden;display:flex;align-items:flex-start}
+    .hero-x-grid{gap:18px;grid-template-columns:1fr}
+    .hero-x-left{gap:16px;width:100%}
 
-    /* Marquee — оставляем но меньше и без выезда за viewport */
-    .hero-x-marquee{opacity:.35}
-    .hero-x-marquee-track{font-size:48px;gap:24px}
+    /* Скрываем всё, что отвлекает */
+    .hero-x-marquee{display:none}
+    .hero-x-ticker{display:none}
+    .hero-x-tabs{display:none}
+    .hero-x-card{display:none}
 
     /* Pill компактнее */
     .hero-x-pill{font-size:11.5px;padding:5px 7px 5px 6px;align-self:flex-start}
     .hero-x-pill-text{font-size:11.5px}
 
-    /* H1 — компактнее но всё ещё крупный */
-    .hero-x-h1{font-size:clamp(30px,7.5vw,42px);letter-spacing:-.02em;line-height:1.05;margin:0}
+    /* H1 крупный */
+    .hero-x-h1{font-size:clamp(28px,8vw,40px);letter-spacing:-.02em;line-height:1.05;margin:0}
 
-    /* Tabs — компактнее, в одну строку с прокруткой */
-    .hero-x-tabs{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-    .hero-x-tabs::-webkit-scrollbar{display:none}
-    .hero-x-tab{padding:8px 14px;font-size:12.5px;white-space:nowrap;flex:none}
+    /* Sub — одна короткая фраза */
+    .hero-x-sub{font-size:15px;line-height:1.45;min-height:auto;margin:0}
 
-    /* Sub короче и компактнее */
-    .hero-x-sub{font-size:14.5px;line-height:1.45;min-height:auto;margin:2px 0 0}
-
-    /* Stats компактно в одну строку */
-    .hero-x-stats{flex-direction:row;gap:0;padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:4px}
-    .hero-x-stat{flex:1;text-align:center;align-items:center;flex-direction:column;gap:2px;padding:0 4px}
-    .hero-x-stat-v{font-size:22px;line-height:1}
-    .hero-x-stat-l{font-size:9px;line-height:1.25;text-align:center}
-    .hero-x-stat-divider{width:1px;height:36px;align-self:center;margin:0;background:var(--line)}
-
-    /* Ticker — компактнее */
-    .hero-x-ticker{font-size:12px;padding:8px 12px}
-
-    /* Mobile CTA — большая кнопка прямо под основным текстом */
+    /* Mobile CTA — главный фокус: чёрная кнопка на всю ширину */
     .hero-x-mobile-cta{
-      display:flex;align-items:center;justify-content:center;gap:10px;
-      padding:16px 22px;background:var(--ink);color:#fff;
-      border-radius:14px;font-family:'Space Grotesk',sans-serif;
-      font-size:16px;font-weight:600;letter-spacing:-.005em;
+      display:flex;align-items:center;justify-content:center;gap:12px;
+      padding:18px 22px;background:var(--ink);color:#fff;
+      border-radius:16px;font-family:'Space Grotesk',sans-serif;
+      font-size:17px;font-weight:600;letter-spacing:-.005em;
       text-decoration:none;transition:.25s var(--easing);
-      box-shadow:0 14px 32px -10px rgba(13,14,18,.4);
-      margin-top:2px;
+      box-shadow:0 18px 38px -10px rgba(13,14,18,.5);
+      margin-top:6px;width:100%;text-align:center;
     }
     .hero-x-mobile-cta:active{transform:scale(.98)}
-    .hero-x-mobile-cta svg{width:18px;height:18px}
+    .hero-x-mobile-cta svg{width:18px;height:18px;flex:none}
 
-    /* Карточка-форма остаётся видимой, но компактнее */
-    .hero-x-card{margin:0}
-    .hero-x-card-inner{padding:24px 22px;border-radius:20px}
-    .hero-x-card-title{font-size:22px;line-height:1.15}
-    .hero-x-card-lead{font-size:14px}
-    .hero-x-get li{font-size:13px;gap:10px}
-    .hero-x-get-ico{width:32px;height:32px;flex:none}
-    .hero-x-card-glow{border-radius:22px}
+    /* Метрики — горизонтально, компактно, под кнопкой */
+    .hero-x-stats{flex-direction:row;gap:0;padding:14px 0 0;border-top:1px solid var(--line);margin-top:8px}
+    .hero-x-stat{flex:1;text-align:center;align-items:center;flex-direction:column;gap:3px;padding:0 4px}
+    .hero-x-stat-v{font-size:22px;line-height:1}
+    .hero-x-stat-l{font-size:9.5px;line-height:1.25;text-align:center}
+    .hero-x-stat-divider{width:1px;height:36px;align-self:center;margin:0;background:var(--line)}
   }
   @media (max-width:480px){
-    .hero-x{padding:14px 14px 28px}
-    .hero-x-h1{font-size:clamp(26px,8vw,34px)}
+    .hero-x{padding:16px 14px 26px}
+    .hero-x-h1{font-size:clamp(24px,8.5vw,32px)}
     .hero-x-sub{font-size:14px}
     .hero-x-stat-v{font-size:19px}
-    .hero-x-stat-l{font-size:8.5px}
-    .hero-x-mobile-cta{padding:14px 18px;font-size:15px}
-    .hero-x-card-inner{padding:20px 18px}
-    .hero-x-card-title{font-size:20px}
-    .hero-x-marquee-track{font-size:40px;gap:20px}
+    .hero-x-stat-l{font-size:9px}
+    .hero-x-mobile-cta{padding:16px 18px;font-size:16px}
   }
   @media (hover:none){
     .hero-x-card-inner{transform:none!important}
@@ -874,15 +856,9 @@
   .doc-body .label{display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--indigo);padding:5px 10px;background:var(--indigo-soft);border-radius:999px;font-weight:500}
 
   /* ===== TEAM ===== */
-  .team-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
-  .tm{position:relative;overflow:hidden;border-radius:var(--radius-l);background:var(--paper-2);border:1px solid var(--line);min-height:300px;display:flex;flex-direction:column;justify-content:flex-end;transition:.35s}
+  .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .tm{position:relative;overflow:hidden;border-radius:var(--radius-l);background:var(--paper-2);border:1px solid var(--line);min-height:0;display:flex;flex-direction:column;transition:.35s}
   .tm:hover{transform:translateY(-4px)}
-  .tm-1{grid-column:span 5;min-height:420px}
-  .tm-2{grid-column:span 4}
-  .tm-3{grid-column:span 3}
-  .tm-4{grid-column:span 4}
-  .tm-5{grid-column:span 4}
-  .tm-6{grid-column:span 4}
   .tm-info{position:relative;z-index:2;padding:20px 22px;background:linear-gradient(180deg,transparent,rgba(245,245,242,.96))}
   .tm-info h4{font-family:'Space Grotesk',sans-serif;font-size:17px;color:var(--ink);text-transform:none;letter-spacing:-.01em;font-weight:600;margin-bottom:2px}
   .tm-info .role{font-size:13px;color:var(--indigo);font-weight:500;margin-bottom:6px}
@@ -1220,9 +1196,7 @@
     .doc.wide{flex-direction:column;gap:20px}
     .doc.wide .doc-ph{min-height:200px;width:100%}
 
-    .team-grid{gap:14px}
-    .team-grid > *{grid-column:span 6!important;min-height:280px!important}
-    .tm-1{grid-column:span 12!important;min-height:360px!important}
+    .team-grid{grid-template-columns:repeat(2,1fr)!important;gap:14px}
 
     .seg-tabs{grid-template-columns:repeat(2,1fr)}
     .seg-panel.active{grid-template-columns:1fr;gap:18px}
