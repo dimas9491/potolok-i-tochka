@@ -1010,22 +1010,28 @@
   /* Скрываем описания плейсхолдеров — пользователь сам поставит фото */
   .ph-caption{display:none !important}
 
-  /* Когда у слота есть реальное фото — скрываем декоративный шум и ставим img на фон */
-  .photo-slot.has-img,.ph.has-img,.nagl-side.has-img{background:#0d0e12}
+  /* Когда у слота есть реальное фото — скрываем декоративный шум */
+  .photo-slot.has-img,.ph.has-img{background:#f3f3ef}
   .photo-slot.has-img::before,.photo-slot.has-img::after,.ph.has-img::before{display:none}
   .photo-slot.has-img,.ph.has-img{animation:none}
   .slot-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;display:block}
-  .ph.has-img > .slot-img,.photo-slot.has-img > .slot-img{border-radius:inherit}
-  .ph.has-img .ph-mark,.ph.has-img .pf-info,.ph.has-img .tm-info{z-index:3;position:relative}
-  .ph.has-img .pf-info,.ph.has-img .tm-info{
-    background:linear-gradient(to top,rgba(13,14,18,.92) 0%,rgba(13,14,18,.78) 60%,rgba(13,14,18,0) 100%);
-    color:#fff;padding:50px 24px 22px;margin:0 -24px -24px;
-  }
-  .ph.has-img .pf-info h4,.ph.has-img .tm-info h4,.ph.has-img .pf-info .meta,.ph.has-img .tm-info .role,.ph.has-img .tm-info .exp{color:#fff}
-  .ph.has-img .pf-info .meta{color:rgba(255,255,255,.7)}
-  .ph.has-img .tm-info .role{color:rgba(255,255,255,.85)}
-  .ph.has-img .tm-info .exp{color:rgba(255,255,255,.6)}
+  .photo-slot.has-img > .slot-img{border-radius:inherit}
   .nagl-side.has-img .nagl-placeholder{display:none}
+  .nagl-side.has-img .slot-img{z-index:1}
+
+  /* Карточки с фото (Team, Portfolio) — фото сверху, инфо снизу на белом фоне */
+  .ph.has-img{padding:0;display:flex;flex-direction:column;overflow:hidden}
+  .ph.has-img .slot-img{position:relative;inset:auto;width:100%;flex:1 1 auto;min-height:0;object-fit:cover;object-position:center top;border-radius:0}
+  .ph.has-img .ph-mark{top:14px;left:14px}
+  .ph.has-img .pf-info,.ph.has-img .tm-info{
+    position:relative;background:var(--paper);
+    padding:18px 22px;border-top:1px solid var(--line);
+    flex:0 0 auto;
+  }
+  .ph.has-img .pf-info h4,.ph.has-img .tm-info h4{color:var(--ink);font-size:17px;margin-bottom:4px;letter-spacing:-.01em}
+  .ph.has-img .pf-info .meta,.ph.has-img .tm-info .role{color:var(--ink-3);font-size:13px}
+  .ph.has-img .tm-info .exp{color:var(--ink-3);font-size:12px;margin-top:4px}
+  .ph.has-img .pf-tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--indigo);background:var(--indigo-soft);padding:4px 10px;border-radius:999px;margin-bottom:8px}
 
   /* ===== BENTO GALLERY (Атмосфера) ===== */
   .gallery-section{padding:80px 0;position:relative}
