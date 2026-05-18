@@ -1194,7 +1194,86 @@
   }
 
   /* ========================================
-     БЛОК «ПОЧЕМУ НЕ НАЗЫВАЕМ ЦЕНУ ПО ФОТО»
+     БЛОК «ПОЧЕМУ НЕ НАЗЫВАЕМ ЦЕНУ» — РАСШИРЕННЫЙ
+     ======================================== */
+  .prices-deep{padding:clamp(70px,8vw,120px) 0;position:relative;isolation:isolate}
+  .prices-deep::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 30% 0%,rgba(232,99,58,.05),transparent 60%);pointer-events:none;z-index:-1}
+
+  .prices-deep-head{text-align:center;max-width:780px;margin:0 auto 48px}
+  .prices-deep-eyebrow{display:inline-flex;align-items:center;font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);font-weight:500;padding:7px 14px;background:rgba(232,99,58,.08);border:1px solid rgba(232,99,58,.2);border-radius:999px;margin-bottom:20px}
+  .prices-deep-h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(30px,4.2vw,54px);font-weight:600;letter-spacing:-.022em;line-height:1.1;color:var(--ink);margin:0 0 16px}
+  .prices-deep-h2 em{font-style:normal;color:var(--rust)}
+  .prices-deep-lead{font-size:16px;line-height:1.6;color:var(--ink-2);margin:0;max-width:60ch;margin-left:auto;margin-right:auto}
+
+  /* Сетка из 3 карточек */
+  .prices-deep-grid{display:flex;flex-direction:column;gap:20px;max-width:1100px;margin:0 auto}
+
+  .prices-deep-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:22px;padding:32px 36px;transition:.3s var(--easing);overflow:hidden}
+  .prices-deep-card:hover{transform:translateY(-3px);box-shadow:0 26px 60px -25px rgba(13,14,18,.15);border-color:var(--indigo)}
+  .prices-deep-num{position:absolute;top:24px;right:32px;font-family:'Space Grotesk',sans-serif;font-size:60px;font-weight:600;color:rgba(13,14,18,.04);line-height:.9;letter-spacing:-.03em;pointer-events:none}
+  .prices-deep-card:hover .prices-deep-num{color:rgba(232,99,58,.12)}
+  .prices-deep-card h3{font-family:'Space Grotesk',sans-serif;font-size:clamp(20px,2.2vw,26px);font-weight:600;color:var(--ink);letter-spacing:-.015em;line-height:1.2;margin:0 0 10px;max-width:80%}
+  .prices-deep-card > p{font-size:15px;color:var(--ink-2);line-height:1.55;margin:0 0 20px;max-width:65ch}
+
+  /* === Карточка 1: Таблица «что входит / что нет» === */
+  .prices-deep-table{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+  .prices-deep-col{padding:18px 20px;border-radius:14px;border:1px solid}
+  .prices-deep-col-bad{background:rgba(196,66,50,.04);border-color:rgba(196,66,50,.18)}
+  .prices-deep-col-good{background:rgba(40,64,232,.04);border-color:rgba(40,64,232,.18)}
+  .prices-deep-col-head{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;margin-bottom:12px}
+  .prices-deep-col-bad .prices-deep-col-head{color:var(--bad)}
+  .prices-deep-col-good .prices-deep-col-head{color:var(--indigo)}
+  .prices-deep-col ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+  .prices-deep-col li{font-size:14px;color:var(--ink);line-height:1.4;padding-left:20px;position:relative}
+  .prices-deep-col-bad li::before{content:"×";position:absolute;left:0;top:-1px;color:var(--bad);font-weight:700;font-size:18px;line-height:1}
+  .prices-deep-col-good li::before{content:"+";position:absolute;left:0;top:0;color:var(--indigo);font-weight:700;font-size:16px;line-height:1.2}
+  .prices-deep-col li.muted{color:var(--ink-3);font-style:italic}
+  .prices-deep-col li.muted::before{content:""}
+
+  /* === Карточка 2: Калькулятор-пример === */
+  .prices-deep-example{background:linear-gradient(135deg,#FFF7EE 0%, #FFEEE0 100%);border-color:rgba(232,99,58,.25)}
+  .prices-deep-example:hover{border-color:var(--rust);box-shadow:0 30px 60px -25px rgba(232,99,58,.25)}
+  .prices-deep-calc{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 24px;margin-top:4px}
+  .prices-deep-calc-row{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:10px 0;font-size:14.5px;color:var(--ink-2);border-bottom:1px dashed var(--line-soft)}
+  .prices-deep-calc-row:last-of-type{border-bottom:none}
+  .prices-deep-calc-row span:last-child{font-family:'JetBrains Mono',monospace;font-size:13.5px;color:var(--ink);font-weight:500;white-space:nowrap}
+  .prices-deep-calc-ad{padding:14px 0;background:rgba(40,64,232,.05);margin:0 -24px;padding-left:24px;padding-right:24px;border-bottom:1px solid var(--indigo-ghost)}
+  .prices-deep-calc-label{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--indigo);font-weight:600}
+  .prices-deep-calc-value{font-family:'JetBrains Mono',monospace;font-size:15px!important;color:var(--ink)!important}
+  .prices-deep-calc-value b{color:var(--indigo);font-weight:700}
+  .prices-deep-calc-plus{padding:14px 0 8px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--bad);font-weight:600;text-align:center;border-bottom:1px dashed var(--line-soft)}
+  .prices-deep-calc-add span:first-child{color:var(--ink-2)}
+  .prices-deep-calc-add span:last-child{color:var(--bad);font-weight:600}
+  .prices-deep-calc-total{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:16px 0 4px;margin-top:8px;border-top:2px solid var(--ink);font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;color:var(--ink)}
+  .prices-deep-calc-total b{font-size:22px;color:var(--bad)}
+  .prices-deep-calc-conclusion{display:flex;align-items:center;gap:12px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line);font-size:14px;color:var(--ink-2)}
+  .prices-deep-conclusion-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--bad);padding:6px 12px;border-radius:999px;font-weight:600;flex:none}
+
+  /* === Карточка 3: Как у нас === */
+  .prices-deep-us{background:linear-gradient(135deg,#F4F6FF 0%, #FFFFFF 100%);border-color:rgba(40,64,232,.25)}
+  .prices-deep-us:hover{border-color:var(--indigo);box-shadow:0 30px 60px -25px rgba(40,64,232,.25)}
+  .prices-deep-us-list{list-style:none;padding:0;margin:8px 0 0;display:flex;flex-direction:column;gap:14px}
+  .prices-deep-us-list li{display:flex;align-items:flex-start;gap:14px;padding:16px 18px;background:#fff;border:1px solid var(--line);border-radius:14px;transition:.25s}
+  .prices-deep-us-list li:hover{transform:translateX(4px);border-color:var(--indigo)}
+  .prices-deep-us-ico{flex:none;width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--indigo),var(--rust));color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;box-shadow:0 6px 14px -4px rgba(40,64,232,.4)}
+  .prices-deep-us-list > li > div{display:flex;flex-direction:column;gap:3px;flex:1}
+  .prices-deep-us-list b{font-family:'Space Grotesk',sans-serif;font-size:15.5px;font-weight:600;color:var(--ink);letter-spacing:-.005em;line-height:1.3}
+  .prices-deep-us-list span{font-size:13.5px;color:var(--ink-2);line-height:1.5}
+
+  @media (max-width:768px){
+    .prices-deep-card{padding:24px 22px}
+    .prices-deep-num{font-size:48px;right:20px;top:20px}
+    .prices-deep-card h3{font-size:19px;max-width:none}
+    .prices-deep-table{grid-template-columns:1fr;gap:10px}
+    .prices-deep-calc{padding:18px 16px}
+    .prices-deep-calc-ad{margin:0 -16px;padding-left:16px;padding-right:16px}
+    .prices-deep-calc-row{font-size:13.5px;flex-direction:column;align-items:flex-start;gap:4px}
+    .prices-deep-calc-row span:last-child{font-size:12.5px}
+    .prices-deep-calc-conclusion{flex-direction:column;align-items:flex-start;gap:6px}
+  }
+
+  /* ========================================
+     БЛОК «ПОЧЕМУ НЕ НАЗЫВАЕМ ЦЕНУ ПО ФОТО» (старая компактная — deprecated)
      ======================================== */
   .prices{padding:clamp(50px,6vw,80px) 0;position:relative}
   .prices-inner{display:flex;gap:24px;align-items:flex-start;max-width:1100px;margin:0 auto;padding:32px 36px;background:linear-gradient(135deg,#FFF7EE 0%, #FFEEE0 100%);border:1px solid rgba(232,99,58,.25);border-radius:22px;position:relative;overflow:hidden}
