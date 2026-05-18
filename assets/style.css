@@ -1022,7 +1022,7 @@
   /* Карточки с фото (Team, Portfolio) — фото сверху, инфо снизу на белом фоне */
   .ph.has-img{padding:0;display:flex;flex-direction:column;overflow:hidden}
   .ph.has-img .slot-img{position:relative;inset:auto;width:100%;flex:1 1 auto;min-height:0;object-fit:cover;object-position:center top;border-radius:0}
-  .ph.has-img .ph-mark{top:14px;left:14px}
+  .ph.has-img .ph-mark{display:none}
   .ph.has-img .pf-info,.ph.has-img .tm-info{
     position:relative;background:var(--paper);
     padding:18px 22px;border-top:1px solid var(--line);
