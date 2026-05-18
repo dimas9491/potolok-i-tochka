@@ -1018,10 +1018,16 @@
   .photo-slot.has-img > .slot-img{border-radius:inherit}
   .nagl-side.has-img .nagl-placeholder{display:none}
   .nagl-side.has-img .slot-img{z-index:1}
+  .nagl-after{z-index:1}
+  .nagl-before{z-index:2}
 
   /* Карточки с фото (Team, Portfolio) — фото сверху, инфо снизу на белом фоне */
-  .ph.has-img{padding:0;display:flex;flex-direction:column;overflow:hidden}
-  .ph.has-img .slot-img{position:relative;inset:auto;width:100%;flex:1 1 auto;min-height:0;object-fit:cover;object-position:center top;border-radius:0}
+  .ph.has-img{padding:0;display:flex;flex-direction:column;overflow:hidden;min-height:0!important}
+  .ph.has-img .slot-img{position:relative;inset:auto;width:100%;height:auto;object-fit:cover;border-radius:0;flex:0 0 auto}
+  /* Команда — портреты 4:5 */
+  .tm.has-img .slot-img{aspect-ratio:4/5;object-position:50% 15%}
+  /* Портфолио — горизонтальные кадры 4:3 */
+  .pf.has-img .slot-img{aspect-ratio:4/3;object-position:center}
   .ph.has-img .ph-mark{display:none}
   .ph.has-img .pf-info,.ph.has-img .tm-info{
     position:relative;background:var(--paper);
