@@ -26,6 +26,139 @@
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden}
 
+  /* ===== СЧЁТЧИКИ ПОРТФОЛИО ===== */
+  .port-stats{
+    display:flex;align-items:center;justify-content:center;gap:0;
+    margin:54px auto 0;max-width:760px;
+    padding:28px 32px;background:var(--paper);
+    border:1px solid var(--line);border-radius:24px;
+    box-shadow:0 22px 50px -26px rgba(13,14,18,.18);
+  }
+  .port-stat{flex:1;text-align:center;display:flex;flex-direction:column;gap:6px;align-items:center}
+  .port-stat-v{font-family:'Space Grotesk',sans-serif;font-size:clamp(28px,3vw,38px);font-weight:600;color:var(--indigo);letter-spacing:-.02em;line-height:1}
+  .port-stat-l{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);line-height:1.4}
+  .port-stat-divider{width:1px;height:48px;background:var(--line);flex:none;align-self:center}
+
+  /* ===== О КОМПАНИИ ===== */
+  .about-co{padding:90px 0;position:relative}
+  .ac-head{text-align:center;max-width:880px;margin:0 auto 48px;display:flex;flex-direction:column;gap:14px;align-items:center}
+  .ac-head h2{letter-spacing:-.025em}
+  .ac-head .lead{max-width:60ch}
+
+  .ac-metrics{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+    background:linear-gradient(135deg,var(--indigo) 0%,#3a4fd9 100%);
+    border-radius:28px;padding:36px 32px;
+    box-shadow:0 30px 60px -28px rgba(40,64,232,.42);
+    margin-bottom:48px;color:#fff;
+    position:relative;overflow:hidden;
+  }
+  .ac-metrics::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 10% 10%,rgba(255,255,255,.15) 0%,transparent 40%),radial-gradient(circle at 90% 90%,rgba(232,99,58,.25) 0%,transparent 40%);
+    pointer-events:none;
+  }
+  .ac-m{text-align:center;position:relative;z-index:1;padding:0 8px}
+  .ac-m-v{font-family:'Space Grotesk',sans-serif;font-size:clamp(28px,3.4vw,42px);font-weight:700;color:#fff;letter-spacing:-.02em;line-height:1;margin-bottom:8px}
+  .ac-m-l{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.78);line-height:1.4}
+
+  .ac-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:36px}
+  .ac-card{
+    background:var(--paper);border:1px solid var(--line);border-radius:20px;
+    padding:28px 24px;transition:.3s var(--easing);
+    display:flex;flex-direction:column;gap:12px;
+  }
+  .ac-card:hover{transform:translateY(-4px);box-shadow:0 24px 50px -28px rgba(13,14,18,.2)}
+  .ac-ico{
+    width:52px;height:52px;border-radius:14px;
+    display:flex;align-items:center;justify-content:center;
+    flex:none;
+  }
+  .ac-ico svg{width:24px;height:24px}
+  .ac-ico-indigo{background:rgba(40,64,232,.1);color:var(--indigo)}
+  .ac-ico-rust{background:rgba(232,99,58,.1);color:var(--rust)}
+  .ac-card h4{font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;letter-spacing:-.01em;color:var(--ink);margin:0}
+  .ac-card p{font-size:14px;line-height:1.5;color:var(--ink-2);margin:0}
+
+  .ac-goal{
+    display:flex;align-items:center;gap:20px;
+    padding:24px 28px;background:var(--paper-2);
+    border:1px dashed var(--indigo);border-radius:18px;
+  }
+  .ac-goal-ico{
+    width:52px;height:52px;border-radius:50%;
+    background:var(--indigo);color:#fff;
+    display:flex;align-items:center;justify-content:center;flex:none;
+  }
+  .ac-goal-ico svg{width:26px;height:26px}
+  .ac-goal-txt{display:flex;flex-direction:column;gap:4px}
+  .ac-goal-txt strong{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;color:var(--ink);letter-spacing:-.005em}
+  .ac-goal-txt span{font-size:14.5px;color:var(--ink-2);line-height:1.5}
+
+  /* ===== ОТЗЫВЫ КЛИЕНТОВ ===== */
+  .reviews{padding:90px 0;position:relative}
+  .reviews-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:42px}
+  .rv-card{
+    background:var(--paper);border:1px solid var(--line);border-radius:22px;
+    padding:30px 28px;display:flex;flex-direction:column;gap:18px;
+    transition:.3s var(--easing);position:relative;overflow:hidden;
+  }
+  .rv-card::before{
+    content:"";position:absolute;top:-30px;right:-30px;width:140px;height:140px;
+    background:radial-gradient(circle,rgba(40,64,232,.06) 0%,transparent 70%);
+    pointer-events:none;
+  }
+  .rv-card:hover{transform:translateY(-4px);box-shadow:0 26px 56px -30px rgba(13,14,18,.22);border-color:rgba(40,64,232,.25)}
+  .rv-stars{display:flex;gap:3px;color:#F5A623}
+  .rv-stars svg{width:18px;height:18px}
+  .rv-text{font-size:15.5px;line-height:1.6;color:var(--ink);margin:0;font-style:italic;position:relative;z-index:1}
+  .rv-author{display:flex;align-items:center;gap:14px;padding-top:6px;border-top:1px solid var(--line)}
+  .rv-avatar{
+    width:46px;height:46px;border-radius:50%;flex:none;
+    background:linear-gradient(135deg,var(--indigo),#3a4fd9);
+    color:#fff;display:flex;align-items:center;justify-content:center;
+    font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;letter-spacing:.04em;
+  }
+  .rv-info{display:flex;flex-direction:column;gap:2px}
+  .rv-info strong{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--ink);letter-spacing:-.005em}
+  .rv-info span{font-size:12.5px;color:var(--ink-3)}
+
+  /* Счётчики отзывов */
+  .rv-stats{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:42px;
+    padding:32px;background:var(--ink);color:#fff;border-radius:24px;
+    position:relative;overflow:hidden;
+  }
+  .rv-stats::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 0% 50%,rgba(40,64,232,.3) 0%,transparent 50%),radial-gradient(circle at 100% 50%,rgba(232,99,58,.2) 0%,transparent 50%);
+    pointer-events:none;
+  }
+  .rv-stat{text-align:center;position:relative;z-index:1}
+  .rv-stat-v{font-family:'Space Grotesk',sans-serif;font-size:clamp(26px,3vw,38px);font-weight:700;letter-spacing:-.02em;line-height:1;margin-bottom:8px;color:#fff}
+  .rv-stat-l{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7);line-height:1.4}
+
+  @media (max-width:1080px){
+    .ac-metrics,.ac-cards,.rv-stats{grid-template-columns:repeat(2,1fr)}
+    .port-stats{flex-wrap:wrap;padding:24px 20px}
+    .port-stat{flex:0 0 calc(50% - 12px)}
+    .port-stat-divider{display:none}
+  }
+  @media (max-width:768px){
+    .about-co,.reviews{padding:60px 0}
+    .ac-metrics{padding:24px 18px;gap:10px}
+    .ac-m-v{font-size:24px}
+    .ac-m-l{font-size:10px}
+    .ac-cards{grid-template-columns:1fr;gap:12px}
+    .ac-card{padding:22px 20px}
+    .reviews-grid{grid-template-columns:1fr;gap:14px}
+    .rv-card{padding:24px 22px}
+    .rv-text{font-size:14.5px}
+    .rv-stats{grid-template-columns:repeat(2,1fr);gap:10px;padding:24px 18px}
+    .rv-stat-v{font-size:22px}
+    .ac-goal{flex-direction:column;align-items:flex-start;text-align:left;padding:20px 18px}
+  }
+
   /* Социальные иконки в футере */
   .foot-socials{display:flex;gap:10px;margin-top:18px}
   .foot-soc{width:38px;height:38px;border:1px solid var(--line);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--ink-2);transition:.2s}
