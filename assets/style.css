@@ -24,7 +24,7 @@
     --shadow-pop:0 30px 70px -32px rgba(40,64,232,.45);
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden}
   body{
     background:var(--paper);
     color:var(--ink);
@@ -327,37 +327,42 @@
     .hero-x-stats{gap:0;padding:12px 0}
   }
   @media (max-width:768px){
-    /* Hero помещается в первый экран: nav ~76px + content */
-    .hero-x{padding:14px 16px 24px;min-height:calc(100dvh - 76px);display:flex;align-items:flex-start}
-    .hero-x-grid{gap:18px;grid-template-columns:1fr}
+    /* Hero вертикальный: текст сверху, форма ниже */
+    .hero-x{padding:18px 16px 36px;min-height:auto;overflow:hidden}
+    .hero-x-grid{gap:24px;grid-template-columns:1fr}
     .hero-x-left{gap:14px}
 
-    /* Убираем визуальный шум на мобиле */
-    .hero-x-marquee{display:none}
-    .hero-x-ticker{display:none}
+    /* Marquee — оставляем но меньше и без выезда за viewport */
+    .hero-x-marquee{opacity:.35}
+    .hero-x-marquee-track{font-size:48px;gap:24px}
 
     /* Pill компактнее */
     .hero-x-pill{font-size:11.5px;padding:5px 7px 5px 6px;align-self:flex-start}
     .hero-x-pill-text{font-size:11.5px}
 
-    /* H1 — короче и плотнее */
+    /* H1 — компактнее но всё ещё крупный */
     .hero-x-h1{font-size:clamp(30px,7.5vw,42px);letter-spacing:-.02em;line-height:1.05;margin:0}
 
-    /* Tabs скрыты на мобиле — лишний интерактив */
-    .hero-x-tabs{display:none}
+    /* Tabs — компактнее, в одну строку с прокруткой */
+    .hero-x-tabs{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+    .hero-x-tabs::-webkit-scrollbar{display:none}
+    .hero-x-tab{padding:8px 14px;font-size:12.5px;white-space:nowrap;flex:none}
 
-    /* Sub короче */
-    .hero-x-sub{font-size:15px;line-height:1.45;min-height:auto;margin:2px 0 0}
+    /* Sub короче и компактнее */
+    .hero-x-sub{font-size:14.5px;line-height:1.45;min-height:auto;margin:2px 0 0}
 
     /* Stats компактно в одну строку */
     .hero-x-stats{flex-direction:row;gap:0;padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:4px}
-    .hero-x-stat{flex:1;text-align:center;align-items:center;flex-direction:column;gap:2px}
+    .hero-x-stat{flex:1;text-align:center;align-items:center;flex-direction:column;gap:2px;padding:0 4px}
     .hero-x-stat-v{font-size:22px;line-height:1}
     .hero-x-stat-l{font-size:9px;line-height:1.2;text-align:center}
     .hero-x-stat-l br{display:none}
     .hero-x-stat-divider{width:1px;height:36px;align-self:center;margin:0;background:var(--line)}
 
-    /* Mobile CTA — большая кнопка под текстом */
+    /* Ticker — компактнее */
+    .hero-x-ticker{font-size:12px;padding:8px 12px}
+
+    /* Mobile CTA — большая кнопка прямо под основным текстом */
     .hero-x-mobile-cta{
       display:flex;align-items:center;justify-content:center;gap:10px;
       padding:16px 22px;background:var(--ink);color:#fff;
@@ -365,21 +370,30 @@
       font-size:16px;font-weight:600;letter-spacing:-.005em;
       text-decoration:none;transition:.25s var(--easing);
       box-shadow:0 14px 32px -10px rgba(13,14,18,.4);
-      margin-top:4px;
+      margin-top:2px;
     }
     .hero-x-mobile-cta:active{transform:scale(.98)}
     .hero-x-mobile-cta svg{width:18px;height:18px}
 
-    /* Карточка-форма скрыта на мобиле — заменена mobile CTA */
-    .hero-x-card{display:none}
+    /* Карточка-форма остаётся видимой, но компактнее */
+    .hero-x-card{margin:0}
+    .hero-x-card-inner{padding:24px 22px;border-radius:20px}
+    .hero-x-card-title{font-size:22px;line-height:1.15}
+    .hero-x-card-lead{font-size:14px}
+    .hero-x-get li{font-size:13px;gap:10px}
+    .hero-x-get-ico{width:32px;height:32px;flex:none}
+    .hero-x-card-glow{border-radius:22px}
   }
   @media (max-width:480px){
-    .hero-x{padding:10px 14px 20px}
+    .hero-x{padding:14px 14px 28px}
     .hero-x-h1{font-size:clamp(26px,8vw,34px)}
     .hero-x-sub{font-size:14px}
     .hero-x-stat-v{font-size:19px}
     .hero-x-stat-l{font-size:8.5px}
     .hero-x-mobile-cta{padding:14px 18px;font-size:15px}
+    .hero-x-card-inner{padding:20px 18px}
+    .hero-x-card-title{font-size:20px}
+    .hero-x-marquee-track{font-size:40px;gap:20px}
   }
   @media (hover:none){
     .hero-x-card-inner{transform:none!important}
