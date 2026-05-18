@@ -355,8 +355,7 @@
     .hero-x-stats{flex-direction:row;gap:0;padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:4px}
     .hero-x-stat{flex:1;text-align:center;align-items:center;flex-direction:column;gap:2px;padding:0 4px}
     .hero-x-stat-v{font-size:22px;line-height:1}
-    .hero-x-stat-l{font-size:9px;line-height:1.2;text-align:center}
-    .hero-x-stat-l br{display:none}
+    .hero-x-stat-l{font-size:9px;line-height:1.25;text-align:center}
     .hero-x-stat-divider{width:1px;height:36px;align-self:center;margin:0;background:var(--line)}
 
     /* Ticker — компактнее */
