@@ -189,180 +189,188 @@
 
 <main>
 
-  <!-- ====== HERO V4: ИНТЕРАКТИВ + WOW ====== -->
-  <section class="hero-x" id="hero">
-    <!-- Marquee на фоне (гигантские прозрачные слова едут) -->
-    <div class="hero-x-marquee" aria-hidden="true">
-      <div class="hero-x-marquee-track">
-        <span>Парящие&nbsp;конструкции</span>
-        <span class="dot">·</span>
-        <span>Бесщелевые&nbsp;примыкания</span>
-        <span class="dot">·</span>
-        <span>Световые&nbsp;линии</span>
-        <span class="dot">·</span>
-        <span>Теневой&nbsp;профиль</span>
-        <span class="dot">·</span>
-        <span>Многоуровневые</span>
-        <span class="dot">·</span>
-        <span>Парящие&nbsp;конструкции</span>
-        <span class="dot">·</span>
-        <span>Бесщелевые&nbsp;примыкания</span>
-        <span class="dot">·</span>
-        <span>Световые&nbsp;линии</span>
-        <span class="dot">·</span>
-        <span>Теневой&nbsp;профиль</span>
-        <span class="dot">·</span>
-        <span>Многоуровневые</span>
-        <span class="dot">·</span>
-      </div>
-    </div>
+  <!-- ====== HERO V5 (PROTO): 3 колонки — текст / слайдер / форма ====== -->
+  <section class="hero-p" id="hero">
+    <div class="hero-p-grid">
 
-    <!-- Декоративные мягкие блики -->
-    <div class="hero-x-blob hero-x-blob-1"></div>
-    <div class="hero-x-blob hero-x-blob-2"></div>
-    <div class="hero-x-mesh"></div>
+      <!-- ЛЕВО: текст, чипы, табы, метрики, плашки -->
+      <div class="hero-p-left">
+        <div class="hero-p-badge">
+          <span class="hero-p-badge-dot"></span>
+          <span>Бесплатно · Ответ в течение часа</span>
+        </div>
 
-    <div class="hero-x-grid">
-      <!-- ЛЕВО -->
-      <div class="hero-x-left">
-        <a href="/blog/" class="hero-x-pill">
-          <span class="hero-x-pill-tag">Новое</span>
-          <span class="hero-x-pill-text">Гайд «5 ошибок при выборе натяжного потолка» — бесплатно</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>
-        </a>
-
-        <h1 class="hero-x-h1">
-          Покажем ваш потолок<br>
-          <em class="hero-x-h1-em">за&nbsp;час, бесплатно</em>
+        <h1 class="hero-p-h1">
+          Покажем, как будет<br>выглядеть ваш потолок —<br>
+          <em class="hero-p-h1-grad">в течение часа</em>
         </h1>
 
-        <!-- Интерактивные табы — меняют под-заголовок -->
-        <div class="hero-x-tabs" role="tablist" id="heroTabs">
-          <button class="hero-x-tab active" data-tab="apartment" role="tab">Квартира</button>
-          <button class="hero-x-tab" data-tab="house" role="tab">Загородный дом</button>
-          <button class="hero-x-tab" data-tab="designer" role="tab">С дизайнером</button>
-          <span class="hero-x-tab-glow" id="heroTabGlow"></span>
+        <p class="hero-p-sub">Отправьте фото комнаты — создадим 3D-визуализацию будущего потолка именно в вашем интерьере.</p>
+
+        <div class="hero-p-chips">
+          <span class="hero-p-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Матовый</span>
+          <span class="hero-p-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Парящий</span>
+          <span class="hero-p-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Со световыми линиями</span>
         </div>
 
-        <p class="hero-x-sub" id="heroSub">
-          <span class="hero-x-sub-inner">Пришлите фото комнаты — пришлём 3D-визуализацию за час. Цена — на бесплатном замере у вас.</span>
-        </p>
+        <div class="hero-p-tabs" role="tablist" id="heroTabs">
+          <button class="hero-p-tab active" data-tab="apartment" role="tab">Квартира</button>
+          <button class="hero-p-tab" data-tab="house" role="tab">Загородный дом</button>
+          <button class="hero-p-tab" data-tab="designer" role="tab">С дизайнером</button>
+        </div>
 
-        <!-- Мобильный CTA: одна большая кнопка под текстом -->
-        <a href="#final" class="hero-x-mobile-cta">
-          <span>Получить 3D-проект бесплатно</span>
+        <div class="hero-p-metrics">
+          <div class="hero-p-metric">
+            <div class="hero-p-metric-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="hero-p-metric-v">1 час</div>
+            <div class="hero-p-metric-l">на визуализацию</div>
+          </div>
+          <div class="hero-p-metric">
+            <div class="hero-p-metric-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="3"/><circle cx="17" cy="12" r="1.5"/></svg>
+            </div>
+            <div class="hero-p-metric-v">0 ₽</div>
+            <div class="hero-p-metric-l">за визуализацию</div>
+          </div>
+          <div class="hero-p-metric">
+            <div class="hero-p-metric-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="hero-p-metric-v">10 лет</div>
+            <div class="hero-p-metric-l">гарантии на монтаж</div>
+          </div>
+        </div>
+
+        <div class="hero-p-note">
+          <span class="hero-p-note-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/><path d="M9 9v.01M9 13v.01M9 17v.01"/></svg>
+          </span>
+          <span>Работаем с премиальными натяжными потолками и дизайнерскими проектами в Москве и МО</span>
+        </div>
+
+        <div class="hero-p-note hero-p-note-cta">
+          <span class="hero-p-note-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          <span>Следующий шаг — бесплатный замер и точный расчёт. Цена фиксируется в договоре до начала работ.</span>
+        </div>
+
+        <!-- Mobile CTA (показывается только на мобиле) -->
+        <a href="#hero-form" class="hero-p-mobile-cta">
+          <span>Получить визуализацию</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
+      </div>
 
-        <!-- Метрики-цифры -->
-        <div class="hero-x-stats">
-          <div class="hero-x-stat">
-            <div class="hero-x-stat-v">1 час</div>
-            <div class="hero-x-stat-l">на визуализацию<br>по вашему фото</div>
+      <!-- ЦЕНТР: before/after слайдер с handle -->
+      <div class="hero-p-slider">
+        <div class="hero-p-slider-frame" id="naglSlider">
+          <div class="hero-p-side hero-p-after">
+            <img class="hero-p-img" src="/assets/img/02-after-small-room-shadow-line.jpg" alt="Визуализация комнаты с натяжным потолком" loading="eager" fetchpriority="high">
           </div>
-          <div class="hero-x-stat-divider"></div>
-          <div class="hero-x-stat">
-            <div class="hero-x-stat-v">0&nbsp;₽</div>
-            <div class="hero-x-stat-l">визуализация<br>и выезд на замер</div>
+          <div class="hero-p-side hero-p-before" id="naglBefore">
+            <img class="hero-p-img" src="/assets/img/01-before-small-room-old-ceiling.jpg" alt="Фото комнаты до" loading="eager" fetchpriority="high">
           </div>
-          <div class="hero-x-stat-divider"></div>
-          <div class="hero-x-stat">
-            <div class="hero-x-stat-v">10 лет</div>
-            <div class="hero-x-stat-l">гарантии<br>на монтаж</div>
+
+          <div class="hero-p-tag hero-p-tag-l">Ваше фото</div>
+          <div class="hero-p-tag hero-p-tag-r">Визуализация</div>
+
+          <div class="hero-p-handle" id="naglHandle">
+            <div class="hero-p-handle-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/><polyline points="9 18 15 12 9 6" transform="translate(6 0)"/></svg>
+            </div>
+          </div>
+
+          <div class="hero-p-overlay">
+            Увидите, как ваш потолок будет выглядеть в реальности ещё до начала работ
           </div>
         </div>
 
-        <!-- Live-ticker фактов -->
-        <div class="hero-x-ticker" aria-live="polite">
-          <span class="hero-x-ticker-dot"></span>
-          <span class="hero-x-ticker-stack" id="tickerStack">
-            <span class="hero-x-ticker-item">Гарантия на монтаж, не на плёнку завода</span>
-            <span class="hero-x-ticker-item">Технолог читает ваш дизайн-проект и рендеры</span>
-            <span class="hero-x-ticker-item">Цена фиксируется в договоре до начала работ</span>
-            <span class="hero-x-ticker-item">Бригада в штате — имя и фото до выезда</span>
-            <span class="hero-x-ticker-item">Не приняли по чек-листу — переделаем за свой счёт</span>
-          </span>
+        <!-- Социальное доказательство под слайдером -->
+        <div class="hero-p-social">
+          <div class="hero-p-avas">
+            <span class="hero-p-ava" style="background:linear-gradient(135deg,#a09cff,#7d77ff)">А</span>
+            <span class="hero-p-ava" style="background:linear-gradient(135deg,#ffb47a,#ff8a3d)">И</span>
+            <span class="hero-p-ava" style="background:linear-gradient(135deg,#ffa3c5,#ff77a3)">М</span>
+            <span class="hero-p-ava" style="background:linear-gradient(135deg,#7ad6c1,#3db8a0)">Д</span>
+          </div>
+          <div class="hero-p-social-txt">
+            <strong>Более 320 довольных клиентов</strong>
+            <span>
+              <svg viewBox="0 0 24 24" fill="#F5A623" width="14" height="14"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              5.0 на Яндекс.Картах
+            </span>
+          </div>
         </div>
       </div>
 
-      <!-- ПРАВО: tilt-карточка с glow -->
-      <aside class="hero-x-card" id="heroCard">
-        <div class="hero-x-card-glow"></div>
-        <div class="hero-x-card-inner">
-          <div class="hero-x-card-tag">
-            <span class="hero-x-card-tag-pulse"></span>
-            Бесплатно · ответ в течение часа
+      <!-- ПРАВО: форма-карточка -->
+      <aside class="hero-p-form-card" id="hero-form">
+        <h3 class="hero-p-form-title">Получите 3D-визуализацию вашего потолка <em class="hero-p-form-title-grad">бесплатно</em></h3>
+        <p class="hero-p-form-sub">Оставьте контакт — мы пришлём несколько вариантов под ваш интерьер в течение часа.</p>
+
+        <form class="hero-p-form" id="heroLeadForm" data-source="hero-proto">
+          <label class="hero-p-upload">
+            <input type="file" name="photo" accept="image/*" hidden id="heroPhotoInput">
+            <span class="hero-p-upload-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            </span>
+            <div class="hero-p-upload-txt">
+              <strong id="heroUploadName">Загрузите фото комнаты</strong>
+              <span>JPG, PNG до 10 МБ</span>
+            </div>
+          </label>
+
+          <div class="hero-p-field">
+            <input type="text" name="name" placeholder="Как к вам обращаться" aria-label="Имя" required>
           </div>
-          <h2 class="hero-x-card-title">Покажем как будет<br>выглядеть <em>в вашей комнате</em></h2>
-          <p class="hero-x-card-lead">Оставьте контакт — попросим фото комнаты в Telegram. В течение часа пришлём визуализацию.</p>
 
-          <!-- Что конкретно получите -->
-          <ul class="hero-x-get">
-            <li>
-              <span class="hero-x-get-ico">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-              </span>
-              <div><b>Визуализация по вашему фото</b><span>несколько вариантов: матовый, парящий, со световыми линиями</span></div>
-            </li>
-            <li>
-              <span class="hero-x-get-ico">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
-              </span>
-              <div><b>Подробное описание каждого</b><span>фактура, свет, технологии — поймёте чем варианты отличаются</span></div>
-            </li>
-            <li>
-              <span class="hero-x-get-ico">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-              </span>
-              <div><b>Бесплатный замер мастера</b><span>мастер приедет в удобное время, посчитает точную цену при вас и сразу зафиксирует в договоре</span></div>
-            </li>
-          </ul>
-
-          <form class="hero-x-form" id="heroLeadForm" data-source="hero-v4">
-            <div class="hero-x-input-wrap">
-              <input type="text" class="hero-x-input" name="name" placeholder="Как к вам обращаться" aria-label="Имя" required>
-              <span class="hero-x-input-line"></span>
-            </div>
-            <div class="hero-x-input-wrap">
-              <input type="text" class="hero-x-input" name="contact" placeholder="Telegram @username или телефон" aria-label="Telegram или телефон" required>
-              <span class="hero-x-input-line"></span>
-            </div>
-
-            <button type="submit" class="hero-x-cta">
-              <span class="hero-x-cta-glow"></span>
-              <span class="hero-x-cta-text">Получить 3D-проект</span>
-              <span class="hero-x-cta-arrow">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </span>
-            </button>
-
-            <div class="hero-x-form-legal">
-              Без спама и звонков-роботов · <a href="/privacy.html">Политика</a>
-            </div>
-          </form>
-
-          <div class="hero-x-card-alt">
-            <a href="https://t.me/dimasic_135" target="_blank" rel="noopener" class="hero-x-card-tg">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
-              Удобнее? Напишите в Telegram
-            </a>
+          <div class="hero-p-field">
+            <input type="tel" name="contact" placeholder="Телефон или Telegram" aria-label="Телефон или Telegram" required>
           </div>
-        </div>
+
+          <div class="hero-p-channel">
+            <span class="hero-p-channel-label">Удобный способ связи:</span>
+            <div class="hero-p-channel-row">
+              <label class="hero-p-radio active">
+                <input type="radio" name="channel" value="telegram" checked>
+                <span class="hero-p-radio-dot"></span>
+                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+                Telegram
+              </label>
+              <label class="hero-p-radio">
+                <input type="radio" name="channel" value="whatsapp">
+                <span class="hero-p-radio-dot"></span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                WhatsApp
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" class="hero-p-cta">
+            <span>Получить визуализацию</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+
+          <div class="hero-p-legal">Без спама и навязчивых звонков</div>
+        </form>
 
         <!-- Спасибо после отправки -->
-        <div class="hero-x-thanks" id="heroThanks">
-          <div class="hero-x-thanks-confetti"></div>
-          <div class="hero-x-thanks-ico">
+        <div class="hero-p-thanks" id="heroThanks">
+          <div class="hero-p-thanks-ico">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" width="38" height="38"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
-          <h3 class="hero-x-thanks-h">Заявка принята</h3>
-          <p class="hero-x-thanks-p">Технолог пишет вам в Telegram. С 09:00 до 22:00 МСК — за час.</p>
-          <a href="https://t.me/dimasic_135" target="_blank" rel="noopener" class="hero-x-thanks-link">
+          <h3 class="hero-p-thanks-h">Заявка принята</h3>
+          <p class="hero-p-thanks-p">Технолог пишет вам в Telegram. С 09:00 до 22:00 МСК — за час.</p>
+          <a href="https://t.me/dimasic_135" target="_blank" rel="noopener noreferrer" class="hero-p-thanks-link">
             Открыть Telegram-чат
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
         </div>
       </aside>
+
     </div>
   </section>
 

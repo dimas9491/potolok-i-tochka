@@ -317,137 +317,83 @@ window.TG_CONFIG = {
     el.textContent = new Date().getFullYear();
   });
 
-  /* ----- 18. HERO V4: интерактив (tabs, ticker, tilt, форма) ----- */
-  var heroCard = $('#heroCard');
+  /* ----- 18. HERO V5 (PROTO): tabs, radio, upload, submit ----- */
+  var heroFormCard = $('.hero-p-form-card');
   var heroLeadForm = $('#heroLeadForm');
-  var heroSub = $('#heroSub');
   var heroTabs = $('#heroTabs');
-  var heroTabGlow = $('#heroTabGlow');
-  var tickerStack = $('#tickerStack');
+  var heroPhotoInput = $('#heroPhotoInput');
+  var heroUploadName = $('#heroUploadName');
 
-  // --- Табы: меняют подзаголовок ---
-  var SUB_TEXT = {
-    apartment: 'Пришлите фото комнаты — пришлём 3D-визуализацию за час. Цена — на бесплатном замере у вас.',
-    house: 'Многоуровневые конструкции для дома. Визуализация за час по фото и плану. Замер по МО — бесплатно.',
-    designer: 'Технолог прочитает ваш дизайн-проект и рендеры. Визуализация под ваш интерьер — за час.'
-  };
-
-  function positionTabGlow(activeBtn){
-    if(!activeBtn || !heroTabGlow) return;
-    var parent = activeBtn.parentElement;
-    var prect = parent.getBoundingClientRect();
-    var brect = activeBtn.getBoundingClientRect();
-    heroTabGlow.style.left = (brect.left - prect.left) + 'px';
-    heroTabGlow.style.width = brect.width + 'px';
-  }
-
-  if(heroTabs && heroSub){
-    var heroTabBtns = $$('.hero-x-tab', heroTabs);
-    // init: позиционируем glow по active
-    var initial = heroTabs.querySelector('.hero-x-tab.active');
-    if(initial){
-      requestAnimationFrame(function(){ positionTabGlow(initial); });
-    }
-
+  // --- Табы — просто переключают активный (без смены текста) ---
+  if(heroTabs){
+    var heroTabBtns = $$('.hero-p-tab', heroTabs);
     heroTabBtns.forEach(function(b){
       b.addEventListener('click', function(){
         heroTabBtns.forEach(function(x){ x.classList.remove('active'); });
         b.classList.add('active');
-        positionTabGlow(b);
-        var key = b.dataset.tab;
-        if(SUB_TEXT[key]){
-          // плавная смена текста
-          var inner = heroSub.querySelector('.hero-x-sub-inner');
-          if(inner){
-            inner.style.opacity = '0';
-            inner.style.transform = 'translateY(8px)';
-            setTimeout(function(){
-              inner.textContent = SUB_TEXT[key];
-              inner.style.transition = 'opacity .4s var(--easing), transform .4s var(--easing)';
-              inner.style.opacity = '1';
-              inner.style.transform = 'translateY(0)';
-            }, 200);
-          }
-        }
       });
     });
-    window.addEventListener('resize', function(){
-      var act = heroTabs.querySelector('.hero-x-tab.active');
-      if(act) positionTabGlow(act);
-    });
   }
 
-  // --- Live-ticker фактов: ротация каждые 3.5с ---
-  if(tickerStack){
-    var tickerItems = $$('.hero-x-ticker-item', tickerStack);
-    var tickerIdx = 0;
-    if(tickerItems.length){
-      tickerItems[0].classList.add('active');
-      setInterval(function(){
-        var prev = tickerItems[tickerIdx];
-        prev.classList.remove('active');
-        prev.classList.add('leaving');
-        setTimeout(function(){ prev.classList.remove('leaving'); }, 600);
-        tickerIdx = (tickerIdx + 1) % tickerItems.length;
-        tickerItems[tickerIdx].classList.add('active');
-      }, 3500);
-    }
-  }
-
-  // --- 3D-tilt карточки за курсором ---
-  var cardInner = heroCard ? heroCard.querySelector('.hero-x-card-inner') : null;
-  if(heroCard && cardInner && !isTouch){
-    var raf = null;
-    var targetRX = 0, targetRY = 0, curRX = 0, curRY = 0;
-    function tick(){
-      curRX += (targetRX - curRX) * 0.12;
-      curRY += (targetRY - curRY) * 0.12;
-      cardInner.style.transform = 'perspective(1000px) rotateX('+curRX.toFixed(2)+'deg) rotateY('+curRY.toFixed(2)+'deg)';
-      if(Math.abs(targetRX - curRX) > 0.01 || Math.abs(targetRY - curRY) > 0.01){
-        raf = requestAnimationFrame(tick);
-      } else { raf = null; }
-    }
-    heroCard.addEventListener('mousemove', function(e){
-      var r = heroCard.getBoundingClientRect();
-      var x = (e.clientX - r.left) / r.width - 0.5;
-      var y = (e.clientY - r.top) / r.height - 0.5;
-      targetRY = x * 5;
-      targetRX = -y * 5;
-      if(!raf) raf = requestAnimationFrame(tick);
+  // --- Radio-кнопки канала связи (Telegram / WhatsApp) ---
+  var heroRadios = $$('.hero-p-radio');
+  heroRadios.forEach(function(r){
+    r.addEventListener('click', function(){
+      heroRadios.forEach(function(x){ x.classList.remove('active'); });
+      r.classList.add('active');
+      var input = r.querySelector('input');
+      if(input) input.checked = true;
     });
-    heroCard.addEventListener('mouseleave', function(){
-      targetRX = 0; targetRY = 0;
-      if(!raf) raf = requestAnimationFrame(tick);
+  });
+
+  // --- Upload фото: показываем имя файла после выбора ---
+  if(heroPhotoInput && heroUploadName){
+    heroPhotoInput.addEventListener('change', function(){
+      if(heroPhotoInput.files && heroPhotoInput.files[0]){
+        var f = heroPhotoInput.files[0];
+        var maxBytes = 10 * 1024 * 1024;
+        if(f.size > maxBytes){
+          alert('Файл больше 10 МБ. Сожмите и попробуйте снова.');
+          heroPhotoInput.value = '';
+          return;
+        }
+        heroUploadName.textContent = f.name.length > 28 ? f.name.slice(0,25) + '…' : f.name;
+      }
     });
   }
 
   // --- Отправка формы ---
-  if(heroLeadForm && heroCard){
+  if(heroLeadForm && heroFormCard){
     heroLeadForm.addEventListener('submit', function(e){
       e.preventDefault();
       var name = (heroLeadForm.querySelector('input[name="name"]').value || '').trim();
       var contact = (heroLeadForm.querySelector('input[name="contact"]').value || '').trim();
       if(!name || !contact) return;
 
-      // Какой таб активен сейчас
-      var activeTab = heroTabs ? heroTabs.querySelector('.hero-x-tab.active') : null;
+      // Активный таб + канал связи
+      var activeTab = heroTabs ? heroTabs.querySelector('.hero-p-tab.active') : null;
       var tabName = activeTab ? activeTab.textContent.trim() : '—';
+      var channelInput = heroLeadForm.querySelector('input[name="channel"]:checked');
+      var channel = channelInput ? channelInput.value : 'telegram';
+      var hasPhoto = heroPhotoInput && heroPhotoInput.files && heroPhotoInput.files[0];
 
-      var msg = '<b>🎯 Заявка с главной (hero V4)</b>\n\n' +
+      var msg = '<b>🎯 Заявка с главной</b>\n\n' +
         '<b>Имя:</b> ' + name + '\n' +
         '<b>Контакт:</b> ' + contact + '\n' +
-        '<b>Тип:</b> ' + tabName + '\n\n' +
-        '<i>Хочет:</i> 3D-проект потолка + смета\n' +
+        '<b>Связь:</b> ' + channel + '\n' +
+        '<b>Тип:</b> ' + tabName + '\n' +
+        '<b>Фото:</b> ' + (hasPhoto ? heroPhotoInput.files[0].name : '— не загружено') + '\n\n' +
+        '<i>Хочет:</i> 3D-визуализацию потолка\n' +
         '<i>Источник:</i> главная hero\n' +
         '<i>Время:</i> ' + new Date().toLocaleString('ru-RU');
 
-      var btn = heroLeadForm.querySelector('.hero-x-cta');
+      var btn = heroLeadForm.querySelector('.hero-p-cta');
       btn.classList.add('loading');
       btn.disabled = true;
 
       sendToTelegram(msg).then(function(res){
         if(res && (res.ok || res.mock)){
-          heroCard.classList.add('sent');
+          heroFormCard.classList.add('sent');
           if(window.ym){ try{ window.ym(109271388,'reachGoal','lead'); }catch(e){} }
         } else {
           alert('Не удалось отправить. Напишите нам в Telegram @dimasic_135');
