@@ -445,12 +445,11 @@
   }
   .hero-p-handle-btn:hover{transform:translate(-50%,-50%) scale(1.08)}
   .hero-p-handle-btn svg{width:16px;height:16px}
-  .hero-p-overlay{
-    position:absolute;left:18px;right:18px;bottom:18px;z-index:4;
-    padding:13px 16px;border-radius:14px;
-    background:rgba(255,255,255,.92);backdrop-filter:blur(10px);
-    font-size:13.5px;line-height:1.45;color:var(--ink);
-    text-align:center;border:1px solid rgba(255,255,255,.7);
+  .hero-p-overlay{display:none}
+  .hero-p-caption{
+    font-size:12.5px;line-height:1.45;color:var(--ink-3);
+    text-align:center;margin:6px 8px 0;font-weight:500;
+    max-width:32ch;align-self:center;
   }
 
   /* Социальное доказательство под слайдером */

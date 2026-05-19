@@ -408,15 +408,17 @@ window.TG_CONFIG = {
     });
   }
 
-  /* ----- 19. BEFORE/AFTER СЛАЙДЕР («Наглядно: фото → визуализация») ----- */
+  /* ----- 19. BEFORE/AFTER СЛАЙДЕР ----- */
   var naglSlider = $('#naglSlider');
   if(naglSlider){
-    var frame = naglSlider.querySelector('.nagl-slider-frame');
-    var before = naglSlider.querySelector('#naglBefore');
-    var handle = naglSlider.querySelector('#naglHandle');
+    // naglSlider теперь — сам frame (.hero-p-slider-frame)
+    var frame = naglSlider;
+    var before = $('#naglBefore');
+    var handle = $('#naglHandle');
     var dragging = false;
 
     function setPos(px){
+      if(!frame || !handle || !before) return;
       var rect = frame.getBoundingClientRect();
       var pct = Math.max(0, Math.min(100, ((px - rect.left) / rect.width) * 100));
       handle.style.left = pct + '%';
