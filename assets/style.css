@@ -18,7 +18,7 @@
     --radius-l:24px;
     --radius-m:16px;
     --radius-s:10px;
-    --maxw:1320px;
+    --maxw:1560px;
     --easing:cubic-bezier(.2,.7,.2,1);
     --shadow-card:0 1px 0 rgba(13,14,18,.04), 0 22px 50px -28px rgba(13,14,18,.18);
     --shadow-pop:0 30px 70px -32px rgba(40,64,232,.45);
@@ -295,15 +295,17 @@
      HERO V5 — ПРОТОТИП: 3 колонки (текст / слайдер / форма)
      ======================================== */
   .hero-p{
-    padding:28px clamp(16px,3vw,40px) 56px;
+    padding:28px clamp(20px,3vw,56px) 56px;
     position:relative;
-    width:100%;
+    width:100vw;
+    margin-left:calc(50% - 50vw);
+    margin-right:calc(50% - 50vw);
   }
   .hero-p-grid{
     display:grid;
-    grid-template-columns:minmax(380px,1.15fr) minmax(380px,1.05fr) minmax(340px,.9fr);
-    gap:32px;
-    max-width:1520px;
+    grid-template-columns:minmax(380px,1.1fr) minmax(380px,1fr) minmax(340px,.85fr);
+    gap:36px;
+    max-width:1720px;
     margin:0 auto;
     align-items:start;
   }
@@ -549,6 +551,22 @@
   .hero-p-legal{
     text-align:center;font-size:12px;color:var(--ink-3);margin-top:6px;
   }
+
+  /* Прямая связь под формой */
+  .hero-p-direct{margin-top:18px;display:flex;flex-direction:column;gap:12px}
+  .hero-p-direct-head{display:flex;align-items:center;gap:10px}
+  .hero-p-direct-line{flex:1;height:1px;background:var(--line)}
+  .hero-p-direct-or{font-size:11.5px;color:var(--ink-3);letter-spacing:.04em}
+  .hero-p-direct-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .hero-p-direct-btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:11px 14px;background:#fff;border:1px solid var(--line);border-radius:12px;
+    color:var(--ink);font-family:'Inter Tight',sans-serif;font-weight:500;font-size:13.5px;
+    text-decoration:none;transition:.2s var(--easing);
+  }
+  .hero-p-direct-btn:hover{border-color:#7C5CFF;color:#7C5CFF;transform:translateY(-1px)}
+  .hero-p-direct-btn svg{color:var(--ink-3);transition:.2s;flex:none}
+  .hero-p-direct-btn:hover svg{color:#7C5CFF}
 
   /* Спасибо после отправки */
   .hero-p-thanks{
