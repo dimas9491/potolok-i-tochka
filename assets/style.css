@@ -335,6 +335,7 @@
     -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
     text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px;
     text-decoration-color:rgba(124,92,255,.4);
+    white-space:nowrap;
   }
 
   .hero-p-sub{
