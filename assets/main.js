@@ -408,17 +408,12 @@ window.TG_CONFIG = {
     });
   }
 
-  /* ----- 19. BEFORE/AFTER СЛАЙДЕР ----- */
-  var naglSlider = $('#naglSlider');
-  if(naglSlider){
-    // naglSlider теперь — сам frame (.hero-p-slider-frame)
-    var frame = naglSlider;
-    var before = $('#naglBefore');
-    var handle = $('#naglHandle');
+  /* ----- 19. BEFORE/AFTER СЛАЙДЕРЫ (Hero и "Наглядно") ----- */
+  function initBeforeAfter(frame, before, handle){
+    if(!frame || !before || !handle) return;
     var dragging = false;
 
     function setPos(px){
-      if(!frame || !handle || !before) return;
       var rect = frame.getBoundingClientRect();
       var pct = Math.max(0, Math.min(100, ((px - rect.left) / rect.width) * 100));
       handle.style.left = pct + '%';
@@ -439,12 +434,16 @@ window.TG_CONFIG = {
       dragging = true;
       onMove(e);
     });
+    frame.addEventListener('touchstart', function(e){
+      dragging = true;
+      onMove(e);
+    }, {passive:true});
     document.addEventListener('mousemove', onMove);
     document.addEventListener('touchmove', onMove, {passive:true});
     document.addEventListener('mouseup', onUp);
     document.addEventListener('touchend', onUp);
 
-    // Демо-анимация — медленно проедет туда-сюда один раз при появлении в viewport
+    // Демо-анимация при появлении в viewport
     if('IntersectionObserver' in window){
       var played = false;
       var obs = new IntersectionObserver(function(ents){
@@ -455,7 +454,6 @@ window.TG_CONFIG = {
             function demo(now){
               var t = (now - start) / 2200;
               if(t > 1){ handle.style.left = '50%'; before.style.clipPath = 'inset(0 50% 0 0)'; return; }
-              // Sine wave: идёт от 50% к 80%, потом к 20%, потом обратно к 50%
               var phase = t * Math.PI * 2;
               var pct = 50 + Math.sin(phase) * 30;
               handle.style.left = pct + '%';
@@ -466,8 +464,17 @@ window.TG_CONFIG = {
           }
         });
       }, {threshold: 0.3});
-      obs.observe(naglSlider);
+      obs.observe(frame);
     }
+  }
+
+  // Hero — основной слайдер в первом экране
+  initBeforeAfter($('#heroSlider'), $('#heroBefore'), $('#heroHandle'));
+
+  // Секция "Наглядно" — второй слайдер
+  var naglFrame = $('.nagl-slider-frame');
+  if(naglFrame){
+    initBeforeAfter(naglFrame, naglFrame.querySelector('.nagl-before'), naglFrame.querySelector('.nagl-handle'));
   }
 
   /* ----- 20. ИНТЕРАКТИВНЫЙ КАЛЬКУЛЯТОР HERO (deprecated, оставлен) ----- */
