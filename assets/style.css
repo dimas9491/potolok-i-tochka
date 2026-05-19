@@ -327,7 +327,7 @@
     font-family:'Space Grotesk',sans-serif;
     font-size:clamp(28px,3.1vw,42px);
     font-weight:700;line-height:1.1;letter-spacing:-.025em;
-    color:var(--ink);margin:0;max-width:18ch;
+    color:var(--ink);margin:0;
   }
   .hero-p-h1-grad{
     font-style:normal;
