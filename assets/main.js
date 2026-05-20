@@ -16,7 +16,8 @@
 window.TG_CONFIG = {
   TG_BOT_TOKEN: '8918616271:AAH10t5FA8iCshQKGFI2lKJgtVZVecO9Jws',  // бот @huiuoutt_bot
   TG_CHAT_ID:   '8406991490',                                       // личный чат @dimasic_135
-  SITE_NAME:    'Потолок и точка'
+  SITE_NAME:    'Потолок и точка',
+  LEAD_WEBHOOK_URL: '' // сюда можно поставить Apps Script / CRM webhook для Google Sheets и CRM
 };
 
 (function(){
@@ -215,38 +216,200 @@ window.TG_CONFIG = {
   }
   window.sendToTelegram = sendToTelegram;
 
+  function sendTelegramFiles(form, caption){
+    var cfg = window.TG_CONFIG || {};
+    if(!cfg.TG_BOT_TOKEN || !cfg.TG_CHAT_ID) return Promise.resolve({ok:false, skipped:true});
+    var files = [];
+    $$('input[type="file"]', form).forEach(function(input){
+      if(input.files && input.files.length){
+        Array.prototype.forEach.call(input.files, function(file){
+          if(file && file.name && file.size <= 10 * 1024 * 1024) files.push(file);
+        });
+      }
+    });
+    if(!files.length) return Promise.resolve({ok:false, skipped:true});
+    var url = 'https://api.telegram.org/bot' + cfg.TG_BOT_TOKEN + '/sendPhoto';
+    return Promise.all(files.slice(0, 3).map(function(file, index){
+      var data = new FormData();
+      data.append('chat_id', cfg.TG_CHAT_ID);
+      data.append('photo', file, file.name);
+      data.append('caption', (caption || 'Фото к заявке') + (files.length > 1 ? ' #' + (index + 1) : ''));
+      return fetch(url, {method:'POST', body:data}).then(function(r){ return r.json(); });
+    })).then(function(results){
+      return {ok: results.some(function(item){ return item && item.ok; })};
+    });
+  }
+  window.sendTelegramFiles = sendTelegramFiles;
+
+  function escapeHtml(value){
+    return String(value || '').replace(/[&<>"']/g, function(ch){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch];
+    });
+  }
+
+  function trackGoal(goal, params){
+    if(!goal) return;
+    if(window.ym){
+      try{ window.ym(109271388, 'reachGoal', goal, params || {}); }catch(e){}
+    }
+  }
+  window.trackGoal = trackGoal;
+
+  function getUtm(){
+    var params = new URLSearchParams(location.search);
+    var keys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+    var data = {};
+    keys.forEach(function(key){
+      var value = params.get(key) || sessionStorage.getItem(key) || '';
+      if(value){
+        data[key] = value;
+        try{ sessionStorage.setItem(key, value); }catch(e){}
+      }
+    });
+    return data;
+  }
+
+  function collectFormFields(form){
+    var data = new FormData(form);
+    var fields = {};
+    var labels = {
+      name:'Имя',
+      contact:'Контакт',
+      phone:'Телефон',
+      city:'Город / район',
+      area:'Площадь',
+      stage:'Что нужно',
+      task:'Что хочет',
+      budgetLevel:'Уровень решения',
+      service:'Услуга',
+      room:'Помещение',
+      lighting:'Освещение',
+      deadline:'Срок',
+      channel:'Канал связи',
+      messenger:'Мессенджер',
+      comment:'Комментарий',
+      photo:'Фото',
+      partnerType:'Кто вы',
+      hasClient:'Есть ли клиент'
+    };
+
+    Array.from(new Set(Array.from(data.keys()))).forEach(function(key){
+      var values = data.getAll(key).map(function(value){
+        if(value && typeof value === 'object' && 'name' in value){
+          return value.name ? value.name : '';
+        }
+        return String(value || '').trim();
+      }).filter(Boolean);
+      if(values.length) fields[key] = values.join(', ');
+    });
+
+    $$('input[type="file"]', form).forEach(function(input){
+      if(input.files && input.files.length){
+        fields[input.name || 'photo'] = Array.prototype.map.call(input.files, function(file){ return file.name; }).join(', ');
+      }
+    });
+
+    return {raw: fields, labels: labels};
+  }
+
+  function leadPayload(form, title){
+    var collected = collectFormFields(form);
+    var source = form.dataset.source || location.pathname || '/';
+    var utm = getUtm();
+    return {
+      title: title || 'Новая заявка',
+      fields: collected.raw,
+      labels: collected.labels,
+      source: source,
+      page: location.href,
+      pageTitle: document.title,
+      utm: utm,
+      date: new Date().toISOString(),
+      readableDate: new Date().toLocaleString('ru-RU')
+    };
+  }
+  window.leadPayload = leadPayload;
+
+  function leadTelegramMessage(payload){
+    var rows = Object.keys(payload.fields).map(function(key){
+      var label = payload.labels[key] || key;
+      return fmtField(label, escapeHtml(payload.fields[key]));
+    }).filter(Boolean);
+    var utmRows = Object.keys(payload.utm || {}).map(function(key){
+      return fmtField(key, escapeHtml(payload.utm[key]));
+    }).filter(Boolean);
+    return '<b>🏠 ' + escapeHtml(payload.title) + ' — ' + escapeHtml((window.TG_CONFIG || {}).SITE_NAME || 'Сайт') + '</b>\n\n' +
+      rows.join('\n') +
+      (utmRows.length ? '\n\n<b>UTM:</b>\n' + utmRows.join('\n') : '') +
+      '\n\n<i>Источник: ' + escapeHtml(payload.source) + '</i>' +
+      '\n<i>Страница: ' + escapeHtml(location.pathname || '/') + '</i>' +
+      '\n<i>Время: ' + escapeHtml(payload.readableDate) + '</i>';
+  }
+
+  function sendLeadWebhook(payload){
+    var cfg = window.TG_CONFIG || {};
+    var webhook = cfg.LEAD_WEBHOOK_URL || window.LEAD_WEBHOOK_URL || '';
+    if(!webhook) return Promise.resolve({ok:true, skipped:true});
+    return fetch(webhook, {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify(payload)
+    }).then(function(r){ return {ok:r.ok, status:r.status}; });
+  }
+  window.sendLeadWebhook = sendLeadWebhook;
+
+  function leadSucceeded(results){
+    return results.some(function(item){
+      if(item.status !== 'fulfilled') return false;
+      var value = item.value || {};
+      if(value.skipped) return false;
+      return value.ok || value.mock;
+    });
+  }
+
+  document.addEventListener('click', function(e){
+    var el = e.target.closest('a, button');
+    if(!el) return;
+    var href = el.getAttribute('href') || '';
+    var explicit = el.dataset.goal;
+    if(explicit) trackGoal(explicit);
+    else if(href.indexOf('tel:') === 0) trackGoal('phone_click');
+    else if(href.indexOf('t.me') >= 0) trackGoal('telegram_click');
+    else if(href.indexOf('wa.me') >= 0 || href.indexOf('whatsapp') >= 0) trackGoal('whatsapp_click');
+    else if(href.indexOf('/raschet-po-foto/') >= 0 || href === '#hero-form' || href === '#final') trackGoal('calculate_photo_click');
+    else if(href.indexOf('/besplatnyj-zamer/') >= 0) trackGoal('free_measure_click');
+    else if(href.indexOf('/kalkulyator/') >= 0) trackGoal('calculator_click');
+    else if(href.indexOf('/partneram/') >= 0) trackGoal('partner_click');
+  });
+
+  document.addEventListener('change', function(e){
+    if(e.target && e.target.matches('input[type="file"]')) trackGoal('photo_upload');
+  });
+
+  if(location.pathname === '/thank-you/' || location.pathname === '/thank-you/index.html'){
+    trackGoal('thank_you_view');
+  }
+
   /* ----- 13. ОБРАБОТКА ФОРМ ----- */
   $$('form[data-tg-form]').forEach(function(form){
     form.addEventListener('submit', function(e){
       e.preventDefault();
-      var data = new FormData(form);
-      var name = (data.get('name') || '').trim();
-      var contact = (data.get('contact') || '').trim();
-      var area = (data.get('area') || '').trim();
-      var stageValues = data.getAll('stage').map(function(x){ return String(x).trim(); }).filter(Boolean);
-      var stage = stageValues.length ? stageValues.join(', ') : ((data.get('stage') || '').trim());
-      var budgetLevel = (data.get('budgetLevel') || '').trim();
-      var source = form.dataset.source || (location.pathname || '/');
-
-      var msg = '<b>🏠 Новая заявка — ' + (window.TG_CONFIG.SITE_NAME || 'Сайт') + '</b>\n\n' +
-        fmtField('Имя', name) + '\n' +
-        fmtField('Контакт', contact) + '\n' +
-        fmtField('Площадь, м²', area) + '\n' +
-        fmtField('Что нужно', stage) + '\n' +
-        (budgetLevel ? fmtField('Уровень решения', budgetLevel) + '\n\n' : '\n') +
-        '<i>Источник: ' + source + '</i>\n' +
-        '<i>Время: ' + new Date().toLocaleString('ru-RU') + '</i>';
+      var payload = leadPayload(form, 'Новая заявка');
+      var msg = leadTelegramMessage(payload);
 
       var btn = form.querySelector('button[type="submit"]');
       var origText = btn ? btn.innerHTML : '';
       if(btn){ btn.disabled = true; btn.innerHTML = 'Отправляем…'; }
 
-      sendToTelegram(msg).then(function(res){
-        if(res && (res.ok || res.mock)){
+      Promise.allSettled([sendToTelegram(msg), sendTelegramFiles(form, 'Фото к заявке: ' + payload.source), sendLeadWebhook(payload)]).then(function(results){
+        if(leadSucceeded(results)){
           form.querySelector('.thanks') && (form.querySelector('.thanks').style.display = 'block');
           form.querySelector('.body')   && (form.querySelector('.body').style.display   = 'none');
-          // отметим в analytics, если подключите
-          if(window.ym){ try{ window.ym(109271388,'reachGoal','lead'); }catch(e){} }
+          trackGoal('form_submit', {source: payload.source});
+          if(payload.source === '/kalkulyator/' || location.pathname.indexOf('/kalkulyator/') === 0) trackGoal('calculator_complete');
+          if(form.dataset.noRedirect !== 'true'){
+            setTimeout(function(){ window.location.href = '/thank-you/'; }, 350);
+          }
         } else {
           alert('Не удалось отправить заявку. Напишите нам в Telegram @dimasic_135 или WhatsApp.');
           if(btn){ btn.disabled = false; btn.innerHTML = origText; }
@@ -268,15 +431,32 @@ window.TG_CONFIG = {
       var msg = '<b>📥 Запрос гайда «5 ошибок при выборе натяжного потолка»</b>\n\n' +
         '<b>Контакт:</b> ' + contact + '\n' +
         '<i>Откуда: ' + (location.pathname || '/') + '</i>';
+      var payload = {
+        title: 'Запрос лид-магнита',
+        fields: {contact: contact, service: 'Гайд 5 ошибок'},
+        labels: {contact:'Контакт', service:'Материал'},
+        source: location.pathname || '/',
+        page: location.href,
+        pageTitle: document.title,
+        utm: getUtm(),
+        date: new Date().toISOString(),
+        readableDate: new Date().toLocaleString('ru-RU')
+      };
       var btn = leadForm.querySelector('button[type="submit"]');
       var orig = btn.innerHTML;
       btn.disabled = true; btn.innerHTML = 'Отправляем…';
-      sendToTelegram(msg).then(function(){
+      Promise.allSettled([sendToTelegram(msg), sendTelegramFiles(heroLeadForm, 'Фото к заявке с главной'), sendLeadWebhook(payload)]).then(function(results){
+        if(!leadSucceeded(results)){
+          alert('Не удалось отправить. Напишите в Telegram @dimasic_135');
+          btn.disabled = false; btn.innerHTML = orig;
+          return;
+        }
         var ok = $('#leadMagnetOk');
         if(ok){
           ok.style.display = 'flex';
           leadForm.style.display = 'none';
         }
+        trackGoal('form_submit', {source: 'lead_magnet'});
       }).catch(function(){
         alert('Не удалось отправить. Напишите в Telegram @dimasic_135');
         btn.disabled = false; btn.innerHTML = orig;
@@ -388,15 +568,33 @@ window.TG_CONFIG = {
         '<i>Хочет:</i> 2–3 варианта потолка под интерьер и стиль ремонта\n' +
         '<i>Источник:</i> главная hero\n' +
         '<i>Время:</i> ' + new Date().toLocaleString('ru-RU');
+      var payload = {
+        title: 'Заявка с главной',
+        fields: {
+          name: name,
+          contact: contact,
+          channel: channel,
+          task: tasks.length ? tasks.join(', ') : 'не выбрано',
+          photo: hasPhoto ? heroPhotoInput.files[0].name : ''
+        },
+        labels: {name:'Имя', contact:'Контакт', channel:'Канал связи', task:'Что хочет', photo:'Фото'},
+        source: 'главная hero',
+        page: location.href,
+        pageTitle: document.title,
+        utm: getUtm(),
+        date: new Date().toISOString(),
+        readableDate: new Date().toLocaleString('ru-RU')
+      };
 
       var btn = heroLeadForm.querySelector('.hero-p-cta');
       btn.classList.add('loading');
       btn.disabled = true;
 
-      sendToTelegram(msg).then(function(res){
-        if(res && (res.ok || res.mock)){
+      Promise.allSettled([sendToTelegram(msg), sendLeadWebhook(payload)]).then(function(results){
+        if(leadSucceeded(results)){
           heroFormCard.classList.add('sent');
-          if(window.ym){ try{ window.ym(109271388,'reachGoal','lead'); }catch(e){} }
+          trackGoal('form_submit', {source: 'главная hero'});
+          setTimeout(function(){ window.location.href = '/thank-you/'; }, 450);
         } else {
           alert('Не удалось отправить. Напишите нам в Telegram @dimasic_135');
           btn.classList.remove('loading');
@@ -613,18 +811,39 @@ window.TG_CONFIG = {
         '<b>Ориентир:</b> ' + elOrient.textContent + '\n\n' +
         '<i>Источник: главная / hero-калькулятор</i>\n' +
         '<i>Время: ' + new Date().toLocaleString('ru-RU') + '</i>';
+      var payload = {
+        title: 'Заявка из калькулятора на главной',
+        fields: {
+          name: name,
+          contact: contact,
+          room: typeNames[state.type] || '',
+          area: state.area + ' м²',
+          service: lineNames[state.line] || '',
+          lighting: extrasStr,
+          budgetLevel: elOrient.textContent
+        },
+        labels: {name:'Имя', contact:'Контакт', room:'Тип', area:'Площадь', service:'Линейка', lighting:'Опции', budgetLevel:'Ориентир'},
+        source: 'главная / hero-калькулятор',
+        page: location.href,
+        pageTitle: document.title,
+        utm: getUtm(),
+        date: new Date().toISOString(),
+        readableDate: new Date().toLocaleString('ru-RU')
+      };
 
       var btn = elForm.querySelector('.calc-submit');
       btn.classList.add('loading');
       btn.disabled = true;
 
-      sendToTelegram(msg).then(function(res){
-        if(res && (res.ok || res.mock)){
+      Promise.allSettled([sendToTelegram(msg), sendLeadWebhook(payload)]).then(function(results){
+        if(leadSucceeded(results)){
           elLocked.style.display = 'none';
           elThanks.classList.add('show');
           elNext.style.display = 'none';
           elBack.style.display = 'none';
-          if(window.ym){ try{ window.ym(109271388,'reachGoal','lead'); }catch(e){} }
+          trackGoal('calculator_complete', {source: 'главная'});
+          trackGoal('form_submit', {source: 'главная / hero-калькулятор'});
+          setTimeout(function(){ window.location.href = '/thank-you/'; }, 650);
         } else {
           alert('Не удалось отправить. Напишите нам в Telegram @dimasic_135');
           btn.classList.remove('loading');
