@@ -223,14 +223,17 @@ window.TG_CONFIG = {
       var name = (data.get('name') || '').trim();
       var contact = (data.get('contact') || '').trim();
       var area = (data.get('area') || '').trim();
-      var stage = (data.get('stage') || '').trim();
+      var stageValues = data.getAll('stage').map(function(x){ return String(x).trim(); }).filter(Boolean);
+      var stage = stageValues.length ? stageValues.join(', ') : ((data.get('stage') || '').trim());
+      var budgetLevel = (data.get('budgetLevel') || '').trim();
       var source = form.dataset.source || (location.pathname || '/');
 
       var msg = '<b>🏠 Новая заявка — ' + (window.TG_CONFIG.SITE_NAME || 'Сайт') + '</b>\n\n' +
         fmtField('Имя', name) + '\n' +
         fmtField('Контакт', contact) + '\n' +
         fmtField('Площадь, м²', area) + '\n' +
-        fmtField('Что есть', stage) + '\n\n' +
+        fmtField('Что нужно', stage) + '\n' +
+        (budgetLevel ? fmtField('Уровень решения', budgetLevel) + '\n\n' : '\n') +
         '<i>Источник: ' + source + '</i>\n' +
         '<i>Время: ' + new Date().toLocaleString('ru-RU') + '</i>';
 
@@ -370,20 +373,19 @@ window.TG_CONFIG = {
       var contact = (heroLeadForm.querySelector('input[name="contact"]').value || '').trim();
       if(!name || !contact) return;
 
-      // Активный таб + канал связи
-      var activeTab = heroTabs ? heroTabs.querySelector('.hero-p-tab.active') : null;
-      var tabName = activeTab ? activeTab.textContent.trim() : '—';
+      // Канал связи и выбранные задачи
       var channelInput = heroLeadForm.querySelector('input[name="channel"]:checked');
       var channel = channelInput ? channelInput.value : 'telegram';
+      var tasks = $$('.hero-p-check input[name="task"]:checked', heroLeadForm).map(function(x){ return x.value; });
       var hasPhoto = heroPhotoInput && heroPhotoInput.files && heroPhotoInput.files[0];
 
       var msg = '<b>🎯 Заявка с главной</b>\n\n' +
         '<b>Имя:</b> ' + name + '\n' +
         '<b>Контакт:</b> ' + contact + '\n' +
         '<b>Связь:</b> ' + channel + '\n' +
-        '<b>Тип:</b> ' + tabName + '\n' +
+        '<b>Что хочет:</b> ' + (tasks.length ? tasks.join(', ') : '— не выбрано') + '\n' +
         '<b>Фото:</b> ' + (hasPhoto ? heroPhotoInput.files[0].name : '— не загружено') + '\n\n' +
-        '<i>Хочет:</i> 3D-визуализацию потолка\n' +
+        '<i>Хочет:</i> 2–3 варианта потолка под интерьер и стиль ремонта\n' +
         '<i>Источник:</i> главная hero\n' +
         '<i>Время:</i> ' + new Date().toLocaleString('ru-RU');
 
