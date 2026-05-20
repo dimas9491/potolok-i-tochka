@@ -75,19 +75,129 @@ const blogPosts = [
 ];
 
 const geoPages = [
-  ['natyazhnye-potolki-v-moskve','Москве','Москва'],
-  ['natyazhnye-potolki-v-moskovskoj-oblasti','Московской области','МО'],
-  ['natyazhnye-potolki-v-krasnogorske','Красногорске','Красногорск'],
-  ['natyazhnye-potolki-v-himkah','Химках','Химки'],
-  ['natyazhnye-potolki-v-balashihe','Балашихе','Балашиха'],
-  ['natyazhnye-potolki-v-mitino','Митино','Митино'],
-  ['natyazhnye-potolki-v-kommunarke','Коммунарке','Коммунарка']
+  {slug:'natyazhnye-potolki-v-moskve', name:'Москве', city:'Москва', group:'Москва', note:'Работаем по всем округам: от обычных квартир до дизайн-проектов с карнизами, треками и теневым профилем.'},
+  {slug:'natyazhnye-potolki-v-moskovskoj-oblasti', name:'Московской области', city:'Московская область', group:'Подмосковье', note:'Выезжаем в ближайшие города МО, заранее уточняем адрес, парковку, пропуск и удобный слот замера.'},
+  {slug:'natyazhnye-potolki-v-krasnogorske', name:'Красногорске', city:'Красногорск', group:'Подмосковье', note:'Часто считают потолки для новостроек, квартир с панорамными окнами и кухонь-гостиных.'},
+  {slug:'natyazhnye-potolki-v-himkah', name:'Химках', city:'Химки', group:'Подмосковье', note:'Поможем подобрать базовый потолок, скрытый карниз или трековый свет для квартиры в новостройке.'},
+  {slug:'natyazhnye-potolki-v-balashihe', name:'Балашихе', city:'Балашиха', group:'Подмосковье', note:'Рассчитываем комнаты, кухни, санузлы и квартиры целиком по фото или планировке.'},
+  {slug:'natyazhnye-potolki-v-mytishchah', name:'Мытищах', city:'Мытищи', group:'Подмосковье', note:'Подберём решение для вторички, новостройки или квартиры под сдачу без фейковой цены за м².'},
+  {slug:'natyazhnye-potolki-v-reutove', name:'Реутове', city:'Реутов', group:'Подмосковье', note:'Удобно считать по фото: быстро понимаем площадь, свет, углы, трубы и уровень решения.'},
+  {slug:'natyazhnye-potolki-v-lyubercah', name:'Люберцах', city:'Люберцы', group:'Подмосковье', note:'Делаем спокойные матовые потолки, потолки со светом, карнизы и ремонт полотна.'},
+  {slug:'natyazhnye-potolki-v-odincovo', name:'Одинцово', city:'Одинцово', group:'Подмосковье', note:'Для квартир в новых домах удобно прислать планировку: рассчитаем комнаты по зонам.'},
+  {slug:'natyazhnye-potolki-v-dolgoprudnom', name:'Долгопрудном', city:'Долгопрудный', group:'Подмосковье', note:'Подберём решение с учётом света, карнизов, мебели и сроков следующего этапа ремонта.'},
+  {slug:'natyazhnye-potolki-v-vidnom', name:'Видном', city:'Видное', group:'Подмосковье', note:'Считаем как отдельные комнаты, так и квартиры целиком после приёмки.'},
+  {slug:'natyazhnye-potolki-v-kotelnikah', name:'Котельниках', city:'Котельники', group:'Подмосковье', note:'Поможем сравнить базовый, оптимальный и дизайнерский вариант до выезда на замер.'},
+  {slug:'natyazhnye-potolki-v-podolsk', name:'Подольске', city:'Подольск', group:'Подмосковье', note:'По дальним адресам условия выезда и слот замера согласуем заранее, без сюрпризов.'},
+  {slug:'natyazhnye-potolki-v-domodedovo', name:'Домодедово', city:'Домодедово', group:'Подмосковье', note:'Подходит для квартир, домов и коммерческих помещений, где важен понятный расчёт.'},
+  {slug:'natyazhnye-potolki-v-koroleve', name:'Королёве', city:'Королёв', group:'Подмосковье', note:'Для расчёта пришлите фото, площадь, желаемый свет и сроки ремонта.'},
+  {slug:'natyazhnye-potolki-v-pushkino', name:'Пушкино', city:'Пушкино', group:'Подмосковье', note:'Сделаем предварительный расчёт по фото и объясним, что влияет на смету.'},
+  {slug:'natyazhnye-potolki-v-nahabino', name:'Нахабино', city:'Нахабино', group:'Подмосковье', note:'Учитываем пропуска, парковку, лифты и возможность заноса материала в новостройках.'},
+  {slug:'natyazhnye-potolki-v-putilkovo', name:'Путилково', city:'Путилково', group:'Подмосковье', note:'Популярны матовые потолки, скрытые карнизы, точечный свет и трековое освещение.'},
+  {slug:'natyazhnye-potolki-v-skolkovo', name:'Сколково', city:'Сколково', group:'Подмосковье', note:'Чаще нужны аккуратные решения для современных квартир: тень, карниз, треки, свет.'},
+  {slug:'natyazhnye-potolki-v-zelenograde', name:'Зеленограде', city:'Зеленоград', group:'Москва', note:'Выезд и сроки согласуем по адресу, расчёт можно начать с фото комнаты.'},
+  {slug:'natyazhnye-potolki-v-kommunarke', name:'Коммунарке', city:'Коммунарка', group:'Новая Москва', note:'Много квартир после приёмки: удобно считать по планировке и фото пустых помещений.'},
+  {slug:'natyazhnye-potolki-v-troicke', name:'Троицке', city:'Троицк', group:'Новая Москва', note:'Для Новой Москвы заранее согласуем логистику замера и дату монтажа.'},
+  {slug:'natyazhnye-potolki-v-shcherbinke', name:'Щербинке', city:'Щербинка', group:'Новая Москва', note:'Подберём потолки по комнатам: кухня, спальня, коридор, санузел или вся квартира.'},
+  {slug:'natyazhnye-potolki-v-vnukovo', name:'Внуково', city:'Внуково', group:'Новая Москва', note:'Рассчитываем решения для новостроек, квартир под себя и квартир под аренду.'},
+  {slug:'natyazhnye-potolki-v-moskovskom', name:'Московском', city:'Московский', group:'Новая Москва', note:'Можно прислать план квартиры: подготовим смету по помещениям и свету.'},
+  {slug:'natyazhnye-potolki-v-mitino', name:'Митино', city:'Митино', group:'Районы Москвы', note:'Популярны ровные матовые потолки, скрытые карнизы, подсветка и точечный свет.'},
+  {slug:'natyazhnye-potolki-v-krylatskom', name:'Крылатском', city:'Крылатское', group:'Районы Москвы', note:'Для ремонтов “для себя” часто выбирают теневой профиль, карниз и спокойный матовый потолок.'},
+  {slug:'natyazhnye-potolki-v-strogino', name:'Строгино', city:'Строгино', group:'Районы Москвы', note:'Считаем потолки для комнат, кухонь-гостиных и квартир с нестандартным светом.'},
+  {slug:'natyazhnye-potolki-v-tushino', name:'Тушино', city:'Тушино', group:'Районы Москвы', note:'Поможем выбрать между базовым потолком, точками, треками и скрытым карнизом.'},
+  {slug:'natyazhnye-potolki-v-kurkino', name:'Куркино', city:'Куркино', group:'Районы Москвы', note:'Подходит для квартир и таунхаусов, где важны аккуратные примыкания и контроль сроков.'},
+  {slug:'natyazhnye-potolki-v-horoshevo-mnevniki', name:'Хорошёво-Мнёвниках', city:'Хорошёво-Мнёвники', group:'Районы Москвы', note:'Часто считают современные решения: треки, световые линии, тень, карниз.'},
+  {slug:'natyazhnye-potolki-v-presnenskom-rajone', name:'Пресненском районе', city:'Пресненский район', group:'Районы Москвы', note:'Для квартир бизнес-класса заранее согласуем узлы, свет, карнизы и пропуск на объект.'},
+  {slug:'natyazhnye-potolki-v-hamovnikah', name:'Хамовниках', city:'Хамовники', group:'Районы Москвы', note:'Аккуратно работаем с дизайн-проектами, светом, теневым профилем и скрытыми карнизами.'},
+  {slug:'natyazhnye-potolki-v-ramenkah', name:'Раменках', city:'Раменки', group:'Районы Москвы', note:'Подберём решение для новостройки, вторички или дизайнерского ремонта.'},
+  {slug:'natyazhnye-potolki-v-fili-davydkovo', name:'Фили-Давыдково', city:'Фили-Давыдково', group:'Районы Москвы', note:'Для расчёта по фото учитываем углы, трубы, карниз, свет и состояние стен.'},
+  {slug:'natyazhnye-potolki-v-dorogomilovo', name:'Дорогомилово', city:'Дорогомилово', group:'Районы Москвы', note:'Часто нужны аккуратные потолки в квартирах с высокими требованиями к примыканиям.'},
+  {slug:'natyazhnye-potolki-v-begovom-rajone', name:'Беговом районе', city:'Беговой район', group:'Районы Москвы', note:'Подберём базовый или дизайнерский сценарий под ремонт, свет и бюджет.'},
+  {slug:'natyazhnye-potolki-v-aeroporte', name:'Аэропорте', city:'Аэропорт', group:'Районы Москвы', note:'Рассчитываем комнаты, кухни и квартиры целиком, смету фиксируем после замера.'},
+  {slug:'natyazhnye-potolki-v-sokole', name:'Соколе', city:'Сокол', group:'Районы Москвы', note:'Поможем сделать аккуратный потолок без визуального шума или проектное решение со светом.'},
+  {slug:'natyazhnye-potolki-v-hovrino', name:'Ховрино', city:'Ховрино', group:'Районы Москвы', note:'Популярны потолки с точечным светом, карнизами и спокойным матовым полотном.'},
+  {slug:'natyazhnye-potolki-v-savjolovskom-rajone', name:'Савёловском районе', city:'Савёловский район', group:'Районы Москвы', note:'Удобно начать с фото: покажем 2–3 решения и порядок бюджета.'},
+  {slug:'natyazhnye-potolki-v-marfino', name:'Марфино', city:'Марфино', group:'Районы Москвы', note:'Считаем потолки для новостроек и вторички, объясняем, где можно сэкономить.'},
+  {slug:'natyazhnye-potolki-v-alekseevskom-rajone', name:'Алексеевском районе', city:'Алексеевский район', group:'Районы Москвы', note:'Подберём свет, карниз и профиль под мебель, шторы и будущий интерьер.'},
+  {slug:'natyazhnye-potolki-v-otradnom', name:'Отрадном', city:'Отрадное', group:'Районы Москвы', note:'Сделаем понятный расчёт для спальни, кухни, коридора или всей квартиры.'},
+  {slug:'natyazhnye-potolki-v-sviblovo', name:'Свиблово', city:'Свиблово', group:'Районы Москвы', note:'Покажем, чем отличается базовый потолок от решения со светом и карнизом.'},
+  {slug:'natyazhnye-potolki-v-izmajlovo', name:'Измайлово', city:'Измайлово', group:'Районы Москвы', note:'Для вторички заранее учитываем трубы, вентиляцию, старое основание и кривизну стен.'},
+  {slug:'natyazhnye-potolki-v-sokolnikah', name:'Сокольниках', city:'Сокольники', group:'Районы Москвы', note:'Рассчитываем аккуратные матовые потолки и современные решения со светом.'},
+  {slug:'natyazhnye-potolki-v-lefortovo', name:'Лефортово', city:'Лефортово', group:'Районы Москвы', note:'Популярны решения для новостроек: скрытый карниз, точки, тень и треки.'},
+  {slug:'natyazhnye-potolki-v-nizhegorodskom-rajone', name:'Нижегородском районе', city:'Нижегородский район', group:'Районы Москвы', note:'Подберём решение под быстрый ремонт, квартиру под себя или коммерческое помещение.'},
+  {slug:'natyazhnye-potolki-v-tekstilshchikah', name:'Текстильщиках', city:'Текстильщики', group:'Районы Москвы', note:'Считаем как простые потолки, так и варианты со светом и скрытым карнизом.'},
+  {slug:'natyazhnye-potolki-v-pechatnikah', name:'Печатниках', city:'Печатники', group:'Районы Москвы', note:'Учитываем вентиляцию, трубы, санузлы, кухни и сложные углы.'},
+  {slug:'natyazhnye-potolki-v-danilovskom-rajone', name:'Даниловском районе', city:'Даниловский район', group:'Районы Москвы', note:'Для современных ЖК часто нужны треки, световые линии, карниз и теневой профиль.'},
+  {slug:'natyazhnye-potolki-v-nagatino-sadovnikah', name:'Нагатино-Садовниках', city:'Нагатино-Садовники', group:'Районы Москвы', note:'Подберём потолок для кухни, спальни, санузла или всей квартиры.'},
+  {slug:'natyazhnye-potolki-v-donskom-rajone', name:'Донском районе', city:'Донской район', group:'Районы Москвы', note:'Согласуем потолок с электрикой, мебелью, шторами и сроками ремонта.'},
+  {slug:'natyazhnye-potolki-v-obruchevskom-rajone', name:'Обручевском районе', city:'Обручевский район', group:'Районы Москвы', note:'Популярны потолки “для себя”: матовое полотно, свет, карниз, тень.'},
+  {slug:'natyazhnye-potolki-v-konkovo', name:'Коньково', city:'Коньково', group:'Районы Москвы', note:'Покажем варианты по фото и объясним, где экономия не испортит результат.'},
+  {slug:'natyazhnye-potolki-v-yasenevo', name:'Ясенево', city:'Ясенево', group:'Районы Москвы', note:'Считаем потолки для отдельных комнат и квартир целиком с фиксированной сметой.'},
+  {slug:'natyazhnye-potolki-v-severnom-butovo', name:'Северном Бутово', city:'Северное Бутово', group:'Районы Москвы', note:'Подберём базовый, оптимальный или дизайнерский вариант под ваш ремонт.'},
+  {slug:'natyazhnye-potolki-v-yuzhnom-butovo', name:'Южном Бутово', city:'Южное Бутово', group:'Районы Москвы', note:'Для расчёта пришлите фото, площадь, желаемый свет и примерные сроки.'},
+  {slug:'natyazhnye-potolki-v-tyoplom-stane', name:'Тёплом Стане', city:'Тёплый Стан', group:'Районы Москвы', note:'Работаем с комнатами, кухнями, санузлами и сложными узлами по дизайн-проекту.'}
 ];
 
 const zhkPages = [
-  ['natyazhnye-potolki-v-zhk-simvol','Символ'],
-  ['natyazhnye-potolki-v-zhk-seliger-siti','Селигер Сити'],
-  ['natyazhnye-potolki-v-zhk-lyublinskij-park','Люблинский парк']
+  {slug:'natyazhnye-potolki-v-zhk-simvol', name:'Символ', area:'Лефортово', note:'часто выбирают современный свет, теневой профиль и скрытый карниз'},
+  {slug:'natyazhnye-potolki-v-zhk-seliger-siti', name:'Селигер Сити', area:'Дмитровский район', note:'удобно считать по планировке квартиры и фото после приёмки'},
+  {slug:'natyazhnye-potolki-v-zhk-lyublinskij-park', name:'Люблинский парк', area:'Люблино', note:'популярны матовые потолки, точки и решения без переплаты'},
+  {slug:'natyazhnye-potolki-v-zhk-zilart', name:'ЗИЛАРТ', area:'Даниловский район', note:'для современных интерьеров часто нужны треки, линии и теневое примыкание'},
+  {slug:'natyazhnye-potolki-v-zhk-ostrov', name:'Остров', area:'Мнёвниковская пойма', note:'важно заранее согласовать свет, карниз, кондиционирование и проектные узлы'},
+  {slug:'natyazhnye-potolki-v-zhk-serdce-stolicy', name:'Сердце Столицы', area:'Хорошёво-Мнёвники', note:'подходит для квартир с панорамными окнами, треками и скрытыми карнизами'},
+  {slug:'natyazhnye-potolki-v-zhk-headliner', name:'Headliner', area:'Шелепиха', note:'часто нужны аккуратные решения для кухни-гостиной и спальни'},
+  {slug:'natyazhnye-potolki-v-zhk-vesterdam', name:'Вестердам', area:'Аминьевское шоссе', note:'считаем по комнатам: базовый, оптимальный и дизайнерский сценарий'},
+  {slug:'natyazhnye-potolki-v-zhk-nebo', name:'Небо', area:'Раменки', note:'для квартир бизнес-класса заранее согласуем свет, карниз и теневой профиль'},
+  {slug:'natyazhnye-potolki-v-zhk-metropoliya', name:'Метрополия', area:'Южнопортовый район', note:'подходит для трекового света, световых линий и скрытых карнизов'},
+  {slug:'natyazhnye-potolki-v-zhk-level-michurinskij', name:'Level Мичуринский', area:'Очаково-Матвеевское', note:'удобно считать по планировке и фото, особенно до начала чистовой отделки'},
+  {slug:'natyazhnye-potolki-v-zhk-level-nagatinskaya', name:'Level Нагатинская', area:'Нагатино-Садовники', note:'часто выбирают точечный свет, треки и спокойное матовое полотно'},
+  {slug:'natyazhnye-potolki-v-zhk-level-yuzhnoportovaya', name:'Level Южнопортовая', area:'Южнопортовый район', note:'можем предложить 2–3 схемы света по фото кухни-гостиной'},
+  {slug:'natyazhnye-potolki-v-zhk-level-streshnevo', name:'Level Стрешнево', area:'Покровское-Стрешнево', note:'для современных планировок заранее считаем карнизы, свет и тень'},
+  {slug:'natyazhnye-potolki-v-zhk-level-nizhegorodskaya', name:'Level Нижегородская', area:'Нижегородский район', note:'подходит для быстрого расчёта по планировке и фото помещений'},
+  {slug:'natyazhnye-potolki-v-zhk-level-prichalnyj', name:'Level Причальный', area:'Шелепиха', note:'часто нужны аккуратные узлы у окон, карнизы и архитектурный свет'},
+  {slug:'natyazhnye-potolki-v-zhk-shagal', name:'Shagal', area:'ЗИЛ', note:'для квартир после приёмки удобно считать потолки сразу по всем помещениям'},
+  {slug:'natyazhnye-potolki-v-zhk-portland', name:'Portland', area:'Печатники', note:'подберём потолки для кухни-гостиной, спальни, санузла и коридора'},
+  {slug:'natyazhnye-potolki-v-zhk-river-park', name:'River Park', area:'Нагатинский Затон', note:'часто выбирают скрытый карниз, подсветку у окна и матовое полотно'},
+  {slug:'natyazhnye-potolki-v-zhk-beregovoj', name:'Береговой', area:'Филёвский Парк', note:'важны точность примыканий, свет и согласование с дизайн-проектом'},
+  {slug:'natyazhnye-potolki-v-zhk-badaevskij', name:'Бадаевский', area:'Кутузовский проспект', note:'страница для предварительного расчёта по проекту, фото или планировке'},
+  {slug:'natyazhnye-potolki-v-zhk-sobytie', name:'Событие', area:'Раменки', note:'подходит для скрытых карнизов, трекового света и теневого профиля'},
+  {slug:'natyazhnye-potolki-v-zhk-will-towers', name:'Will Towers', area:'Раменки', note:'для высоких требований к интерьеру заранее разбираем узлы и сценарии света'},
+  {slug:'natyazhnye-potolki-v-zhk-hide', name:'Hide', area:'Раменки', note:'считаем дизайнерские решения со светом, тенью, карнизами и треками'},
+  {slug:'natyazhnye-potolki-v-zhk-kutuzovskij-12', name:'Кутузовский 12', area:'Дорогомилово', note:'поможем оценить бюджет сложных потолков до выезда на замер'},
+  {slug:'natyazhnye-potolki-v-zhk-sadovye-kvartaly', name:'Садовые кварталы', area:'Хамовники', note:'для проектных ремонтов согласуем профиль, свет, карниз и материалы'},
+  {slug:'natyazhnye-potolki-v-zhk-rezidencii-arhitektorov', name:'Резиденции Архитекторов', area:'Басманный район', note:'часто важны спокойные фактуры, аккуратное примыкание и контроль сроков'},
+  {slug:'natyazhnye-potolki-v-zhk-skandinaviya', name:'Скандинавия', area:'Коммунарка', note:'удобно считать потолки по планировке квартиры и очередности ремонта'},
+  {slug:'natyazhnye-potolki-v-zhk-ispanskie-kvartaly', name:'Испанские кварталы', area:'Коммунарка', note:'популярны матовые потолки, скрытые карнизы и точки по комнатам'},
+  {slug:'natyazhnye-potolki-v-zhk-prokshino', name:'Прокшино', area:'Новая Москва', note:'рассчитаем квартиру после приёмки по фото и планировке'},
+  {slug:'natyazhnye-potolki-v-zhk-buninskie-luga', name:'Бунинские луга', area:'Новая Москва', note:'подберём потолки для типовых комнат без лишней сложности'},
+  {slug:'natyazhnye-potolki-v-zhk-novoe-vnukovo', name:'Новое Внуково', area:'Внуково', note:'для Новой Москвы заранее уточняем логистику замера и монтажный слот'},
+  {slug:'natyazhnye-potolki-v-zhk-pervyj-moskovskij', name:'Первый Московский', area:'Московский', note:'можно прислать планировку и получить смету по помещениям'},
+  {slug:'natyazhnye-potolki-v-zhk-salarevo-park', name:'Саларьево Парк', area:'Саларьево', note:'популярны базовые потолки, точки, карнизы и ремонт полотна'},
+  {slug:'natyazhnye-potolki-v-zhk-desnareche', name:'Деснаречье', area:'Новая Москва', note:'подберём потолок под этап ремонта, мебель и свет'},
+  {slug:'natyazhnye-potolki-v-zhk-novoe-vidnoe', name:'Новое Видное', area:'Видное', note:'часто считают квартиры целиком: кухня, спальни, коридор и санузлы'},
+  {slug:'natyazhnye-potolki-v-zhk-eko-vidnoe-2', name:'Эко Видное 2.0', area:'Видное', note:'поможем сравнить базовый и оптимальный варианты без фейковой цены за м²'},
+  {slug:'natyazhnye-potolki-v-zhk-prigorod-lesnoe', name:'Пригород Лесное', area:'Ленинский округ', note:'удобно считать по фото, если ремонт только начинается'},
+  {slug:'natyazhnye-potolki-v-zhk-lyubercy-park', name:'Люберцы Парк', area:'Люберцы', note:'подходит для матовых потолков, точек и скрытых карнизов'},
+  {slug:'natyazhnye-potolki-v-zhk-tomilino-park', name:'Томилино Парк', area:'Томилино', note:'считаем отдельные комнаты и всю квартиру по планировке'},
+  {slug:'natyazhnye-potolki-v-zhk-pehra', name:'Пехра', area:'Балашиха', note:'подберём потолки под бюджет: от базового до решения со светом'},
+  {slug:'natyazhnye-potolki-v-zhk-izmajlovskij-les', name:'Измайловский лес', area:'Балашиха', note:'популярны ровные потолки, точки и скрытые карнизы'},
+  {slug:'natyazhnye-potolki-v-zhk-odincovo-1', name:'Одинцово-1', area:'Одинцово', note:'рассчитаем потолки по комнатам, свету и желаемому уровню решения'},
+  {slug:'natyazhnye-potolki-v-zhk-skolkovskij', name:'Сколковский', area:'Одинцово', note:'часто нужны современные решения с карнизами, светом и тенью'},
+  {slug:'natyazhnye-potolki-v-zhk-rublevskij-kvartal', name:'Рублёвский квартал', area:'Западное направление', note:'для проектных ремонтов заранее согласуем технические узлы'},
+  {slug:'natyazhnye-potolki-v-zhk-mjakinino-park', name:'Мякинино Парк', area:'Красногорск', note:'подходит для расчёта по фото и планировке после приёмки'},
+  {slug:'natyazhnye-potolki-v-zhk-sputnik', name:'Спутник', area:'Строгино / Мякинино', note:'популярны карнизы, точки и световые сценарии для кухни-гостиной'},
+  {slug:'natyazhnye-potolki-v-zhk-opaliha-o3', name:'Опалиха О3', area:'Красногорск', note:'считаем квартиры, кухни, спальни и санузлы по фото'},
+  {slug:'natyazhnye-potolki-v-zhk-ilinskie-luga', name:'Ильинские луга', area:'Красногорск', note:'подберём решение под новостройку и сроки ремонта'},
+  {slug:'natyazhnye-potolki-v-zhk-bolshoe-putilkovo', name:'Большое Путилково', area:'Путилково', note:'поможем сравнить матовый потолок, точки, карниз и подсветку'},
+  {slug:'natyazhnye-potolki-v-zhk-tushino-2018', name:'Город на реке Тушино-2018', area:'Покровское-Стрешнево', note:'часто нужны треки, световые линии, тень и скрытые карнизы'},
+  {slug:'natyazhnye-potolki-v-zhk-alia', name:'ALIA', area:'Покровское-Стрешнево', note:'подходит для современных интерьеров с архитектурным светом'},
+  {slug:'natyazhnye-potolki-v-zhk-primavera', name:'Primavera', area:'Покровское-Стрешнево', note:'заранее согласуем профиль, свет, карниз и примыкания'},
+  {slug:'natyazhnye-potolki-v-zhk-now', name:'NOW', area:'Нагатинский Затон', note:'рассчитаем потолки для квартиры с учётом света и мебели'},
+  {slug:'natyazhnye-potolki-v-zhk-dream-towers', name:'Dream Towers', area:'Нагатинский Затон', note:'подберём 2–3 решения под дизайн, сроки и бюджет'},
+  {slug:'natyazhnye-potolki-v-zhk-sydney-city', name:'Sydney City', area:'Хорошёво-Мнёвники', note:'часто выбирают аккуратные узлы, трековый свет и скрытый карниз'},
+  {slug:'natyazhnye-potolki-v-zhk-festival-park', name:'Фестиваль Парк', area:'Левобережный район', note:'считаем потолки по комнатам и сценариям света'},
+  {slug:'natyazhnye-potolki-v-zhk-baltijskij', name:'Балтийский', area:'Войковский район', note:'подберём решение для спальни, кухни, коридора и санузла'},
+  {slug:'natyazhnye-potolki-v-zhk-dmitrovskoe-nebo', name:'Дмитровское небо', area:'Дмитровский район', note:'удобно начать с фото и планировки квартиры'},
+  {slug:'natyazhnye-potolki-v-zhk-fizteh-siti', name:'ФизтехСити', area:'Долгопрудный', note:'рассчитаем потолки для новостройки, квартиры под себя или аренду'}
 ];
 
 function esc(s=''){
@@ -200,7 +310,7 @@ function footer(){
   return `<footer><div class="foot-grid">
   <div><a href="/" class="logo"><img src="/assets/logo.png" alt="${site.name}"></a><p>Натяжные потолки под ключ: от простого матового потолка до дизайнерского света.</p></div>
   <div><h5>Услуги</h5><ul>${servicePages.slice(0,8).map(s=>`<li><a href="/uslugi/${s.slug}/">${s.title}</a></li>`).join('')}</ul></div>
-  <div><h5>Навигация</h5><ul><li><a href="/ceny/">Цены</a></li><li><a href="/kalkulyator/">Калькулятор</a></li><li><a href="/raschet-po-foto/">Расчёт по фото</a></li><li><a href="/avito/">Для Avito</a></li><li><a href="/blog/">Блог</a></li></ul></div>
+  <div><h5>Навигация</h5><ul><li><a href="/ceny/">Цены</a></li><li><a href="/kalkulyator/">Калькулятор</a></li><li><a href="/raschet-po-foto/">Расчёт по фото</a></li><li><a href="/geo/">География</a></li><li><a href="/zhk/">ЖК и новостройки</a></li><li><a href="/avito/">Для Avito</a></li><li><a href="/blog/">Блог</a></li></ul></div>
   <div><h5>Контакты</h5><ul><li><a href="${site.phoneHref}">${site.phone}</a></li><li><a href="${site.telegram}">Telegram</a></li><li><a href="${site.whatsapp}">WhatsApp</a></li><li>Ежедневно 09:00–22:00</li></ul></div>
   </div><div class="foot-bottom"><span>© 2026 ${site.name}. Проверенные бригады-партнёры, договор, фотоотчёт.</span><span><a href="/privacy.html">Политика</a> · <a href="/offer.html">Оферта</a></span></div></footer>`;
 }
@@ -288,14 +398,19 @@ for (const [slug,title,desc] of blogPosts) {
   writeFile(`blog/${slug}/index.html`, layout({title:`${title} — ${site.name}`, description:desc, path:`/blog/${slug}/`, h1:title, lead:`Короткий ответ: ${desc} Ниже — практичный разбор, ориентиры и ссылки на расчёт.`, type:'Article', body:`<section class="page-section"><h2>Коротко</h2><p>${desc} Если нужно понять стоимость именно для вашей комнаты, пришлите фото — мы подготовим 2–3 варианта.</p></section><section class="page-section"><h2>Что важно знать</h2><ul class="page-list"><li>Цена за м² редко показывает итоговую сумму.</li><li>Свет, профиль, карниз, углы и трубы считаются отдельно.</li><li>Финальная смета должна фиксироваться после замера.</li><li>Монтаж должна выполнять проверенная бригада по чек-листу.</li></ul></section>${priceTable()}<section class="page-section"><h2>Полезные ссылки</h2><p><a href="/ceny/">Цены</a> · <a href="/kalkulyator/">Калькулятор</a> · <a href="/raschet-po-foto/">Расчёт по фото</a> · <a href="/uslugi/">Все услуги</a></p></section>${faqBlock()}${cta()}`, faq:[['Как узнать цену для своей комнаты?','Пришлите фото и примерную площадь — дадим ориентир и предложим 2–3 варианта.']]}));
 }
 
-writeFile('geo/index.html', layout({title:`География работ — ${site.name}`, description:'Выезжаем на замеры по Москве и Московской области. Страницы по городам, районам и ЖК.', path:'/geo/', h1:'География работ', lead:'Выезжаем на замеры в Москве, ближайшем Подмосковье, районах и новостройках.', body:`<section class="page-section"><div class="page-grid">${geoPages.map(([slug,name])=>`<article><h2>Натяжные потолки в ${name}</h2><p>Расчёт по фото, бесплатный замер, 2–3 варианта сметы.</p><a href="/geo/${slug}/">Открыть</a></article>`).join('')}</div></section>${cta()}`}));
-for (const [slug, name, city] of geoPages) {
-  writeFile(`geo/${slug}/index.html`, layout({title:`Натяжные потолки в ${name} под ключ — ${site.name}`, description:`Натяжные потолки в ${name}: расчёт по фото, бесплатный замер, 2–3 варианта сметы и монтаж проверенной бригадой-партнёром.`, path:`/geo/${slug}/`, h1:`Натяжные потолки в ${name} под ключ`, lead:`Выезжаем на замеры в ${city} и рядом. Работаем с квартирами в новостройках, вторичке и коммерческими помещениями.`, body:`<section class="page-section"><h2>Какие потолки делаем в ${name}</h2><div class="page-grid">${servicePages.slice(0,8).map(s=>`<article><h3>${s.title}</h3><p>${s.intent}.</p><a href="/uslugi/${s.slug}/">Подробнее</a></article>`).join('')}</div></section>${priceTable()}${faqBlock()}${cta()}`}));
+const geoGroups = [...new Set(geoPages.map(g => g.group))];
+writeFile('geo/index.html', layout({title:`География работ — ${site.name}`, description:'Выезжаем на замеры по Москве, районам, Новой Москве и ближайшему Подмосковью. Страницы по городам, районам и ЖК.', path:'/geo/', h1:'География работ', lead:'Выезжаем на замеры в Москве, ближайшем Подмосковье, районах и новостройках. Выберите свой район или город и пришлите фото комнаты для предварительного расчёта.', body:`${geoGroups.map(group=>`<section class="page-section"><h2>${group}</h2><div class="page-grid">${geoPages.filter(g=>g.group===group).map(g=>`<article><h2>Натяжные потолки в ${g.name}</h2><p>${g.note}</p><a href="/geo/${g.slug}/">Открыть</a></article>`).join('')}</div></section>`).join('')}${cta()}`}));
+for (const geo of geoPages) {
+  const relatedGeo = geoPages.filter(g => g.group === geo.group && g.slug !== geo.slug).slice(0, 6);
+  writeFile(`geo/${geo.slug}/index.html`, layout({title:`Натяжные потолки в ${geo.name} под ключ — ${site.name}`, description:`Натяжные потолки в ${geo.name}: расчёт по фото, бесплатный замер, 2–3 варианта сметы и монтаж проверенной бригадой-партнёром.`, path:`/geo/${geo.slug}/`, h1:`Натяжные потолки в ${geo.name} под ключ`, lead:`Выезжаем на замеры в ${geo.city} и рядом. ${geo.note} Работаем с квартирами в новостройках, вторичке и коммерческими помещениями.`, body:`<section class="page-section"><h2>Какие потолки делаем в ${geo.name}</h2><div class="page-grid">${servicePages.slice(0,8).map(s=>`<article><h3>${s.title}</h3><p>${s.intent}.</p><a href="/uslugi/${s.slug}/">Подробнее</a></article>`).join('')}</div></section><section class="page-section"><h2>Что важно для выезда</h2><ul class="page-list"><li>точный адрес и удобное время замера</li><li>фото комнаты или планировка</li><li>пожелания по свету и шторам</li><li>нужен ли пропуск, парковка или согласование с управляющей компанией</li></ul></section>${priceTable()}${faqBlock()}<section class="page-section"><h2>Рядом также считаем</h2><div class="page-grid">${relatedGeo.map(g=>`<article><h3>Натяжные потолки в ${g.name}</h3><p>${g.note}</p><a href="/geo/${g.slug}/">Открыть</a></article>`).join('')}</div></section>${cta()}`}));
 }
 
-writeFile('zhk/index.html', layout({title:`Натяжные потолки в ЖК и новостройках — ${site.name}`, description:'Страницы для жителей ЖК: расчёт по фото или планировке, решения по комнатам, свет, карнизы и замер.', path:'/zhk/', h1:'Натяжные потолки в ЖК и новостройках', lead:'Рассчитаем потолок по фото или планировке, предложим 2–3 варианта и приедем на бесплатный замер.', body:`<section class="page-section"><div class="page-grid">${zhkPages.map(([slug,name])=>`<article><h2>ЖК ${name}</h2><p>Честная страница под расчёт по фото и планировке. Не публикуем фейковые кейсы.</p><a href="/zhk/${slug}/">Открыть</a></article>`).join('')}</div></section>${cta()}`}));
-for (const [slug, name] of zhkPages) {
-  writeFile(`zhk/${slug}/index.html`, layout({title:`Натяжные потолки в ЖК ${name} — ${site.name}`, description:`Натяжные потолки в ЖК ${name}: расчёт по фото или планировке, 2–3 варианта, бесплатный замер.`, path:`/zhk/${slug}/`, h1:`Натяжные потолки в ЖК ${name}`, lead:'Рассчитаем потолок по фото или планировке, предложим 2–3 варианта и приедем на бесплатный замер.', body:`<section class="page-section"><h2>Решения для типовых помещений</h2><div class="page-grid">${['кухня','спальня','санузел','коридор','кухня-гостиная'].map(x=>`<article><h3>${x}</h3><p>Подберём матовый потолок, свет, карниз, треки или теневой профиль под вашу планировку.</p></article>`).join('')}</div></section><section class="page-section"><h2>Что прислать для расчёта</h2><ul class="page-list"><li>план квартиры</li><li>фото помещения</li><li>площадь</li><li>пожелания по свету</li></ul></section>${priceTable()}${cta()}`}));
+const zhkGroups = [...new Set(zhkPages.map(z => z.area))];
+writeFile('zhk/index.html', layout({title:`Натяжные потолки в ЖК и новостройках — ${site.name}`, description:'Страницы для жителей ЖК: расчёт по фото или планировке, решения по комнатам, свет, карнизы и замер.', path:'/zhk/', h1:'Натяжные потолки в ЖК и новостройках', lead:'Рассчитаем потолок по фото или планировке, предложим 2–3 варианта и приедем на бесплатный замер. Страницы ЖК сделаны для удобного расчёта, без фейковых отзывов и выдуманных объектов.', body:`<section class="page-section"><h2>ЖК по районам и направлениям</h2><div class="page-grid">${zhkGroups.map(group=>`<article><h3>${group}</h3><p>${zhkPages.filter(z=>z.area===group).slice(0,4).map(z=>`ЖК ${z.name}`).join(', ')}</p></article>`).join('')}</div></section><section class="page-section"><h2>Все ЖК</h2><div class="page-grid">${zhkPages.map(z=>`<article><h2>ЖК ${z.name}</h2><p>${z.area}: ${z.note}. Честная страница под расчёт по фото и планировке.</p><a href="/zhk/${z.slug}/">Открыть</a></article>`).join('')}</div></section>${cta()}`}));
+for (const zhk of zhkPages) {
+  const relatedZhk = zhkPages.filter(z => z.area === zhk.area && z.slug !== zhk.slug).slice(0, 6);
+  const relatedBlock = relatedZhk.length ? `<section class="page-section"><h2>Другие ЖК рядом</h2><div class="page-grid">${relatedZhk.map(z=>`<article><h3>ЖК ${z.name}</h3><p>${z.note}.</p><a href="/zhk/${z.slug}/">Открыть</a></article>`).join('')}</div></section>` : '';
+  writeFile(`zhk/${zhk.slug}/index.html`, layout({title:`Натяжные потолки в ЖК ${zhk.name} — ${site.name}`, description:`Натяжные потолки в ЖК ${zhk.name}: расчёт по фото или планировке, 2–3 варианта, бесплатный замер.`, path:`/zhk/${zhk.slug}/`, h1:`Натяжные потолки в ЖК ${zhk.name}`, lead:`Рассчитаем потолок по фото или планировке квартиры в ЖК ${zhk.name}. Для ${zhk.area} ${zhk.note}; предложим 2–3 варианта и приедем на бесплатный замер.`, body:`<section class="page-section"><h2>Для каких помещений считаем</h2><div class="page-grid">${['кухня','спальня','санузел','коридор','кухня-гостиная','вся квартира'].map(x=>`<article><h3>${x}</h3><p>Подберём матовый потолок, свет, карниз, треки или теневой профиль под вашу планировку.</p></article>`).join('')}</div></section><section class="page-section"><h2>Что прислать для расчёта</h2><ul class="page-list"><li>план квартиры или экспликацию</li><li>фото помещения после приёмки</li><li>примерную площадь по комнатам</li><li>пожелания по свету, шторам и карнизам</li><li>если есть — дизайн-проект или референсы</li></ul></section><section class="page-section"><h2>Честно про эту страницу</h2><p>Это посадочная страница для жителей ЖК ${zhk.name}. Мы не публикуем фейковые отзывы и не утверждаем, что уже выполняли работы в этом доме, если это не подтверждено реальным объектом. Задача страницы — быстро принять фото или планировку и подготовить понятный расчёт.</p></section>${priceTable()}${relatedBlock}${cta(`Пришлите планировку ЖК ${zhk.name} — рассчитаем 2–3 варианта`)}`}));
 }
 
 writeFile('thank-you/index.html', layout({title:`Спасибо! Заявка отправлена — ${site.name}`, description:'Мы получили заявку и свяжемся с вами для уточнения деталей и предварительного расчёта.', path:'/thank-you/', h1:'Спасибо! Заявка отправлена', lead:'Мы свяжемся с вами, уточним детали и подготовим предварительный расчёт.', noindex:true, showLeadForm:false, body:`<section class="page-cta"><h2>Хотите быстрее?</h2><p>Напишите нам в Telegram или WhatsApp и приложите фото комнаты.</p><div><a class="btn indigo" href="${site.telegram}">Telegram</a><a class="btn ghost" href="${site.whatsapp}">WhatsApp</a></div></section><section class="page-section"><h2>Пока ждёте</h2><p>Посмотрите <a href="/primery-rabot/">примеры решений</a>, <a href="/ceny/">цены</a> или откройте <a href="/kalkulyator/">калькулятор</a>.</p></section>`}));
@@ -303,8 +418,8 @@ writeFile('thank-you/index.html', layout({title:`Спасибо! Заявка о
 const urls = ['/', '/ceny/','/kalkulyator/','/besplatnyj-zamer/','/primery-rabot/','/garantiya/','/dogovor/','/otzyvy/','/faq/','/raschet-po-foto/','/avito/','/partneram/','/dizajneram/','/prorabam/','/kontakty/','/uslugi/','/blog/','/geo/','/zhk/']
   .concat(servicePages.map(s=>`/uslugi/${s.slug}/`))
   .concat(blogPosts.map(([slug])=>`/blog/${slug}/`))
-  .concat(geoPages.map(([slug])=>`/geo/${slug}/`))
-  .concat(zhkPages.map(([slug])=>`/zhk/${slug}/`))
+  .concat(geoPages.map(g=>`/geo/${g.slug}/`))
+  .concat(zhkPages.map(z=>`/zhk/${z.slug}/`))
   .concat(['/privacy.html','/offer.html']);
 writeFile('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u=>`  <url><loc>${site.url}${u}</loc><lastmod>${today}</lastmod><changefreq>${u==='/'?'weekly':'monthly'}</changefreq><priority>${u==='/'?'1.0':'0.7'}</priority></url>`).join('\n')}\n</urlset>\n`);
 console.log(`Generated ${urls.length} URLs`);
