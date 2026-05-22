@@ -376,19 +376,12 @@ window.TG_CONFIG = {
     else if(href.indexOf('tel:') === 0) trackGoal('phone_click');
     else if(href.indexOf('t.me') >= 0) trackGoal('telegram_click');
     else if(href.indexOf('wa.me') >= 0 || href.indexOf('whatsapp') >= 0) trackGoal('whatsapp_click');
-    else if(href.indexOf('/raschet-po-foto/') >= 0 || href === '#hero-form' || href === '#final') trackGoal('calculate_photo_click');
-    else if(href.indexOf('/besplatnyj-zamer/') >= 0) trackGoal('free_measure_click');
-    else if(href.indexOf('/kalkulyator/') >= 0) trackGoal('calculator_click');
-    else if(href.indexOf('/partneram/') >= 0) trackGoal('partner_click');
+    else if(href === '#hero-form' || href === '#final') trackGoal('calculate_photo_click');
   });
 
   document.addEventListener('change', function(e){
     if(e.target && e.target.matches('input[type="file"]')) trackGoal('photo_upload');
   });
-
-  if(location.pathname === '/thank-you/' || location.pathname === '/thank-you/index.html'){
-    trackGoal('thank_you_view');
-  }
 
   /* ----- 13. ОБРАБОТКА ФОРМ ----- */
   $$('form[data-tg-form]').forEach(function(form){
@@ -406,10 +399,6 @@ window.TG_CONFIG = {
           form.querySelector('.thanks') && (form.querySelector('.thanks').style.display = 'block');
           form.querySelector('.body')   && (form.querySelector('.body').style.display   = 'none');
           trackGoal('form_submit', {source: payload.source});
-          if(payload.source === '/kalkulyator/' || location.pathname.indexOf('/kalkulyator/') === 0) trackGoal('calculator_complete');
-          if(form.dataset.noRedirect !== 'true'){
-            setTimeout(function(){ window.location.href = '/thank-you/'; }, 350);
-          }
         } else {
           alert('Не удалось отправить заявку. Напишите нам в Telegram @dimasic_135 или WhatsApp.');
           if(btn){ btn.disabled = false; btn.innerHTML = origText; }
@@ -594,7 +583,6 @@ window.TG_CONFIG = {
         if(leadSucceeded(results)){
           heroFormCard.classList.add('sent');
           trackGoal('form_submit', {source: 'главная hero'});
-          setTimeout(function(){ window.location.href = '/thank-you/'; }, 450);
         } else {
           alert('Не удалось отправить. Напишите нам в Telegram @dimasic_135');
           btn.classList.remove('loading');
@@ -843,7 +831,6 @@ window.TG_CONFIG = {
           elBack.style.display = 'none';
           trackGoal('calculator_complete', {source: 'главная'});
           trackGoal('form_submit', {source: 'главная / hero-калькулятор'});
-          setTimeout(function(){ window.location.href = '/thank-you/'; }, 650);
         } else {
           alert('Не удалось отправить. Напишите нам в Telegram @dimasic_135');
           btn.classList.remove('loading');
