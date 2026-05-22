@@ -2942,9 +2942,14 @@
       margin-top: 4px;
     }
     .v2-nav { margin-left: auto; gap: 28px; }
-    .v2-nav a { font-size: 15px; color: var(--ink); font-weight: 500; }
+    .v2-nav a {
+      font-size: 15px; color: var(--ink); font-weight: 500;
+      display: inline-flex; align-items: center; gap: 4px;
+    }
     .v2-nav a:hover { color: var(--forest); }
     .v2-nav a::after { background: var(--forest); }
+    .v2-nav a.has-arrow svg { width: 14px; height: 14px; opacity: .55; transition: transform .2s; }
+    .v2-nav a.has-arrow:hover svg { transform: translateY(1px); opacity: .9; }
 
     /* ---------- HERO V2 ---------- */
     .v2-hero {
@@ -3002,7 +3007,14 @@
       transform: translateY(-1px);
       box-shadow: 0 12px 28px -8px rgba(46,107,255,.5);
     }
-    .v2-btn-primary svg { width: 20px; height: 20px; }
+    .v2-btn-primary svg { width: 18px; height: 18px; }
+    .v2-btn-ico {
+      width: 30px; height: 30px;
+      background: rgba(255,255,255,.18);
+      border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
     .v2-hero-promise {
       display: inline-flex; align-items: center; gap: 8px;
       font-size: 14px; color: var(--ink-soft); font-weight: 500;
@@ -3072,7 +3084,7 @@
       position: relative;
       border-radius: 22px;
       overflow: hidden;
-      aspect-ratio: 3 / 2.2;
+      aspect-ratio: 1328 / 1184;
       background: var(--cream-2);
       box-shadow: 0 30px 60px -30px rgba(15,23,42,.3);
     }
@@ -3118,6 +3130,30 @@
     @keyframes callout-in {
       from { opacity: 0; transform: translateY(8px) scale(.96); }
       to   { opacity: 1; transform: translateY(0)   scale(1);  }
+    }
+
+    /* ---------- WHATSAPP FAB (плавающая кнопка в углу) ---------- */
+    .wa-fab {
+      position: fixed;
+      right: 24px; bottom: 24px;
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: #25D366;
+      box-shadow: 0 12px 30px -8px rgba(37,211,102,.5), 0 4px 10px rgba(0,0,0,.12);
+      display: inline-flex; align-items: center; justify-content: center;
+      z-index: 60;
+      transition: transform .2s, box-shadow .2s;
+      animation: wa-pulse 2.6s ease-in-out infinite;
+    }
+    .wa-fab svg { width: 30px; height: 30px; }
+    .wa-fab:hover { transform: scale(1.08); box-shadow: 0 16px 36px -8px rgba(37,211,102,.6); }
+    @keyframes wa-pulse {
+      0%, 100% { box-shadow: 0 12px 30px -8px rgba(37,211,102,.5), 0 0 0 0 rgba(37,211,102,.4); }
+      50% { box-shadow: 0 12px 30px -8px rgba(37,211,102,.5), 0 0 0 14px rgba(37,211,102,0); }
+    }
+    @media (max-width: 560px) {
+      .wa-fab { right: 16px; bottom: 16px; width: 50px; height: 50px; }
+      .wa-fab svg { width: 26px; height: 26px; }
     }
 
     /* ---------- V2 RESPONSIVE ---------- */
@@ -3173,6 +3209,14 @@
   <!-- Scroll progress indicator -->
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
+  <!-- WhatsApp floating action button -->
+  <a href="https://wa.me/79006556999" class="wa-fab" target="_blank" rel="noopener noreferrer" aria-label="Написать в WhatsApp" data-goal="wa_fab">
+    <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true">
+      <path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.2-.5-2.3-1.5-.9-.8-1.5-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.6.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1.1 2.8 1.2 3 .1.2 2.1 3.2 5.1 4.5 1.8.8 2.5.9 3.3.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2-.1-.1-.3-.2-.6-.4z"/>
+      <path d="M20.5 3.5C18.3 1.2 15.3 0 12.1 0 5.5 0 .2 5.4.2 11.9c0 2.1.6 4.1 1.6 5.9L0 24l6.4-1.7c1.7 1 3.6 1.4 5.6 1.4 6.5 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.2-3.4-8.3zM12 21.4c-1.7 0-3.4-.5-4.8-1.3l-.3-.2-3.6 1 1-3.5-.2-.4c-.9-1.5-1.4-3.1-1.4-4.9 0-5.2 4.3-9.5 9.5-9.5 2.5 0 4.9 1 6.7 2.8 1.8 1.8 2.8 4.2 2.8 6.7-.1 5.4-4.4 9.7-9.7 9.7z"/>
+    </svg>
+  </a>
+
   <!-- TOPBAR -->
   <div class="topbar">
     <div class="topbar-inner">
@@ -3200,7 +3244,7 @@
     </a>
     <nav class="nav v2-nav">
       <a href="#scenarios">О компании</a>
-      <a href="#types">Виды потолков</a>
+      <a href="#types" class="has-arrow">Виды потолков <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></a>
       <a href="#prices">Цены</a>
       <a href="#portfolio">Наши работы</a>
       <a href="#faq">Отзывы</a>
@@ -3248,7 +3292,9 @@
 
           <div class="v2-hero-cta-row">
             <a href="#final" class="v2-btn-primary" data-goal="hero_cta_primary">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="m9 7 1.8-3h2.4L15 7"/><circle cx="12" cy="14" r="4"/></svg>
+              <span class="v2-btn-ico">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4z"/></svg>
+              </span>
               Получить 5 вариантов по фото
             </a>
             <span class="v2-hero-promise">
@@ -3296,7 +3342,7 @@
         </div>
 
         <div class="v2-hero-photo">
-          <img src="/assets/img/15-case-moscow-city-kitchen-living.jpg" alt="Гостиная-кухня с натяжным потолком, световыми линиями, треками и теневым профилем" width="2025" height="1350" fetchpriority="high" decoding="async">
+          <img src="/assets/img/v2-hero.png" alt="Гостиная с натяжным потолком, световыми линиями, треком и матовым полотном" width="1328" height="1184" fetchpriority="high" decoding="async">
 
           <!-- Callouts on photo -->
           <span class="v2-callout v2-callout--tl">
