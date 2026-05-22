@@ -1101,20 +1101,25 @@
     .ph--dark p strong { color: var(--cream); }
 
     /* real images that replace .ph placeholders */
-    .scen-img,
-    .mat-img,
-    .doc-img,
-    .aud-img {
+    .scen-img {
       width: 100%;
-      aspect-ratio: 4/3;
+      height: 200px;
       object-fit: cover;
+      object-position: center 35%;
       border-radius: 12px;
       display: block;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
       background: var(--cream-2);
     }
-    .scen-img { aspect-ratio: 4/3; margin-bottom: 20px; }
-    .case img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+    .case img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+      z-index: 1;
+    }
     .case-meta { z-index: 2; }
     .case::after {
       content: "";
@@ -1135,14 +1140,6 @@
       height: 100%;
       object-fit: cover;
       border-radius: inherit;
-    }
-    .step-img {
-      width: 100%;
-      aspect-ratio: 16/9;
-      object-fit: cover;
-      border-radius: 10px;
-      display: block;
-      background: var(--cream-2);
     }
 
     /* reveal on scroll */
@@ -3345,7 +3342,6 @@
             <span class="mat-num">01</span>
             <span class="mat-tag">Полотна</span>
           </div>
-          <img src="/assets/img/27-materials-canvases.jpg" alt="Рулоны полотен для натяжных потолков — Pongs, MSD, Clipso" width="1600" height="1200" loading="lazy" decoding="async" class="mat-img">
           <h3 class="mat-title">Европейские плёнки и ткань</h3>
           <ul class="mat-list">
             <li><b>Pongs</b><small>Германия · базовый стандарт</small></li>
@@ -3361,7 +3357,6 @@
             <span class="mat-num">02</span>
             <span class="mat-tag">Профили</span>
           </div>
-          <img src="/assets/img/28-materials-profiles.jpg" alt="Алюминиевые профили для натяжных потолков — теневой, бесщелевой, парящий, гарпунный" width="1600" height="1200" loading="lazy" decoding="async" class="mat-img">
           <h3 class="mat-title">Под задачу узла</h3>
           <ul class="mat-list">
             <li><b>Теневой EuroKraab</b><small>аналог · щель 2 мм</small></li>
@@ -3376,7 +3371,6 @@
             <span class="mat-num">03</span>
             <span class="mat-tag">Свет</span>
           </div>
-          <img src="/assets/img/29-materials-lighting.jpg" alt="Магнитные треки, точечные светильники и LED-ленты для натяжных потолков" width="1600" height="1200" loading="lazy" decoding="async" class="mat-img">
           <h3 class="mat-title">Сценарии освещения</h3>
           <ul class="mat-list">
             <li><b>LED-ленты</b><small>CRI 90+ · 2700–6500K · диммируемые</small></li>
@@ -3391,7 +3385,6 @@
             <span class="mat-num">04</span>
             <span class="mat-tag">Сертификация</span>
           </div>
-          <img src="/assets/img/26-fragment-certificate-roll.jpg" alt="Сертификаты и паспорта на материалы — пожарный B1, санитарный, гипоаллергенность" width="1500" height="1000" loading="lazy" decoding="async" class="mat-img">
           <h3 class="mat-title">Что отдаём на руки</h3>
           <ul class="mat-list">
             <li><b>Пожарная B1</b><small>не поддерживает горение</small></li>
@@ -3472,7 +3465,6 @@
         <div class="aud-grid">
           <div class="aud-card reveal">
             <div class="aud-num">01</div>
-            <img src="/assets/img/05-atmosphere-wall-ceiling-joint.jpg" alt="Уютная квартира с аккуратным натяжным потолком и примыканием к стене" width="1200" height="1600" loading="lazy" decoding="async" class="aud-img">
             <div class="aud-h">Собственникам</div>
             <p class="aud-p">Покажем варианты, объясним разницу простым языком, поможем выбрать спокойное решение без избыточных терминов.</p>
             <ul class="aud-list">
@@ -3485,7 +3477,6 @@
 
           <div class="aud-card reveal">
             <div class="aud-num">02</div>
-            <img src="/assets/img/19-fragment-shadow-gap-seam.jpg" alt="Фрагмент теневого примыкания EuroKraab — узел по дизайн-проекту" width="1500" height="1000" loading="lazy" decoding="async" class="aud-img">
             <div class="aud-h">Дизайнерам</div>
             <p class="aud-p">Согласуем узлы, профили, свет, карнизы. Сделаем как в проекте — с теневыми примыканиями и архитектурным светом.</p>
             <ul class="aud-list">
@@ -3498,7 +3489,6 @@
 
           <div class="aud-card reveal">
             <div class="aud-num">03</div>
-            <img src="/assets/img/07-atmosphere-hall-multilevel-ceiling.jpg" alt="Холл коммерческого объекта с многоуровневым натяжным потолком" width="2000" height="1600" loading="lazy" decoding="async" class="aud-img">
             <div class="aud-h">Прорабам и коммерческим объектам</div>
             <p class="aud-p">Работаем по срокам, фиксируем смету, не срываем следующий этап ремонта. HoReCa, офисы, медцентры, ритейл.</p>
             <ul class="aud-list">
