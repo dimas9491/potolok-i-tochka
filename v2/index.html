@@ -3247,21 +3247,13 @@
       background: #fff; position: sticky; top: 0; z-index: 50;
       border-bottom: 1px solid #eef1f4;
     }
-    .navbar .logo-wrap { display: flex; align-items: center; gap: 16px; text-decoration: none; }
-    .mark { width: 75px; height: 35px; position: relative; flex-shrink: 0; background: none; border-radius: 0; }
-    .mark::before, .mark::after {
-      content: ""; position: absolute; left: 0; width: 75px; height: 5px;
-      background: #0d0d0d; transform-origin: left center; border-radius: 6px;
+    .navbar .logo-wrap { display: flex; align-items: center; text-decoration: none; }
+    .navbar .logo-img {
+      height: 52px; width: auto; display: block;
+      object-fit: contain;
     }
-    .mark::before { top: 10px; transform: skewY(-28deg); }
-    .mark::after  { top: 20px; transform: skewY(-17deg); }
-    .navbar .logo-text strong {
-      display: block; font-size: 19px; letter-spacing: 5px; line-height: 1;
-      color: #111; font-weight: 800;
-    }
-    .navbar .logo-text span {
-      display: block; margin-top: 6px; font-size: 10px; letter-spacing: 7px;
-      color: #111; font-weight: 700;
+    @media (max-width: 920px) {
+      .navbar .logo-img { height: 42px; }
     }
     .menu { display: flex; align-items: center; gap: 34px; font-size: 15px; color: #222b35; }
     .menu a { color: inherit; text-decoration: none; white-space: nowrap; transition: color .15s; }
@@ -3476,12 +3468,8 @@
 
   <!-- NAVBAR -->
   <nav class="navbar">
-    <a href="/v2/" class="logo-wrap" aria-label="На главную">
-      <div class="mark"></div>
-      <div class="logo-text">
-        <strong>ПОТОЛОК И ТОЧКА</strong>
-        <span>НАТЯЖНЫЕ ПОТОЛКИ</span>
-      </div>
+    <a href="/v2/" class="logo-wrap" aria-label="Потолок и точка — на главную">
+      <img src="/assets/logo.png" alt="Потолок и точка — натяжные потолки в Москве и МО" width="855" height="676" class="logo-img" decoding="async">
     </a>
     <div class="menu">
       <a href="#scenarios">О компании</a>
@@ -3582,40 +3570,6 @@
 
       <section class="hero-right">
         <img src="/assets/img/v2-hero.png" alt="Гостиная с натяжным потолком, световыми линиями, треком и матовым полотном" width="1328" height="1184" class="hero-photo" fetchpriority="high" decoding="async">
-
-        <div class="tag tag-line">
-          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 22 13 8M14 22l9-14M24 22l5-8"/></svg>
-          <span>Световые линии</span>
-        </div>
-        <div class="dotted dot1"></div><div class="point p1"></div>
-
-        <div class="tag tag-matte">
-          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 8h22v15H5z"/><path d="M9 25h14"/></svg>
-          <span>Матовый потолок</span>
-        </div>
-
-        <div class="tag tag-track">
-          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 9h24"/><path d="M10 9v8"/><path d="M22 9v8"/><circle cx="10" cy="20" r="3"/><circle cx="22" cy="20" r="3"/></svg>
-          <span>Трековый свет</span>
-        </div>
-        <div class="dotted dot2"></div><div class="point p2"></div>
-
-        <div class="tag tag-shadow">
-          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 24V8h22"/><path d="M9 20V12h14"/></svg>
-          <span>Теневой профиль</span>
-        </div>
-        <div class="dotted dot3"></div><div class="point p3"></div>
-
-        <div class="bottom-badge">
-          <div class="badge-light">
-            <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="m13 2-8 12h6l-1 8 9-13h-6z"/></svg>
-            <span>Монтаж за 1 день</span>
-          </div>
-          <div class="badge-dark">
-            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/></svg>
-            <span>Работаем по договору</span>
-          </div>
-        </div>
       </section>
     </section>
 
