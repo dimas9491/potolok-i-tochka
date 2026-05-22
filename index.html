@@ -959,6 +959,31 @@
       margin-bottom: 4px;
     }
 
+    /* placeholder aspect / size modifiers */
+    .ph--landscape { aspect-ratio: 4/3; min-height: 0; }
+    .ph--portrait  { aspect-ratio: 3/4; min-height: 0; }
+    .ph--square    { aspect-ratio: 1/1; min-height: 0; }
+    .ph--wide      { aspect-ratio: 16/9; min-height: 0; }
+    .ph--xl        { min-height: 360px; }
+    .ph--sm        { min-height: 110px; padding: 14px; gap: 6px; border-radius: 12px; }
+    .ph--sm .ph-tag { font-size: 9px; letter-spacing: 1.3px; padding: 4px 7px; }
+    .ph--sm p { font-size: 11px; line-height: 1.4; }
+    .ph--sm p strong { font-size: 12px; margin-bottom: 2px; }
+
+    /* dark theme placeholder (for dark sections) */
+    .ph--dark {
+      background:
+        repeating-linear-gradient(45deg, rgba(255,255,255,.03) 0 9px, transparent 9px 18px),
+        rgba(255,255,255,.04);
+      border-color: rgba(255,255,255,.18);
+      color: rgba(255,255,255,.62);
+    }
+    .ph--dark .ph-tag {
+      background: rgba(255,255,255,.08);
+      color: var(--cream);
+    }
+    .ph--dark p strong { color: var(--cream); }
+
     /* reveal on scroll */
     .reveal {
       opacity: 0;
@@ -1556,31 +1581,52 @@
     .role {
       background: #fff;
       border-radius: 18px;
-      padding: 24px;
+      padding: 22px;
       display: grid;
-      grid-template-columns: 72px 1fr;
+      grid-template-columns: 108px 1fr;
       gap: 18px;
       transition: transform .25s ease;
+      align-items: start;
     }
 
     .role:hover { transform: translateY(-4px) rotate(-.4deg); }
 
     .role-avatar {
-      width: 72px; height: 72px;
+      width: 108px;
+      aspect-ratio: 3/4;
       border-radius: 14px;
       background:
         repeating-linear-gradient(45deg, rgba(16,17,19,.03) 0 7px, transparent 7px 14px),
         var(--cream);
       border: 1.5px dashed rgba(16,17,19,.22);
       display: flex;
-      align-items: center;
-      justify-content: center;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 10px;
       font-size: 10px;
       color: var(--muted);
-      letter-spacing: 1.3px;
-      text-align: center;
-      line-height: 1.1;
+      letter-spacing: .8px;
+      line-height: 1.25;
+      overflow: hidden;
     }
+    .role-avatar span {
+      align-self: flex-start;
+      font-size: 9px;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+      color: var(--ink);
+      font-weight: 600;
+      padding: 3px 6px;
+      background: rgba(255,255,255,.75);
+      border-radius: 5px;
+    }
+    .role-avatar small {
+      font-size: 10px;
+      line-height: 1.35;
+      color: var(--muted);
+      margin-top: auto;
+    }
+    .role-avatar small b { display: block; color: var(--ink); font-size: 11px; font-weight: 600; margin-bottom: 2px; }
 
     .role-content { display: flex; flex-direction: column; gap: 6px; }
 
@@ -2547,6 +2593,7 @@
 
       <div class="scen-grid">
         <article class="scen-card reveal">
+          <div class="ph ph--landscape" style="margin-bottom:20px"><span class="ph-tag">[ ФОТО ]</span><p><strong>Пример «Базового» потолка</strong>Ровный матовый потолок в спальне или коридоре. Естественный свет, минимум декора. Формат 4:3.</p></div>
           <div class="scen-num">01 · спокойный старт</div>
           <div class="scen-name">Базовый</div>
           <h3 class="scen-title">Аккуратно и без лишнего дизайна</h3>
@@ -2562,6 +2609,7 @@
         </article>
 
         <article class="scen-card reveal">
+          <div class="ph ph--dark ph--landscape" style="margin-bottom:20px"><span class="ph-tag">[ ФОТО ]</span><p><strong>Пример «Оптимального» потолка</strong>Сатиновое полотно, аккуратные точечные светильники, скрытый карниз. Вечерний кадр. Формат 4:3.</p></div>
           <div class="scen-num">02 · чаще выбирают</div>
           <div class="scen-name">Оптимальный</div>
           <h3 class="scen-title">Для ремонта «для себя»</h3>
@@ -2577,6 +2625,7 @@
         </article>
 
         <article class="scen-card reveal">
+          <div class="ph ph--landscape" style="margin-bottom:20px"><span class="ph-tag">[ ФОТО ]</span><p><strong>Пример «Дизайнерского» потолка</strong>Многоуровневая конструкция: теневое примыкание, скрытый карниз, световая линия. Архитектурный кадр. Формат 4:3.</p></div>
           <div class="scen-num">03 · свет и узлы</div>
           <div class="scen-name">Дизайнерский</div>
           <h3 class="scen-title">Свет, тень, карнизы и проектные узлы</h3>
@@ -2719,49 +2768,49 @@
 
       <div class="portfolio-grid">
         <div class="case reveal">
-          <div class="ph"></div>
+          <div class="ph"><span class="ph-tag">[ ФОТО ]</span><p><strong>Кухня-гостиная, общий план</strong>Широкий кадр, видно теневое примыкание, магнитный трек и скрытый карниз у окна. Формат 4:5, вечерний свет.</p></div>
           <div class="case-meta">
             <span class="case-level">Премиум · проект</span><br>
             <span class="case-title">Кухня-гостиная · тень + треки + карниз</span>
           </div>
         </div>
         <div class="case reveal">
-          <div class="ph"></div>
+          <div class="ph"><span class="ph-tag">[ ФОТО ]</span><p><strong>Спальня со скрытым карнизом</strong>Окно с шторами «из потолка». Кадр от двери. Дневной свет, спокойная палитра. Формат 4:5.</p></div>
           <div class="case-meta">
             <span class="case-level">Скрытый карниз</span><br>
             <span class="case-title">Спальня 18 м² · шторы из потолка</span>
           </div>
         </div>
         <div class="case reveal">
-          <div class="ph"></div>
+          <div class="ph"><span class="ph-tag">[ ФОТО ]</span><p><strong>Спальня с ровным потолком</strong>Чистый матовый потолок без декора. Снято в дневном свете, нейтральный интерьер. Формат 4:5.</p></div>
           <div class="case-meta">
             <span class="case-level">Базовый</span><br>
             <span class="case-title">Спальня 18 м² · ровный матовый</span>
           </div>
         </div>
         <div class="case reveal">
-          <div class="ph"></div>
+          <div class="ph"><span class="ph-tag">[ ФОТО ]</span><p><strong>Опен-спейс со световыми линиями</strong>Архитектурные линии света в потолке, делящие зоны кухни и гостиной. Сумерки. Формат 4:5.</p></div>
           <div class="case-meta">
             <span class="case-level">Архитектурный свет</span><br>
             <span class="case-title">Опен-спейс · световые линии</span>
           </div>
         </div>
         <div class="case reveal">
-          <div class="ph"></div>
+          <div class="ph"><span class="ph-tag">[ ФОТО ]</span><p><strong>Кухня с точечным светом</strong>Потолок с 6–8 спотами над рабочей зоной и островом. Включён рабочий свет. Формат 4:5.</p></div>
           <div class="case-meta">
             <span class="case-level">Оптимальный · свет</span><br>
             <span class="case-title">Кухня 18 м² · точечный свет</span>
           </div>
         </div>
         <div class="case reveal">
-          <div class="ph"></div>
+          <div class="ph"><span class="ph-tag">[ ФОТО ]</span><p><strong>Гардеробная с подсветкой</strong>Сложный многоуровневый потолок с LED-нишей и точечным светом. Тёплое освещение. Формат 4:5.</p></div>
           <div class="case-meta">
             <span class="case-level">Премиум</span><br>
             <span class="case-title">Гардеробная · сложные узлы</span>
           </div>
         </div>
         <div class="case reveal">
-          <div class="ph"></div>
+          <div class="ph"><span class="ph-tag">[ ФОТО ]</span><p><strong>Детская комната</strong>Вечерний сценарий: мягкий свет по периметру, точки приглушены. Без бликов. Формат 4:5.</p></div>
           <div class="case-meta">
             <span class="case-level">Свет</span><br>
             <span class="case-title">Детская · мягкий вечерний сценарий</span>
@@ -2853,36 +2902,42 @@
       <div class="process-track">
         <article class="step reveal">
           <div class="step-num">01</div>
+          <div class="ph ph--sm ph--wide"><span class="ph-tag">[ ФОТО ]</span><p><strong>Скриншот чата в Telegram</strong>Переписка клиента с менеджером, отправленные фото комнаты.</p></div>
           <div class="step-title">Заявка в чате</div>
           <p class="step-desc">Пишете в Telegram или WhatsApp. Обсудим комнату, стиль ремонта и желаемый свет.</p>
           <div class="step-foot">Ответ <b>в течение часа</b></div>
         </article>
         <article class="step reveal">
           <div class="step-num">02</div>
+          <div class="ph ph--sm ph--wide"><span class="ph-tag">[ ФОТО ]</span><p><strong>3D-визуализация комнаты</strong>Рендер одного из вариантов потолка по фото клиента.</p></div>
           <div class="step-title">2–3 варианта по фото</div>
           <p class="step-desc">Технолог показывает базовый, оптимальный и дизайнерский сценарий с разным светом.</p>
           <div class="step-foot">Готово <b>за час</b></div>
         </article>
         <article class="step reveal">
           <div class="step-num">03</div>
+          <div class="ph ph--sm ph--wide"><span class="ph-tag">[ ФОТО ]</span><p><strong>Замерщик в работе</strong>Лазерная рулетка, схема комнаты на планшете. Реальный объект.</p></div>
           <div class="step-title">Выезд на замер</div>
           <p class="step-desc">Замерщик снимает размеры, проверяет основание, профиль, коммуникации, свет и карниз.</p>
           <div class="step-foot"><b>Бесплатно</b></div>
         </article>
         <article class="step reveal">
           <div class="step-num">04</div>
+          <div class="ph ph--sm ph--wide"><span class="ph-tag">[ ФОТО ]</span><p><strong>Договор на столе</strong>Бумажный договор + спецификация, ручка. Крупный план.</p></div>
           <div class="step-title">Договор и смета</div>
           <p class="step-desc">Фиксируем состав работ: профиль, свет, карниз, углы и обводы. Цена в договоре — окончательная.</p>
           <div class="step-foot">На руки <b>спецификация</b></div>
         </article>
         <article class="step reveal">
           <div class="step-num">05</div>
+          <div class="ph ph--sm ph--wide"><span class="ph-tag">[ ФОТО ]</span><p><strong>Процесс монтажа</strong>Мастер тянет полотно, тепловая пушка, аккуратная зона работ.</p></div>
           <div class="step-title">Монтаж за 1 день</div>
           <p class="step-desc">Закрываем мебель плёнкой, после смены оставляем объект в порядке. Без пыли.</p>
           <div class="step-foot">Бригада-партнёр <b>по регламенту</b></div>
         </article>
         <article class="step reveal">
           <div class="step-num">06</div>
+          <div class="ph ph--sm ph--wide"><span class="ph-tag">[ ФОТО ]</span><p><strong>Чек-лист и готовый потолок</strong>Подписанный лист приёмки на фоне сданного объекта.</p></div>
           <div class="step-title">Приёмка по чек-листу</div>
           <p class="step-desc">20 пунктов проверки. Подписываете только то, что устраивает. Гарантия — на руки.</p>
           <div class="step-foot">Если не приняли — <b>переделаем</b></div>
@@ -2904,7 +2959,7 @@
 
         <div class="team-grid">
           <div class="role reveal">
-            <div class="role-avatar">[ ФОТО<br>3:4 ]</div>
+            <div class="role-avatar"><span>Фото 3:4</span><small><b>Портрет технолога</b>3/4 поворот, нейтральный фон.</small></div>
             <div class="role-content">
               <div class="role-name">Технолог проекта</div>
               <div class="role-task">Подбирает варианты и объясняет разницу простым языком.</div>
@@ -2912,7 +2967,7 @@
             </div>
           </div>
           <div class="role reveal">
-            <div class="role-avatar">[ ФОТО<br>3:4 ]</div>
+            <div class="role-avatar"><span>Фото 3:4</span><small><b>Портрет расчётчика</b>За столом со сметой, дневной свет.</small></div>
             <div class="role-content">
               <div class="role-name">Расчётчик</div>
               <div class="role-task">Считает ориентир бюджета и смету.</div>
@@ -2920,7 +2975,7 @@
             </div>
           </div>
           <div class="role reveal">
-            <div class="role-avatar">[ ФОТО<br>3:4 ]</div>
+            <div class="role-avatar"><span>Фото 3:4</span><small><b>Портрет бригадира</b>На объекте, форменная одежда.</small></div>
             <div class="role-content">
               <div class="role-name">Бригадир монтажа</div>
               <div class="role-task">Контроль работ на объекте, чек-лист приёмки.</div>
@@ -2928,7 +2983,7 @@
             </div>
           </div>
           <div class="role reveal">
-            <div class="role-avatar">[ ФОТО<br>3:4 ]</div>
+            <div class="role-avatar"><span>Фото 3:4</span><small><b>Портрет мастера</b>В процессе монтажа, рабочая форма.</small></div>
             <div class="role-content">
               <div class="role-name">Мастер по полотну</div>
               <div class="role-task">Натяжка, стыки, примыкания.</div>
@@ -2936,7 +2991,7 @@
             </div>
           </div>
           <div class="role reveal">
-            <div class="role-avatar">[ ФОТО<br>3:4 ]</div>
+            <div class="role-avatar"><span>Фото 3:4</span><small><b>Портрет электрика</b>С инструментом или у щитка.</small></div>
             <div class="role-content">
               <div class="role-name">Мастер по свету</div>
               <div class="role-task">Точечный свет, линии, треки.</div>
@@ -2944,7 +2999,7 @@
             </div>
           </div>
           <div class="role reveal">
-            <div class="role-avatar">[ ФОТО<br>3:4 ]</div>
+            <div class="role-avatar"><span>Фото 3:4</span><small><b>Портрет менеджера</b>В офисе, тёплый кадр.</small></div>
             <div class="role-content">
               <div class="role-name">Менеджер проекта</div>
               <div class="role-task">Ведёт коммуникацию от заявки до приёмки.</div>
@@ -2996,6 +3051,7 @@
             <span class="mat-num">01</span>
             <span class="mat-tag">Полотна</span>
           </div>
+          <div class="ph ph--dark ph--landscape" style="margin-bottom:16px"><span class="ph-tag">[ ФОТО ]</span><p><strong>Рулоны полотен</strong>Несколько рулонов Pongs / MSD / Clipso вертикально, крупный план. Формат 4:3.</p></div>
           <h3 class="mat-title">Европейские плёнки и ткань</h3>
           <ul class="mat-list">
             <li><b>Pongs</b><small>Германия · базовый стандарт</small></li>
@@ -3011,6 +3067,7 @@
             <span class="mat-num">02</span>
             <span class="mat-tag">Профили</span>
           </div>
+          <div class="ph ph--landscape" style="margin-bottom:16px"><span class="ph-tag">[ ФОТО ]</span><p><strong>Профили в разрезе</strong>4 типа алюминиевых профилей лежат рядом: теневой, бесщелевой, парящий, гарпунный. Сверху. Формат 4:3.</p></div>
           <h3 class="mat-title">Под задачу узла</h3>
           <ul class="mat-list">
             <li><b>Теневой EuroKraab</b><small>аналог · щель 2 мм</small></li>
@@ -3025,6 +3082,7 @@
             <span class="mat-num">03</span>
             <span class="mat-tag">Свет</span>
           </div>
+          <div class="ph ph--landscape" style="margin-bottom:16px"><span class="ph-tag">[ ФОТО ]</span><p><strong>Светильники и треки</strong>Магнитный трек с модулями, рядом — встроенный точечный свет и LED-лента. Чёрный фон. Формат 4:3.</p></div>
           <h3 class="mat-title">Сценарии освещения</h3>
           <ul class="mat-list">
             <li><b>LED-ленты</b><small>CRI 90+ · 2700–6500K · диммируемые</small></li>
@@ -3039,6 +3097,7 @@
             <span class="mat-num">04</span>
             <span class="mat-tag">Сертификация</span>
           </div>
+          <div class="ph ph--landscape" style="margin-bottom:16px"><span class="ph-tag">[ ФОТО ]</span><p><strong>Сертификаты и паспорта</strong>Стопка бумажных сертификатов: пожарный B1, санитарный, гипоаллергенность. На столе. Формат 4:3.</p></div>
           <h3 class="mat-title">Что отдаём на руки</h3>
           <ul class="mat-list">
             <li><b>Пожарная B1</b><small>не поддерживает горение</small></li>
@@ -3064,6 +3123,7 @@
       <div class="docs-grid">
         <div class="doc reveal">
           <span class="doc-stamp">№1</span>
+          <div class="ph ph--landscape" style="margin-bottom:16px"><span class="ph-tag">[ ФОТО ]</span><p><strong>Скан договора</strong>Первая страница договора крупно или фото бумажного экземпляра с печатью. Формат 4:3.</p></div>
           <h3 class="doc-h">Договор с согласованной сметой</h3>
           <p class="doc-p">Состав работ не меняется после выбора варианта. Если что-то добавляется — только по отдельному документу с вашей подписью. Оплата по этапам: предоплата по договору, остаток после приёмки.</p>
           <div class="doc-line"><span>На руки</span><span>в день договора</span></div>
@@ -3071,6 +3131,7 @@
 
         <div class="doc reveal">
           <span class="doc-stamp">№2</span>
+          <div class="ph ph--landscape" style="margin-bottom:16px"><span class="ph-tag">[ ФОТО ]</span><p><strong>Спецификация работ</strong>Бумажный лист со столбцами «работа / материал / стоимость». Формат 4:3.</p></div>
           <h3 class="doc-h">Спецификация работ</h3>
           <p class="doc-p">Видно, за что вы платите: полотно, профиль, свет, карниз, монтаж.</p>
           <div class="doc-line"><span>Приложение</span><span>к договору</span></div>
@@ -3078,6 +3139,7 @@
 
         <div class="doc reveal">
           <span class="doc-stamp">№3</span>
+          <div class="ph ph--landscape" style="margin-bottom:16px"><span class="ph-tag">[ ФОТО ]</span><p><strong>Гарантийный талон</strong>Бланк гарантии с печатью и подписью. Крупный план. Формат 4:3.</p></div>
           <h3 class="doc-h">Гарантия на монтаж</h3>
           <p class="doc-p">Не только на полотно, но и на работу бригады-партнёра.</p>
           <div class="doc-line"><span>Срок</span><span>в документе</span></div>
@@ -3085,6 +3147,7 @@
 
         <div class="doc reveal">
           <span class="doc-stamp">№4</span>
+          <div class="ph ph--landscape" style="margin-bottom:16px"><span class="ph-tag">[ ФОТО ]</span><p><strong>Чек-лист приёмки</strong>Бумажный чек-лист с 20 пунктами и галочками. Ручка рядом. Формат 4:3.</p></div>
           <h3 class="doc-h">Чек-лист приёмки</h3>
           <p class="doc-p">20 пунктов: углы, примыкания, свет, чистота, отсутствие провисаний.</p>
           <div class="doc-line"><span>Подпись</span><span>после приёмки</span></div>
@@ -3092,6 +3155,7 @@
 
         <div class="doc reveal">
           <span class="doc-stamp">№5</span>
+          <div class="ph ph--landscape" style="margin-bottom:16px"><span class="ph-tag">[ ФОТО ]</span><p><strong>Сертификаты материалов</strong>Стопка сертификатов от заводов: Pongs, MSD, Clipso. Формат 4:3.</p></div>
           <h3 class="doc-h">Сертификаты материалов</h3>
           <p class="doc-p">Пожарная B1, санитарная безопасность, гипоаллергенность.</p>
           <div class="doc-line"><span>Копии</span><span>от завода</span></div>
@@ -3114,6 +3178,7 @@
         <div class="aud-grid">
           <div class="aud-card reveal">
             <div class="aud-num">01</div>
+            <div class="ph ph--dark ph--landscape"><span class="ph-tag">[ ФОТО ]</span><p><strong>Уютная квартира</strong>Жилая комната с натяжным потолком, дневной свет, мебель в кадре. Формат 4:3.</p></div>
             <div class="aud-h">Собственникам</div>
             <p class="aud-p">Покажем варианты, объясним разницу простым языком, поможем выбрать спокойное решение без избыточных терминов.</p>
             <ul class="aud-list">
@@ -3126,6 +3191,7 @@
 
           <div class="aud-card reveal">
             <div class="aud-num">02</div>
+            <div class="ph ph--dark ph--landscape"><span class="ph-tag">[ ФОТО ]</span><p><strong>Чертёж + готовый узел</strong>Лист с дизайн-проектом или схемой теневого примыкания рядом с фотом готового результата. Формат 4:3.</p></div>
             <div class="aud-h">Дизайнерам</div>
             <p class="aud-p">Согласуем узлы, профили, свет, карнизы. Сделаем как в проекте — с теневыми примыканиями и архитектурным светом.</p>
             <ul class="aud-list">
@@ -3138,6 +3204,7 @@
 
           <div class="aud-card reveal">
             <div class="aud-num">03</div>
+            <div class="ph ph--dark ph--landscape"><span class="ph-tag">[ ФОТО ]</span><p><strong>Коммерческий объект</strong>Кафе, шоурум или клиника с готовым натяжным потолком. Включён свет, есть мебель. Формат 4:3.</p></div>
             <div class="aud-h">Прорабам и коммерческим объектам</div>
             <p class="aud-p">Работаем по срокам, фиксируем смету, не срываем следующий этап ремонта. HoReCa, офисы, медцентры, ритейл.</p>
             <ul class="aud-list">
