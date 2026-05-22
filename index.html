@@ -1215,6 +1215,137 @@
       border-radius: inherit;
     }
 
+    /* ============ SCROLL PROGRESS BAR ============ */
+    .scroll-progress {
+      position: fixed;
+      top: 0; left: 0;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--forest) 0%, var(--green) 100%);
+      z-index: 100;
+      transition: width .08s ease-out;
+      pointer-events: none;
+    }
+
+    /* ============ STATS STRIP ============ */
+    .stats {
+      padding: 56px 32px;
+      background: var(--cream);
+      border-top: 1px solid var(--line-soft);
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .stats-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      position: relative;
+    }
+    .stat {
+      text-align: center;
+      padding: 8px 18px;
+      position: relative;
+    }
+    .stat:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      right: -12px;
+      top: 14%;
+      bottom: 14%;
+      width: 1px;
+      background: var(--line);
+    }
+    .stat-num {
+      font-size: clamp(36px, 4.6vw, 58px);
+      font-weight: 700;
+      letter-spacing: -1.5px;
+      line-height: 1;
+      color: var(--ink);
+      font-variant-numeric: tabular-nums;
+      margin-bottom: 10px;
+    }
+    .stat-num em {
+      font-style: normal;
+      color: var(--forest);
+    }
+    .stat-label {
+      font-size: 13px;
+      line-height: 1.4;
+      letter-spacing: .2px;
+      color: var(--muted);
+      max-width: 22ch;
+      margin: 0 auto;
+    }
+
+    /* инвертированный вариант для второго блока — на тёмном фоне */
+    .stats--dark {
+      background: var(--ink);
+      border-top: none;
+      border-bottom: none;
+    }
+    .stats--dark .stat-num { color: var(--cream); }
+    .stats--dark .stat-num em { color: var(--green); }
+    .stats--dark .stat-label { color: var(--cream-3); }
+    .stats--dark .stat:not(:last-child)::after { background: rgba(255,255,255,.12); }
+
+    /* trust-line — узкая полоска с тонкими цифрами */
+    .trust-line {
+      padding: 18px 32px;
+      background: var(--cream-2);
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .trust-line-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .trust-line-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: .2px;
+    }
+    .trust-line-item b {
+      color: var(--ink);
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: -.4px;
+      font-variant-numeric: tabular-nums;
+    }
+    .trust-line-item svg {
+      width: 16px; height: 16px;
+      stroke: var(--forest);
+      stroke-width: 1.8;
+      fill: none;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 900px) {
+      .stats { padding: 44px 24px; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 28px 14px; }
+      .stat:nth-child(2)::after { display: none; }
+      .trust-line { padding: 14px 20px; }
+      .trust-line-inner { gap: 18px; justify-content: flex-start; }
+    }
+    @media (max-width: 560px) {
+      .stats { padding: 36px 18px; }
+      .stats-inner { gap: 24px 10px; }
+      .stat { padding: 0 4px; }
+      .stat::after { display: none !important; }
+      .stat-num { font-size: 32px; }
+      .stat-label { font-size: 12px; }
+      .trust-line { padding: 12px 14px; }
+      .trust-line-inner { gap: 12px; font-size: 12px; }
+      .trust-line-item b { font-size: 14px; }
+    }
+
     /* reveal on scroll */
     .reveal {
       opacity: 0;
@@ -2720,6 +2851,9 @@
 
 <body>
 
+  <!-- Scroll progress indicator -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
   <!-- HEADER -->
   <header class="site-header">
     <a href="/" aria-label="На главную"><img src="/assets/logo.png" alt="Потолок и точка — натяжные потолки в Москве и МО" class="logo" /></a>
@@ -2955,6 +3089,29 @@
 
           <button type="button" class="calc-back" id="calcBack" disabled>← Назад</button>
         </aside>
+      </div>
+    </section>
+
+
+    <!-- STATS STRIP 1 -->
+    <section class="stats reveal" aria-label="Статистика компании">
+      <div class="stats-inner">
+        <div class="stat">
+          <div class="stat-num" data-count="500" data-suffix="+">0</div>
+          <div class="stat-label">Потолков смонтировали в Москве и МО</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num" data-count="1" data-suffix=" час">0</div>
+          <div class="stat-label">До получения 3–5 вариантов по фото</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num" data-count="4.9" data-decimals="1" data-suffix="<em>★</em>">0</div>
+          <div class="stat-label">Средний рейтинг от клиентов</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num" data-count="0" data-suffix=" ₽">0</div>
+          <div class="stat-label">За замер мастером — бесплатно</div>
+        </div>
       </div>
     </section>
 
@@ -3294,6 +3451,29 @@
 
         <div class="prices-foot reveal">
           Цены ориентировочные. Финальная стоимость зависит от периметра, количества углов, света, карнизов, выбранного профиля и сложности монтажа. После замера цена фиксируется в договоре.
+        </div>
+      </div>
+    </section>
+
+
+    <!-- STATS STRIP 2 (тёмная, после цен) -->
+    <section class="stats stats--dark reveal" aria-label="Цифры доверия">
+      <div class="stats-inner">
+        <div class="stat">
+          <div class="stat-num" data-count="100" data-suffix="<em>%</em>">0</div>
+          <div class="stat-label">Заявок без доплат сверх договора</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num" data-count="2" data-suffix=" года">0</div>
+          <div class="stat-label">Гарантия на монтаж от бригады-партнёра</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num" data-count="20" data-suffix=" пунктов">0</div>
+          <div class="stat-label">В чек-листе приёмки на каждом объекте</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num" data-count="1" data-suffix=" день">0</div>
+          <div class="stat-label">Среднее время монтажа одной комнаты</div>
         </div>
       </div>
     </section>
@@ -4076,6 +4256,67 @@
     }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
 
     document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+
+
+    /* ============ Scroll progress bar ============ */
+    (function () {
+      var bar = document.getElementById('scrollProgress');
+      if (!bar) return;
+      var ticking = false;
+      function update() {
+        var h = document.documentElement;
+        var max = (h.scrollHeight - h.clientHeight) || 1;
+        var pct = Math.min(100, Math.max(0, (h.scrollTop / max) * 100));
+        bar.style.width = pct + '%';
+        ticking = false;
+      }
+      window.addEventListener('scroll', function () {
+        if (!ticking) { requestAnimationFrame(update); ticking = true; }
+      }, { passive: true });
+      update();
+    })();
+
+
+    /* ============ Count-up на скролле для .stat-num[data-count] ============ */
+    (function () {
+      var nums = document.querySelectorAll('.stat-num[data-count]');
+      if (!nums.length) return;
+
+      function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+
+      function animate(el) {
+        var target = parseFloat(el.dataset.count || '0');
+        var decimals = parseInt(el.dataset.decimals || '0', 10);
+        var suffix = el.dataset.suffix || '';
+        var duration = 1100;
+        var start = null;
+
+        function step(ts) {
+          if (!start) start = ts;
+          var p = Math.min(1, (ts - start) / duration);
+          var val = target * easeOutCubic(p);
+          var display = decimals > 0 ? val.toFixed(decimals) : Math.round(val).toString();
+          // тысячи через узкий пробел
+          display = display.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+          el.innerHTML = display + suffix;
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }
+
+      var seen = new WeakSet();
+      var statObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting && !seen.has(e.target)) {
+            seen.add(e.target);
+            animate(e.target);
+            statObserver.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.4 });
+
+      nums.forEach(function (n) { statObserver.observe(n); });
+    })();
   </script>
 
   <!-- Yandex.Metrika counter (deferred for INP) -->
