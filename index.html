@@ -3,6 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Security headers (meta-варианты; основные дублируются в vercel.json) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://mc.yandex.ru https://yastatic.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https://mc.yandex.ru; connect-src 'self' https://api.telegram.org https://mc.yandex.ru https://webvisor.com; frame-src https://mc.yandex.ru; form-action 'self' https://api.telegram.org; base-uri 'self'; object-src 'none'; upgrade-insecure-requests" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="format-detection" content="telephone=yes" />
+
   <title>Натяжные потолки под ключ в Москве и МО — расчёт по фото за час | Потолок и точка</title>
 
   <meta name="description" content="Натяжные потолки в Москве и МО под ключ: от ровного матового до решений со скрытым карнизом, теневым примыканием и подсветкой. Пришлите фото — за 1 час пришлём 3–5 вариантов под ваш бюджет: эконом, базовый, оптимальный, премиум и дизайнерский. Бесплатный замер, договор, гарантия." />
@@ -565,6 +572,10 @@
       font-size: 15px;
       font-weight: 500;
       border: 1px solid transparent;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      cursor: pointer;
       transition: transform .15s ease, background .15s ease;
     }
 
@@ -955,6 +966,9 @@
       font-size: 15px;
       font-weight: 500;
       cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      display: block;
       transition: background .15s ease, transform .15s ease, opacity .15s ease;
     }
 
@@ -1322,6 +1336,10 @@
       border-radius: 9px;
       font-size: 14px;
       font-weight: 500;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      cursor: pointer;
       transition: all .18s ease;
     }
 
@@ -2789,8 +2807,8 @@
         </div>
 
         <div class="hero-buttons">
-          <button class="btn-primary" onclick="document.getElementById('final').scrollIntoView({behavior:'smooth'})">Получить расчёт по фото</button>
-          <button class="btn-secondary" onclick="document.getElementById('scenarios').scrollIntoView({behavior:'smooth'})">Посмотреть решения</button>
+          <a href="#final" class="btn-primary" data-goal="hero_cta_primary">Получить расчёт по фото</a>
+          <a href="#scenarios" class="btn-secondary" data-goal="hero_cta_secondary">Посмотреть решения</a>
         </div>
 
         <div class="hero-foot">
@@ -2930,7 +2948,7 @@
                 <div class="calc-summary" id="calcSummary"></div>
               </div>
               <p class="calc-hint">Технолог напишет в течение часа: пришлёт 3–5 вариантов и точную смету по фото вашей комнаты. Замер бесплатно.</p>
-              <button type="button" class="calc-cta">Открыть Telegram</button>
+              <a href="https://t.me/dimasic_135" target="_blank" rel="noopener noreferrer" class="calc-cta" data-goal="calc_telegram">Открыть Telegram</a>
             </div>
 
           </div>
@@ -2965,7 +2983,7 @@
             <li>Монтаж за 1 день</li>
             <li>Фикс. цена в договоре</li>
           </ul>
-          <button class="scen-cta">Хочу эконом</button>
+          <a href="#final" class="scen-cta" data-goal="scen_econom">Хочу эконом</a>
         </article>
 
         <article class="scen-card reveal">
@@ -2981,7 +2999,7 @@
             <li>Люстра или простые светильники</li>
             <li>Монтаж под ключ</li>
           </ul>
-          <button class="scen-cta">Хочу базовый</button>
+          <a href="#final" class="scen-cta" data-goal="scen_base">Хочу базовый</a>
         </article>
 
         <article class="scen-card reveal">
@@ -2997,7 +3015,7 @@
             <li>Скрытый карниз по желанию</li>
             <li>Гарантия и фикс. смета</li>
           </ul>
-          <button class="scen-cta">Подобрать оптимальный</button>
+          <a href="#final" class="scen-cta" data-goal="scen_optimal">Подобрать оптимальный</a>
         </article>
 
         <article class="scen-card reveal">
@@ -3013,7 +3031,7 @@
             <li>Теневое примыкание или EuroKraab</li>
             <li>Магнитный трек по желанию</li>
           </ul>
-          <button class="scen-cta">Хочу премиум</button>
+          <a href="#final" class="scen-cta" data-goal="scen_premium">Хочу премиум</a>
         </article>
 
         <article class="scen-card reveal">
@@ -3029,7 +3047,7 @@
             <li>Архитектурный свет</li>
             <li>Работа с дизайн-проектом</li>
           </ul>
-          <button class="scen-cta">Обсудить дизайнерский</button>
+          <a href="#final" class="scen-cta" data-goal="scen_design">Обсудить дизайнерский</a>
         </article>
       </div>
     </section>
@@ -3573,7 +3591,7 @@
               <li>Загородные дома</li>
               <li>Под аренду</li>
             </ul>
-            <span class="aud-cta">Подобрать решение</span>
+            <a href="#final" class="aud-cta" data-goal="aud_owner">Подобрать решение</a>
           </div>
 
           <div class="aud-card reveal">
@@ -3585,7 +3603,7 @@
               <li>Работа по чертежам</li>
               <li>Авторский надзор</li>
             </ul>
-            <span class="aud-cta">Партнёрство для студий</span>
+            <a href="https://t.me/dimasic_135" target="_blank" rel="noopener noreferrer" class="aud-cta" data-goal="aud_designer">Партнёрство для студий</a>
           </div>
 
           <div class="aud-card reveal">
@@ -3597,7 +3615,7 @@
               <li>Клиники</li>
               <li>Кафе и рестораны</li>
             </ul>
-            <span class="aud-cta">Обсудить объект</span>
+            <a href="#final" class="aud-cta" data-goal="aud_b2b">Обсудить объект</a>
           </div>
         </div>
       </div>
@@ -3732,29 +3750,29 @@
           </div>
         </div>
 
-        <form class="final-form" onsubmit="event.preventDefault(); alert('Заявка принята. Технолог напишет в течение часа.');">
+        <form class="final-form" id="finalForm" novalidate autocomplete="on" spellcheck="false">
           <div class="form-row">
-            <label>Как к вам обращаться</label>
-            <input type="text" placeholder="Имя, телефон или ник в Telegram" required>
+            <label for="finalContact">Как к вам обращаться</label>
+            <input type="text" id="finalContact" name="contact" placeholder="Имя, телефон или ник в Telegram" required maxlength="80" autocomplete="name" autocapitalize="words" inputmode="text">
           </div>
 
           <div class="form-row">
-            <label>Площадь, м² (если знаете)</label>
-            <input type="text" placeholder="Например, 18">
+            <label for="finalArea">Площадь, м² (если знаете)</label>
+            <input type="text" id="finalArea" name="area" placeholder="Например, 18" maxlength="6" autocomplete="off" inputmode="numeric" pattern="[0-9]{1,4}([,.][0-9]{1,2})?">
           </div>
 
           <div class="form-row">
             <label>Что хотите сделать?</label>
-            <div class="form-chips" id="formChips">
-              <button type="button" class="chip active">Ровный потолок</button>
-              <button type="button" class="chip">Свет без люстры</button>
-              <button type="button" class="chip">Шторы из потолка</button>
-              <button type="button" class="chip">Помогите выбрать</button>
+            <div class="form-chips" id="formChips" role="radiogroup" aria-label="Желаемый тип потолка">
+              <button type="button" class="chip active" role="radio" aria-checked="true" data-task="Ровный потолок">Ровный потолок</button>
+              <button type="button" class="chip" role="radio" aria-checked="false" data-task="Свет без люстры">Свет без люстры</button>
+              <button type="button" class="chip" role="radio" aria-checked="false" data-task="Шторы из потолка">Шторы из потолка</button>
+              <button type="button" class="chip" role="radio" aria-checked="false" data-task="Помогите выбрать">Помогите выбрать</button>
             </div>
           </div>
 
           <button type="submit" class="form-submit">Получить 3–5 вариантов</button>
-          <p class="form-tos">Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Без спама и навязчивых звонков.</p>
+          <p class="form-tos">Нажимая кнопку, вы соглашаетесь на <a href="/privacy.html" style="color:inherit;text-decoration:underline">обработку персональных данных</a>. Без спама и навязчивых звонков.</p>
         </form>
       </div>
     </section>
@@ -3993,10 +4011,58 @@
       formChips.addEventListener('click', function (e) {
         var btn = e.target.closest('.chip');
         if (!btn) return;
-        formChips.querySelectorAll('.chip').forEach(function (b) { b.classList.remove('active'); });
+        formChips.querySelectorAll('.chip').forEach(function (b) {
+          b.classList.remove('active');
+          b.setAttribute('aria-checked', 'false');
+        });
         btn.classList.add('active');
+        btn.setAttribute('aria-checked', 'true');
       });
     }
+
+
+    /* ============ Final form: submit ============ */
+    (function () {
+      var form = document.getElementById('finalForm');
+      if (!form) return;
+
+      // безопасная санитизация строки от опасных символов
+      function clean(str) {
+        return (str || '')
+          .toString()
+          .replace(/[<>]/g, '')           // убираем теги
+          .replace(/javascript:/gi, '')    // префиксы XSS
+          .replace(/data:/gi, '')
+          .replace(/\s+/g, ' ')
+          .trim()
+          .slice(0, 200);                  // жёсткий лимит
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var contact = clean(form.querySelector('[name="contact"]').value);
+        var area    = clean(form.querySelector('[name="area"]').value);
+        var taskBtn = form.querySelector('.chip.active');
+        var task    = taskBtn ? clean(taskBtn.dataset.task || taskBtn.textContent) : '';
+
+        if (contact.length < 2) {
+          alert('Пожалуйста, укажите имя или контакт.');
+          return;
+        }
+
+        // отправка лида (в текущей версии — только локальное подтверждение)
+        // когда будет настроен Telegram-бот, сюда можно подключить fetch на api.telegram.org
+        var btn = form.querySelector('.form-submit');
+        if (btn) { btn.disabled = true; btn.textContent = 'Отправляем…'; }
+
+        // Honeypot не используем здесь, чтобы не усложнять, но санитизация есть
+        setTimeout(function () {
+          alert('Заявка принята: ' + contact + (area ? ', ' + area + ' м²' : '') + (task ? ', «' + task + '»' : '') + '. Технолог напишет в течение часа.');
+          form.reset();
+          if (btn) { btn.disabled = false; btn.textContent = 'Получить 3–5 вариантов'; }
+        }, 280);
+      });
+    })();
 
 
     /* ============ Reveal on scroll ============ */
