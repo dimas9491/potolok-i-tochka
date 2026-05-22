@@ -3261,11 +3261,11 @@
     .menu a:hover { color: var(--blue); }
     .menu .dropdown::after { content: "⌄"; font-size: 13px; margin-left: 7px; color: #333; }
 
-    /* HERO (твой) */
+    /* HERO (твой, пропорции как на v1: текст уже, фото шире) */
     .hero.v2-main-hero {
       min-height: calc(100vh - 126px);
       display: grid;
-      grid-template-columns: 54.5% 45.5%;
+      grid-template-columns: minmax(0, 620px) 1fr;
       overflow: hidden;
       position: relative;
       background: #fff;
@@ -3273,7 +3273,7 @@
     }
     .hero.v2-main-hero .hero-left {
       position: relative; z-index: 2;
-      padding: 64px 0 48px 66px;
+      padding: 56px 36px 48px 44px;
       background: linear-gradient(90deg, #ffffff 0%, #ffffff 62%, rgba(255,255,255,0.9) 79%, rgba(255,255,255,0.25) 100%);
       min-height: auto;
     }
@@ -3343,13 +3343,15 @@
     .feature-card span { color: #3d4651; font-size: 13px; line-height: 1.1; }
     .feature-card::after { content: ""; position: absolute; left: 20px; bottom: 15px; width: 22px; height: 2px; background: #2585bd; }
 
-    /* HERO RIGHT + фото + tags */
+    /* HERO RIGHT + фото — большое, на всю оставшуюся ширину/высоту как v1 */
     .hero.v2-main-hero .hero-right {
-      position: relative; min-height: 690px; overflow: hidden;
+      position: relative;
+      min-height: calc(100vh - 126px);
+      overflow: hidden;
       background: linear-gradient(135deg, #f5f7f9, #d9e0e7);
       padding: 0; display: block;
     }
-    .hero-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; z-index: 1; }
+    .hero-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; z-index: 1; }
 
     .tag {
       position: absolute; display: flex; align-items: center; gap: 12px;
@@ -3401,20 +3403,17 @@
     @media (max-width: 1200px) {
       .topbar, .navbar { padding-left: 32px; padding-right: 32px; }
       .menu { gap: 18px; font-size: 14px; }
-      .hero.v2-main-hero .hero-left { padding-left: 32px; }
+      .hero.v2-main-hero { grid-template-columns: minmax(0, 540px) 1fr; }
+      .hero.v2-main-hero .hero-left { padding: 48px 28px 40px 32px; }
       .features { grid-template-columns: repeat(2, 1fr); max-width: 520px; }
     }
     @media (max-width: 920px) {
       .topbar, .menu { display: none; }
       .navbar { height: 72px; padding-left: 18px; padding-right: 18px; }
-      .navbar .logo-text strong { font-size: 16px; letter-spacing: 3px; }
-      .navbar .logo-text span { font-size: 9px; letter-spacing: 4px; }
-      .mark { width: 52px; height: 26px; }
-      .mark::before, .mark::after { width: 52px; height: 4px; }
       .hero.v2-main-hero { grid-template-columns: 1fr; min-height: 0; }
       .hero.v2-main-hero .hero-left { padding: 32px 20px; }
       .hero.v2-main-hero .hero-left::after { display: none; }
-      .hero.v2-main-hero .hero-right { min-height: 420px; }
+      .hero.v2-main-hero .hero-right { min-height: 480px; }
       .hero.v2-main-hero h1 { font-size: 38px; }
       .cta-line { flex-direction: column; align-items: stretch; }
       .primary-btn { width: 100%; min-width: 0; }
