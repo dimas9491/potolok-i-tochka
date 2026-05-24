@@ -677,12 +677,12 @@ window.TG_CONFIG = {
     };
 
     var TOTAL_STEPS = 5; // 4 шага + результат
-    var pricePerM2 = { classic: 1300, design: 2900, archi: 4500 };
+    var pricePerM2 = { classic: 2600, design: 5500, archi: 9000 };
     var typeAreaDefault = { room: 22, apartment: 65, house: 140 };
     var lineNames = { classic: 'Точная классика', design: 'Дизайн-линия', archi: 'Архитектурная' };
     var typeNames = { room: 'Одна комната', apartment: 'Вся квартира', house: 'Загородный дом' };
     var extraNames = { lighting: 'Световые линии', floating: 'Парящий потолок', shadow: 'Теневое примыкание', multi: 'Многоуровневый' };
-    var extraCost = { lighting: 800, floating: 1200, shadow: 1500, multi: 2000 };
+    var extraCost = { lighting: 1600, floating: 2200, shadow: 2800, multi: 3500 };
 
     var elSteps = $$('.calc-step', calc);
     var elNext = $('#calcNext');
